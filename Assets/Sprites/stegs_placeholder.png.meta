@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8cccfe2105b124e8ba634b9f5a7ec5ac
-timeCreated: 1450295988
+timeCreated: 1450807007
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,15 @@ TextureImporter:
     21300006: stegs_placeholder_3
     21300008: stegs_placeholder_4
     21300010: stegs_placeholder_5
+    21300012: stegs_placeholder_6
+    21300014: stegs_placeholder_7
+    21300016: stegs_placeholder_8
+    21300018: stegs_placeholder_9
+    21300020: stegs_placeholder_10
+    21300022: stegs_placeholder_11
+    21300024: stegs_placeholder_12
+    21300026: stegs_placeholder_13
+    21300028: stegs_placeholder_14
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -111,6 +120,86 @@ TextureImporter:
         serializedVersion: 2
         x: 850
         y: 384
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_7
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_8
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_9
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_10
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_11
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 128
         width: 170
         height: 128
       alignment: 0
