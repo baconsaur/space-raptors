@@ -15,27 +15,21 @@ function FixedUpdate () {
 	var direction = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
 	transform.Translate(new Vector2(direction, 0));
 	
-	if (direction != 0) {
-		animator.SetBool("walking", true);
-	} else {
-		animator.SetBool("walking", false);
-	}
-	
 	if (direction > turnDeadZone) {
 		transform.localScale = new Vector3(1, 1, 1);
 		animator.SetBool("walking", true);
 	} else if (direction < -turnDeadZone) {
 		transform.localScale = new Vector3(-1, 1, 1);
 		animator.SetBool("walking", true);
+	} else {
+		animator.SetBool("walking", false);
 	}
 	
 	if (Input.GetAxis("Vertical") > 0 && rigidBody.velocity.y == 0) {
-		rigidBody.AddForce(Vector2(0, jumpForce));
-	}
-	
-	if (rigidBody.velocity.y != 0) {
 		animator.SetBool("jumping", true);
-	} else {
+		rigidBody.AddForce(Vector2(0, jumpForce));
+	} else if (rigidBody.velocity.y == 0) {
+	//TODO: This also gets set to 0 at the apex of a jump
 		animator.SetBool("jumping", false);
 	}
 }
