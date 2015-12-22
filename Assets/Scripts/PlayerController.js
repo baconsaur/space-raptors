@@ -12,16 +12,14 @@ function Start () {
 
 function FixedUpdate () {
 	var direction = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
-	rigidBody.AddForce(Vector2(direction, 0));
-	Mathf.Clamp(rigidBody.velocity.x, -maxVelocity, maxVelocity);
-
+	Debug.Log(direction);
+	if (direction > turnDeadZone) {
+		transform.localScale = new Vector3(1, 1, 1);
+	} else if (direction < -turnDeadZone) {
+		transform.localScale = new Vector3(-1, 1, 1);
+	}
+	transform.Translate(new Vector2(direction, 0));
 	if (Input.GetAxis("Vertical") > 0 && rigidBody.velocity.y == 0) {
 		rigidBody.AddForce(Vector2(0, jumpForce));
-	}
-	
-	if (rigidBody.velocity.x > turnDeadZone) {
-		transform.localScale = new Vector3(1, 1, 1);
-	} else if (rigidBody.velocity.x < -turnDeadZone) {
-		transform.localScale = new Vector3(-1, 1, 1);
 	}
 }
