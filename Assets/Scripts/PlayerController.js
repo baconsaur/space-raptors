@@ -27,6 +27,7 @@ function FixedUpdate () {
 	
 	if (Input.GetAxis("Vertical") > 0 && rigidBody.velocity.y == 0) {
 		animator.SetBool("jumping", true);
+		animator.SetBool("walking", false);
 		rigidBody.AddForce(Vector2(0, jumpForce));
 	} else if (rigidBody.velocity.y == 0) {
 	//TODO: This also gets set to 0 at the apex of a jump
