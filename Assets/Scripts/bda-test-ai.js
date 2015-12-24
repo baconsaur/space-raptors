@@ -15,6 +15,7 @@ public class Reactions {
 	var reactionTime :float;
 	var distThreshold :float;
 	var meleeFreq :float;
+	var randomLikelihood :int;
 }
 public class Pointers {
 	var rigidBody :Rigidbody2D;
@@ -49,18 +50,28 @@ function FixedUpdate () {
 		if (meleeCoolDown > 0f) meleeCoolDown -= Time.deltaTime;
 		if (reactionCoolDown > 0f) reactionCoolDown -= Time.deltaTime;
 		var dist :float = distanceCalc(transform.position, pointers.player.transform.position);
-		if (meleeCoolDown <= 0f) {
+		if (meleeCoolDown <= 0f && dist <= capabilities.meleeRange) {
+			StartCoroutine('MeleeAttack');
+		} else if (reactionCoolDown <= 0f) {
 			
-		}
-		if (reactionCoolDown <= 0f) {
+			var decide = Random.Range(0, reactions.randomLikelihood);
+			if (false && !decide) {
+				DoSomethingRandom();
+// skip for now
+			} else {
+				
+				var myPlatform :GameObject = onPlatform(pointers.player, 0.1);
+				var playerPlatform :GameObject = onPlatform(pointers.player, 0.1);
+				if (myPlatform == playerPlatform || !myPlatform || !playerPlatform) {
+					var moveAmount = -transform.localScale.x * capabilities.speed * Time.deltaTime;
+					transform.Translate(new Vector2(moveAmount, 0));
+				}
+				// if player.platform = self.platform - move to player
+				
+				// recursive calculate platform path to player to build move instructions
+				// follow instructions while player is on same platform or in the air
+			}
 			
-			DoSomethingRandom();
-			
-			// if distance && meleecooldown attack
-			
-			// if player.platform = self.platform - move to player
-			// recursive calculate platform path to player to build move instructions
-			// follow instructions while player is on same platform or in the air
 		}
 	}
 	
@@ -71,8 +82,25 @@ function distanceCalc(point1 :Vector2, point2 :Vector2): float {
 }
 
 function FacePlayer() {
-	if (pointers.player.transform.position.x > transform.position.x) transform.localScale = new Vector3(-1f, 1f, 1f);
-	else transform.localScale = new Vector3(1f, 1f, 1f);
+	var scale :float = -xScale(0.1);
+	if (scale) transform.localScale = new Vector3(scale, 1f, 1f);
+	else Debug.Log(scale);
+}
+
+function xScale(tolerance :float) :float {
+	if (pointers.player.transform.position.x < transform.position.x - tolerance) return -1f;
+	else if (pointers.player.transform.position.x > transform.position.x + tolerance) return 1f;
+	else return 0f;
+}
+
+function MeleeAttack() {
+	ready = false;
+	var renderer :SpriteRenderer = GetComponent(SpriteRenderer);
+	renderer.color = Color.yellow;
+	yield WaitForSeconds(1);
+	renderer.color = Color.white;
+	meleeCoolDown = reactions.meleeFreq;
+	ready = true;
 }
 
 function DoSomethingRandom() {
@@ -85,7 +113,7 @@ function Growl() {
 	ready = false;
 	var renderer :SpriteRenderer = GetComponent(SpriteRenderer);
 	renderer.color = Color.red;
-	yield WaitForSeconds(5);
+	yield WaitForSeconds(2);
 	renderer.color = Color.white;
 	ready = true;
 }
@@ -103,7 +131,18 @@ function Hiss() {
 	ready = false;
 	var renderer :SpriteRenderer = GetComponent(SpriteRenderer);
 	renderer.color = Color.blue;
-	yield WaitForSeconds(5);
+	yield WaitForSeconds(4);
 	renderer.color = Color.white;
 	ready = true;
+}
+
+function onPlatform(object :GameObject, tolerance :float) :GameObject {
+	var collider :BoxCollider2D = object.GetComponent(BoxCollider2D);
+	var platforms :GameObject[] = GameObject.FindGameObjectsWithTag('Platform');
+	for (var i :int = 0; i < platforms.Length; i++) {
+		var thickness :float = platforms[i].transform.localScale.y / 2f;
+		var vec :Vector3 = object.transform.position - collider.bounds.extents - new Vector3(0, thickness, 0);
+		if (Mathf.Abs(vec.y - platforms[i].transform.position.y) <= tolerance) return platforms[i];
+	}
+	return null;
 }
