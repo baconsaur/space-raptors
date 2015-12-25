@@ -34,8 +34,8 @@ private var reactionCoolDown :float = 1f;
 private var ready :boolean = true;
 private var turnable :boolean = true;
 private var lastLocation :GameObject;
-private var methods :General = ScriptableObject.CreateInstance('General') as General;
-
+private var methods :General;
+private var pathFinding :PathFinding;
 
 
 
@@ -44,20 +44,25 @@ function Start () {
 	randomActions[0] = 'Growl';
 	randomActions[1] = 'Stomp';
 	randomActions[2] = 'Hiss';
-	var joke :PathFinding = ScriptableObject.CreateInstance('PathFinding') as PathFinding;
-//	var inst = joke.makeInstruction(Test, 17.9, null);
-//	inst.action.method(inst.action.argument);
+	pathFinding = ScriptableObject.CreateInstance('PathFinding') as PathFinding;
+	methods = ScriptableObject.CreateInstance('General') as General;
+//	pathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0f);
+	
 }
 
 function FixedUpdate () {
 	if (turnable) FacePlayer();
+	
+	if (Input.GetAxis('Vertical') < 0) {
+		Debug.Log(pathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0f) as Array);
+	}
 	
 	if (ready) {
 		if (meleeCoolDown > 0f) meleeCoolDown -= Time.deltaTime;
 		if (reactionCoolDown > 0f) reactionCoolDown -= Time.deltaTime;
 		var dist :float = methods.distance(transform.position, pointers.player.transform.position);
 		if (meleeCoolDown <= 0f && dist <= capabilities.meleeRange) {
-			StartCoroutine('MeleeAttack');
+//			StartCoroutine('MeleeAttack');
 		} else if (reactionCoolDown <= 0f) {
 			
 			var decide = Random.Range(0, reactions.randomLikelihood);
@@ -66,18 +71,17 @@ function FixedUpdate () {
 // skip for now
 			} else {
 				
-				var myPlatform :GameObject = methods.onTaggedObject(pointers.player, 0.01, 'Platform');
-				var playerPlatform :GameObject = methods.onTaggedObject(pointers.player, 0.01, 'Platform');
-				// if player.platform = self.platform - move to player
-				if (myPlatform == playerPlatform || !myPlatform || !playerPlatform || (playerPlatform && lastLocation && playerPlatform != lastLocation)) {
-					if (playerPlatform) lastLocation = playerPlatform;
-					var moveAmount = -transform.localScale.x * capabilities.speed * Time.deltaTime;
-					transform.Translate(new Vector2(moveAmount, 0));
-				}
+//				var myPlatform :GameObject = methods.onTaggedObject(pointers.player, 0.01, 'Platform');
+//				var playerPlatform :GameObject = methods.onTaggedObject(pointers.player, 0.01, 'Platform');
+//				// if player.platform = self.platform - move to player
+//				if (myPlatform == playerPlatform || !myPlatform || !playerPlatform || (playerPlatform && lastLocation && playerPlatform != lastLocation)) {
+//					if (playerPlatform) lastLocation = playerPlatform;
+//					var moveAmount = -transform.localScale.x * capabilities.speed * Time.deltaTime;
+//					transform.Translate(new Vector2(moveAmount, 0));
+//				}
 				
 				
-				// recursive calculate platform path to player to build move instructions
-				// follow instructions while player is on same platform or in the air
+				
 			}
 			
 		}
