@@ -6,6 +6,7 @@ public class General extends ScriptableObject {
 		public var topRight :Vector2;
 		public var bottomLeft :Vector2;
 		public var bottomRight :Vector2;
+		public var landCenter :Vector2;
 		public function Corners(object :GameObject) {
 			var pos :Vector2 = new Vector2 (object.transform.position.x, object.transform.position.y);
 			var collider :BoxCollider2D = object.GetComponent(BoxCollider2D);
@@ -15,8 +16,20 @@ public class General extends ScriptableObject {
 			topRight = new Vector2(pos.x + ext.x + off.x, pos.y + ext.y + off.y);
 			bottomLeft = new Vector2(pos.x - ext.x + off.x, pos.y - ext.y + off.y);
 			bottomRight = new Vector2(pos.x + ext.x + off.x, pos.y - ext.y + off.y);
+			landCenter = new Vector2(General.average(topLeft.x, topRight.x), topLeft.y);
 		}
 	}
+	public class ObjectWithCorners {
+		public var gameObject :GameObject;
+		public var corners :Corners;
+		public function ObjectWithCorners(obj :GameObject) {
+			gameObject = obj;
+			corners = new Corners(obj);
+		}
+	}
+	
+	
+	
 	static function onTaggedObject(object :GameObject, tolerance :float, tag :String) :GameObject {
 		var objectCorners :Corners = new Corners(object);
 		var platforms :GameObject[] = GameObject.FindGameObjectsWithTag(tag);
@@ -27,8 +40,14 @@ public class General extends ScriptableObject {
 		}
 		return null;
 	}
+	static function onTaggedObjectCorners(object :ObjectWithCorners, platforms :ObjectWithCorners[], tolerance :float) :ObjectWithCorners {
+		
+	}
 	static function distance(point1 :Vector2, point2 :Vector2): float {
 		return Mathf.Sqrt(Mathf.Pow(point1.x - point2.x, 2.0) + Mathf.Pow(point1.y - point2.y, 2.0));
+	}
+	static function average(val1 :float, val2 :float) :float {
+		return (val1 + val2) / 2f;
 	}
 	static function indexOf(array :Array, element) :int {
 		for (var i :int = 0; i < array.length; i++) {
@@ -43,7 +62,7 @@ public class General extends ScriptableObject {
 		}
 		return ret;
 	}
-	static function each(array :Array, func :Function) {
+	static function forEach(array :Array, func :Function) {
 		for (var i :int; i < array.length; i++) {
 			func(array[i]);
 		}
@@ -84,7 +103,7 @@ public class General extends ScriptableObject {
 	}
 	static function sort(array :Array, func :Function) :Array{
 		for (var i :int = 1; i < array.length; ) {
-			var order :int = func(array[i - 1], array[i]);
+			var order :float = func(array[i - 1], array[i]);
 			if (order < 0) {
 				swap(array, i, i - 1);
 				if (i > 1) i--;

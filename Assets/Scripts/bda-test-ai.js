@@ -60,7 +60,7 @@ function FixedUpdate () {
 		playerPlatform = platform;
 		var path :Array = pathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0, capabilities);
 		Debug.Log(path.length);
-		methods.each(path, Debug.Log);
+		methods.forEach(path, Debug.Log);
 	}
 	
 	if (ready) {
