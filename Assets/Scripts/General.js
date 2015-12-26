@@ -1,16 +1,29 @@
 ﻿#pragma strict
 
 public class General extends ScriptableObject {
+	public class Corners {
+		public var topLeft :Vector2;
+		public var topRight :Vector2;
+		public var bottomLeft :Vector2;
+		public var bottomRight :Vector2;
+		public function Corners(object :GameObject) {
+			var pos :Vector2 = new Vector2 (object.transform.position.x, object.transform.position.y);
+			var collider :BoxCollider2D = object.GetComponent(BoxCollider2D);
+			var ext :Vector2 = new Vector2(collider.bounds.extents.x, collider.bounds.extents.y);
+			var off :Vector2 = collider.offset;
+			topLeft = new Vector2(pos.x - ext.x + off.x, pos.y + ext.y + off.y);
+			topRight = new Vector2(pos.x + ext.x + off.x, pos.y + ext.y + off.y);
+			bottomLeft = new Vector2(pos.x - ext.x + off.x, pos.y - ext.y + off.y);
+			bottomRight = new Vector2(pos.x + ext.x + off.x, pos.y - ext.y + off.y);
+		}
+	}
 	static function onTaggedObject(object :GameObject, tolerance :float, tag :String) :GameObject {
-		var collider :BoxCollider2D = object.GetComponent(BoxCollider2D);
+		var objectCorners :Corners = new Corners(object);
 		var platforms :GameObject[] = GameObject.FindGameObjectsWithTag(tag);
-		for (var i :int = 0; i < platforms.Length; i++) {
-			var thickness :float = platforms[i].transform.localScale.y / 2f;
-			var vec :Vector3 = object.transform.position - collider.bounds.extents - new Vector3(0, thickness, 0);
-			if (Mathf.Abs(vec.y - platforms[i].transform.position.y) <= tolerance) return platforms[i];
-			if (platforms[i] == GameObject.Find('floor')) {
-				Debug.Log(Mathf.Abs(vec.y - platforms[i].transform.position.y));
-			}
+		for (var i :int; i < platforms.length; i++) {
+			var corners :Corners = new Corners(platforms[i]);
+			if (objectCorners.bottomRight.x >= corners.topLeft.x && objectCorners.bottomLeft.x <= corners.topRight.x &&
+			Mathf.Abs(objectCorners.bottomLeft.y - corners.topLeft.y) <= tolerance) return platforms[i];
 		}
 		return null;
 	}
@@ -69,7 +82,7 @@ public class General extends ScriptableObject {
 		array[pos1] = array[pos2];
 		array[pos2] = temp;
 	}
-	static function sort(array :Array, func :Function) {
+	static function sort(array :Array, func :Function) :Array{
 		for (var i :int = 1; i < array.length; ) {
 			var order :int = func(array[i - 1], array[i]);
 			if (order < 0) {
@@ -78,5 +91,6 @@ public class General extends ScriptableObject {
 			}
 			else i++;
 		}
+		return array;
 	}
 }

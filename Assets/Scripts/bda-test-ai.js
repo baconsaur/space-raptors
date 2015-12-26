@@ -10,6 +10,8 @@ public class Capabilities {
 	var attackPower :float;
 	var maxVelocity :float;
 	var meleeRange :float;
+	var jumpHeight :float;
+	var jumpWidth :float;
 }
 public class Reactions {
 	var reactionTime :float;
@@ -36,7 +38,7 @@ private var turnable :boolean = true;
 private var lastLocation :GameObject;
 private var methods :General;
 private var pathFinding :PathFinding;
-
+private var playerPlatform :GameObject;
 
 
 function Start () {
@@ -53,8 +55,12 @@ function Start () {
 function FixedUpdate () {
 	if (turnable) FacePlayer();
 	
-	if (Input.GetAxis('Vertical') < 0) {
-		Debug.Log(pathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0f) as Array);
+	var platform = methods.onTaggedObject(pointers.player, 0.1, 'Platform');
+	if (platform && platform != playerPlatform) {
+		playerPlatform = platform;
+		var path :Array = pathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0, capabilities);
+		Debug.Log(path.length);
+		methods.each(path, Debug.Log);
 	}
 	
 	if (ready) {
