@@ -1,28 +1,29 @@
 fileFormatVersion: 2
-guid: 63a6f99773a584f368be4e6e1fa245b8
-timeCreated: 1451245539
+guid: 47c69bde6db004d2e92f6f870b68dc1e
+timeCreated: 1451245441
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: laser_spritesheet_0
-    21300002: laser_spritesheet_1
-    21300004: laser_spritesheet_2
-    21300006: laser_spritesheet_3
-    21300008: laser_spritesheet_4
-    21300010: laser_spritesheet_5
-    21300012: laser_spritesheet_6
-    21300014: laser_spritesheet_7
-    21300016: laser_spritesheet_8
-    21300018: laser_spritesheet_9
-    21300020: laser_spritesheet_10
-    21300022: laser_spritesheet_11
-    21300024: laser_spritesheet_12
-    21300026: laser_spritesheet_13
-    21300028: laser_spritesheet_14
-    21300030: laser_spritesheet_15
-    21300032: laser_spritesheet_16
-    21300034: laser_spritesheet_17
-    21300036: laser_spritesheet_18
+    21300000: laser_pistol_s_0
+    21300002: laser_pistol_s_1
+    21300004: laser_pistol_s_2
+    21300006: laser_pistol_s_3
+    21300008: laser_pistol_s_4
+    21300010: laser_pistol_s_5
+    21300012: laser_pistol_s_6
+    21300014: laser_pistol_s_7
+    21300016: laser_pistol_s_8
+    21300018: laser_pistol_s_9
+    21300020: laser_pistol_s_10
+    21300022: laser_pistol_s_11
+    21300024: laser_pistol_s_12
+    21300026: laser_pistol_s_13
+    21300028: laser_pistol_s_14
+    21300030: laser_pistol_s_15
+    21300032: laser_pistol_s_16
+    21300034: laser_pistol_s_17
+    21300036: laser_pistol_s_18
+    21300038: laser_pistol_s_19
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -69,193 +70,203 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: laser_spritesheet_0
+    - name: laser_pistol_s_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 384
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_2
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 384
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_3
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 384
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_4
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 384
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_5
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 384
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_7
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_8
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_9
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_10
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_11
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 256
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: laser_pistol_s_12
       rect:
         serializedVersion: 2
         x: 0
         y: 128
-        width: 64
-        height: 64
+        width: 170
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_1
+    - name: laser_pistol_s_13
       rect:
         serializedVersion: 2
-        x: 64
+        x: 170
         y: 128
-        width: 64
-        height: 64
+        width: 170
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_2
+    - name: laser_pistol_s_14
       rect:
         serializedVersion: 2
-        x: 128
+        x: 340
         y: 128
-        width: 64
-        height: 64
+        width: 170
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_3
+    - name: laser_pistol_s_15
       rect:
         serializedVersion: 2
-        x: 192
+        x: 510
         y: 128
-        width: 64
-        height: 64
+        width: 170
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_4
+    - name: laser_pistol_s_16
       rect:
         serializedVersion: 2
-        x: 256
+        x: 680
         y: 128
-        width: 64
-        height: 64
+        width: 170
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_5
+    - name: laser_pistol_s_17
       rect:
         serializedVersion: 2
-        x: 320
+        x: 850
         y: 128
-        width: 64
-        height: 64
+        width: 170
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_9
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_10
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_11
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_12
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_13
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_14
+    - name: laser_pistol_s_18
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 170
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_15
+    - name: laser_pistol_s_19
       rect:
         serializedVersion: 2
-        x: 64
+        x: 170
         y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_16
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_17
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: laser_spritesheet_18
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
+        width: 170
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

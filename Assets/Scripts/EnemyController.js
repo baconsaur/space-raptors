@@ -3,7 +3,8 @@
 var health :int;
 var shotOffset :Vector2;
 var currentWeapon :GameObject;
-var defaultCooldown : int;
+var defaultCooldown :int;
+var animator :Animator;
 
 private var shotCooldown :int;
 
@@ -16,7 +17,7 @@ function Update () {
 		shotCooldown--;
 	}
 	if (!shotCooldown) {
-//		animator.SetTrigger("shoot");
+		animator.SetTrigger("shoot");
 		var newShot = Instantiate(currentWeapon, Vector2(gameObject.transform.position.x + shotOffset.x, gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
 		newShot.GetComponent(ProjectileController).direction = -transform.localScale.x;
 		shotCooldown = defaultCooldown;
