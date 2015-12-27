@@ -1,5 +1,6 @@
 ﻿#pragma strict
 
+var health :int;
 var speed :float;
 var jumpForce :float;
 var rigidBody :Rigidbody2D;
@@ -9,6 +10,7 @@ var animator :Animator;
 var shotOffset :Vector2;
 var currentWeapon :GameObject;
 var defaultCooldown : int;
+
 private var shotCooldown :int;
 
 function Start () {
@@ -25,11 +27,11 @@ function FixedUpdate () {
 	if (direction > turnDeadZone) {
 		transform.localScale = new Vector3(1, 1, 1);
 		animator.SetBool("walking", true);
-		shotOffset = Vector2(2, .02);
+		shotOffset.x = 2;
 	} else if (direction < -turnDeadZone) {
 		transform.localScale = new Vector3(-1, 1, 1);
 		animator.SetBool("walking", true);
-		shotOffset = Vector2(-2, -.02);
+		shotOffset.x = -2;
 	} else {
 		animator.SetBool("walking", false);
 	}
@@ -49,5 +51,12 @@ function FixedUpdate () {
 		var newShot = Instantiate(currentWeapon, Vector2(gameObject.transform.position.x + shotOffset.x, gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
 		newShot.GetComponent(ProjectileController).direction = transform.localScale.x;
 		shotCooldown = defaultCooldown;
+	}
+}
+
+function TakeDamage (damage :int) {
+	health -= damage;
+	if (health <= 0) {
+		Application.LoadLevel (Application.loadedLevel);
 	}
 }
