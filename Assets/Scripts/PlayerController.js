@@ -66,9 +66,26 @@ function FixedUpdate () {
 	}
 }
 
+function ItemPickup (newItem :GameObject) {
+	if (newItem.tag == "Weapon") {
+		SwitchWeapon(newItem);
+	}
+}
+
 function TakeDamage (damage :int) {
 	health -= damage;
 	if (health <= 0) {
 		Application.LoadLevel (Application.loadedLevel);
 	}
+}
+
+function SwitchWeapon (weapon :GameObject) {
+	Destroy(transform.GetChild(0).gameObject);
+	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
+
+	newWeapon.transform.parent = gameObject.transform;
+	currentWeapon = newWeapon;
+	weaponAnimator = currentWeapon.GetComponent(Animator);
+	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
+
 }
