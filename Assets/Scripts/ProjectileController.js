@@ -5,6 +5,7 @@ var speed :float;
 var animator: Animator;
 var direction :int;
 var weaponId :int;
+var hitSound :AudioSource;
 
 private var boundsMin :Vector3;
 private var boundsMax :Vector3;
@@ -31,6 +32,7 @@ function OnCollisionEnter2D(collision :Collision2D) {
 		return;
 	} else {
 		animator.SetBool("hit", true);
+		hitSound.Play();
 		collision.gameObject.SendMessage("TakeDamage", damage);
 	}
 }
