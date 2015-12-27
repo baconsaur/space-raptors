@@ -3,17 +3,9 @@
 public class Capabilities {
 	var speed :float;
 	var jumpForce :float;
-	var attackPower :float;
-	var maxVelocity :float;
-	var meleeRange :float;
 	var jumpHeight :float;
 	var jumpWidth :float;
-}
-public class Reactions {
 	var reactionTime :float;
-	var distThreshold :float;
-	var meleeFreq :float;
-	var randomLikelihood :int;
 }
 public class Pointers {
 	var rigidBody :Rigidbody2D;
@@ -21,7 +13,6 @@ public class Pointers {
 	var player :GameObject;
 }
 public var capabilities :Capabilities;
-public var reactions :Reactions;
 public var pointers :Pointers;
 
 
@@ -32,7 +23,7 @@ private var PathFinding :PathFinding;
 private var playerPlatform :GameObject;
 private var path :Array;
 private var timeUntilReady :float;
-var async :boolean = false;
+var following :boolean = false;
 
 
 
@@ -46,12 +37,12 @@ function FixedUpdate () {
 	var playerPlat = Methods.onTaggedObject(pointers.player, 0.1, 'Platform');
 	var myPlat = Methods.onTaggedObject(this.gameObject, 0.1, 'Platform');
 	if (playerPlat) playerPlatform = playerPlat;
-	if (!async && !timeUntilReady && myPlat && playerPlat && (!path || !path.length || myPlat != playerPlat)) {
+	if (!following && !timeUntilReady && myPlat && playerPlat && (!path || !path.length || myPlat != playerPlat)) {
 		path = PathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0.1, capabilities);
 		StartCoroutine(FollowPath(path, 0.1, this.gameObject, pointers.rigidBody, capabilities));
-		timeUntilReady = reactions.reactionTime;
+		timeUntilReady = capabilities.reactionTime;
 	}
-	if (timeUntilReady && !async) timeUntilReady = Mathf.Max(timeUntilReady - (reactions.reactionTime * Time.deltaTime), 0);
+	if (timeUntilReady && !following) timeUntilReady = Mathf.Max(timeUntilReady - (capabilities.reactionTime * Time.deltaTime), 0);
 }
 
 
@@ -101,7 +92,7 @@ function FixedUpdate () {
 
 public function FollowPath(path :Array, timeout :float, me: GameObject, body :Rigidbody2D, stats :Capabilities) {
 	var PathFinding :PathFinding;
-	async = true;
+	following = true;
 	for (var i :int = 1; i < path.length; i++) {
 		var howTo :Array = PathFinding.howToGetThere(me, path[i - 1], path[i], 0.1, stats);
 		if (howTo.length) {
@@ -111,7 +102,7 @@ public function FollowPath(path :Array, timeout :float, me: GameObject, body :Ri
 			i = path.length;
 		}
 	}
-	async = false;
+	following = false;
 }
 private function Move(step :Array, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
 	var Methods :Methods;
