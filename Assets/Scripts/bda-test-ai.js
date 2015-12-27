@@ -1,8 +1,4 @@
 ﻿#pragma strict
-// Constants
-static var ACTIONS :int = 3;
-
-
 // Inspector Variables
 public class Capabilities {
 	var speed :float;
@@ -29,122 +25,194 @@ public var reactions :Reactions;
 public var pointers :Pointers;
 
 
+
 // Script Variables
-private var randomActions :String[];
-private var meleeCoolDown :float = 1f;
-private var reactionCoolDown :float = 1f;
-private var ready :boolean = true;
-private var turnable :boolean = true;
-private var lastLocation :GameObject;
 private var methods :General;
 private var pathFinding :PathFinding;
 private var playerPlatform :GameObject;
+private var followAI :FollowAI;
+
+
+
+// Private Classes
+private class Step {
+	public var doThis :Function;
+	public var whileThis :Function;
+	public function Step(doFunc :Function, whileFunc :Function) {
+		doThis = doFunc;
+		whileThis = whileFunc;
+	}
+}
+private class FollowAI {
+	private var pathFinding :PathFinding;
+	public var path :Array;
+	public var step :Array;
+	public var currentStep :int;
+	private var self :GameObject;
+	private var stats :Capabilities;
+	public function FollowAI(pathway :Array, pathFind :PathFinding, me :GameObject, capabilities :Capabilities) {
+		pathFinding = pathFind;
+		path = pathway;
+		currentStep = 1;
+		self = me;
+		stats = capabilities;
+	}
+	public function Clear() {
+		path = new Array();
+		currentStep = 0;
+		step = null;
+	}
+}
+
+
+
 
 
 function Start () {
-	randomActions = new String[ACTIONS];
-	randomActions[0] = 'Growl';
-	randomActions[1] = 'Stomp';
-	randomActions[2] = 'Hiss';
 	pathFinding = ScriptableObject.CreateInstance('PathFinding') as PathFinding;
 	methods = ScriptableObject.CreateInstance('General') as General;
-//	pathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0f);
-	
+	followAI = new FollowAI(new Array(), pathFinding, this.gameObject, capabilities);
 }
 
-function FixedUpdate () {
-	if (turnable) FacePlayer();
-	
+function FixedUpdate () {	
 	var platform = methods.onTaggedObject(pointers.player, 0.1, 'Platform');
-	if (platform && platform != playerPlatform) {
-		playerPlatform = platform;
-		var path :Array = pathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0, capabilities);
-		Debug.Log(path.length);
-		methods.forEach(path, Debug.Log);
-	}
-	
-	if (ready) {
-		if (meleeCoolDown > 0f) meleeCoolDown -= Time.deltaTime;
-		if (reactionCoolDown > 0f) reactionCoolDown -= Time.deltaTime;
-		var dist :float = methods.distance(transform.position, pointers.player.transform.position);
-		if (meleeCoolDown <= 0f && dist <= capabilities.meleeRange) {
-//			StartCoroutine('MeleeAttack');
-		} else if (reactionCoolDown <= 0f) {
-			
-			var decide = Random.Range(0, reactions.randomLikelihood);
-			if (false && !decide) {
-				DoSomethingRandom();
-// skip for now
-			} else {
-				
-//				var myPlatform :GameObject = methods.onTaggedObject(pointers.player, 0.01, 'Platform');
-//				var playerPlatform :GameObject = methods.onTaggedObject(pointers.player, 0.01, 'Platform');
-//				// if player.platform = self.platform - move to player
-//				if (myPlatform == playerPlatform || !myPlatform || !playerPlatform || (playerPlatform && lastLocation && playerPlatform != lastLocation)) {
-//					if (playerPlatform) lastLocation = playerPlatform;
-//					var moveAmount = -transform.localScale.x * capabilities.speed * Time.deltaTime;
-//					transform.Translate(new Vector2(moveAmount, 0));
-//				}
-				
-				
-				
-			}
-			
+	if (platform) playerPlatform = platform;
+	if (!followAI.path || !followAI.path.length || followAI.path[followAI.path.length - 1] != playerPlatform) {
+		var path = pathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0.1, capabilities);
+		if (path.length >= 2) {
+			followAI = new FollowAI(path, pathFinding, this.gameObject, capabilities);	
 		}
 	}
-	
+	if (followAI.currentStep < followAI.path.length) {
+		if (!followAI.step) {
+			followAI.step = pathFinding.howToGetThere(this.gameObject, followAI.path[followAI.currentStep - 1] as GameObject, followAI.path[followAI.currentStep] as GameObject,
+				0.1, capabilities);
+			if (!followAI.step.length) followAI.Clear();
+			else {
+				StartCoroutine(MoveMe(followAI.step, this.gameObject, pointers.rigidBody, capabilities));
+			}
+		}
+	}
 }
 
-function FacePlayer() {
-	var scale :float = -xScale(0.1);
-	if (scale) transform.localScale = new Vector3(scale, 1f, 1f);
+
+function MoveMe(step :Array, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
+	methods.forEach(step, Debug.Log);
+	var method :String = step.Shift();
+	switch (method) {
+		case 'FallLeft':
+			yield StartCoroutine(FallLeft(me, me.transform.position.y, stats));
+			break;
+		case 'FallRight':
+			yield StartCoroutine(FallRight(me, me.transform.position.y, stats));
+			break;
+		case 'FallAroundLeft':
+			yield StartCoroutine(FallAroundLeft(step[0], me, me.transform.position.y, stats));
+			break;
+		case 'FallAroundRight':
+			yield StartCoroutine(FallAroundRight(step[0], me, me.transform.position.y, stats));
+			break;
+		case 'MoveLeft':
+			
+			break;
+		case 'MoveRight':
+			
+			break;
+		case 'JumpLeft':
+			yield StartCoroutine(JumpLeft(step[0], step[1], me, body, stats));
+			break;
+		case 'JumpRight':
+			yield StartCoroutine(JumpRight(step[0], step[1], me, body, stats));
+			break;
+		case 'JumpAroundLeft':
+			
+			break;
+		case 'JumpAroundRight':
+			
+			break;
+		default:
+			return;
+	}
 }
 
-function xScale(tolerance :float) :float {
-	if (pointers.player.transform.position.x < transform.position.x - tolerance) return -1f;
-	else if (pointers.player.transform.position.x > transform.position.x + tolerance) return 1f;
-	else return 0f;
+function DoUntil(action :Function, condition :Function) {
+	while (condition()) {
+		action();
+		yield WaitForFixedUpdate();
+	}
 }
 
-function MeleeAttack() {
-	ready = false;
-	var renderer :SpriteRenderer = GetComponent(SpriteRenderer);
-	renderer.color = Color.yellow;
-	yield WaitForSeconds(1);
-	renderer.color = Color.white;
-	meleeCoolDown = reactions.meleeFreq;
-	ready = true;
+function Jump(body :Rigidbody2D, stats :Capabilities) {
+	body.AddForce(Vector2(0, stats.jumpForce));
 }
 
-function DoSomethingRandom() {
-	var action :int = Random.Range(0, ACTIONS);
-	StartCoroutine(randomActions[action]);
-	reactionCoolDown = reactions.reactionTime;
+function GoLeft(position :Vector2, me :GameObject, stats :Capabilities) {
+	yield StartCoroutine(DoUntil(function() {
+		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
+	}, function() {
+		me.transform.position.x > position.x;
+	}));
 }
 
-function Growl() {
-	ready = false;
-	var renderer :SpriteRenderer = GetComponent(SpriteRenderer);
-	renderer.color = Color.red;
-	yield WaitForSeconds(2);
-	renderer.color = Color.white;
-	ready = true;
+function GoRight(position :Vector2, me :GameObject, stats :Capabilities) {
+	yield StartCoroutine(DoUntil(function() {
+		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
+	}, function() {
+		me.transform.position.x < position.x;
+	}));
 }
 
-function Stomp() {
-	ready = false;
-	var renderer :SpriteRenderer = GetComponent(SpriteRenderer);
-	renderer.color = Color.green;
-	yield WaitForSeconds(5);
-	renderer.color = Color.white;
-	ready = true;
+function FallLeft(me :GameObject, y :float, stats :Capabilities) {
+	yield StartCoroutine(DoUntil(function() {
+		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
+	}, function() {
+		me.transform.position.y >= y;
+	}));
 }
 
-function Hiss() {
-	ready = false;
-	var renderer :SpriteRenderer = GetComponent(SpriteRenderer);
-	renderer.color = Color.blue;
-	yield WaitForSeconds(4);
-	renderer.color = Color.white;
-	ready = true;
+function FallRight(me :GameObject, y :float, stats :Capabilities) {
+	yield StartCoroutine(DoUntil(function() {
+		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
+	}, function() {
+		me.transform.position.y >= y;
+	}));
+
+}
+
+
+
+
+
+
+
+
+function FallAroundLeft(position :Vector2, me :GameObject, y :float, stats :Capabilities) {
+	yield StartCoroutine(FallLeft(me, y, stats));
+	yield WaitForFixedUpdate();
+	yield StartCoroutine(GoRight(position, me, stats));
+	yield WaitForFixedUpdate();
+}
+
+function FallAroundRight(position :Vector2, me :GameObject, y :float, stats :Capabilities) {
+	yield StartCoroutine(FallRight(me, y, stats));
+	yield WaitForFixedUpdate();
+	yield StartCoroutine(GoLeft(position, me, stats));
+	yield WaitForFixedUpdate();
+}
+
+function JumpLeft(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
+	yield StartCoroutine(GoLeft(arg1, me, stats));
+	Jump(body, stats);
+	yield WaitForFixedUpdate();
+	yield StartCoroutine(GoLeft(arg2, me, stats));
+	yield WaitForFixedUpdate();
+}
+
+function JumpRight(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
+	yield StartCoroutine(GoRight(arg1, me, stats));
+	Jump(body, stats);
+	yield WaitForFixedUpdate();
+	Debug.Log('here');
+	yield StartCoroutine(GoRight(arg2, me, stats));
+	yield WaitForFixedUpdate();
 }

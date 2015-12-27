@@ -62,8 +62,7 @@ public class PathFinding extends ScriptableObject {
 	public function buildSteps(target :GameObject, mover :GameObject, tag :String, tolerance :float, stats :Capabilities) :Array {
 		var startPlatform :GameObject = methods.onTaggedObject(mover, 0.1, tag);
 		var targetPlatform :GameObject = methods.onTaggedObject(target, 0.1, tag);
-		if (!startPlatform || !targetPlatform) return new Array();
-		
+		if (!startPlatform || !targetPlatform || startPlatform == targetPlatform) return new Array();
 		var collection :BuildCollection = new BuildCollection(startPlatform, targetPlatform, tag, methods);
 		collection.stepThrough(collection.start, tolerance, stats);
 		return methods.map(collection.steps, function(element :General.ObjectWithCorners) :GameObject {
@@ -80,5 +79,44 @@ public class PathFinding extends ScriptableObject {
 			if ((array[i] as General.ObjectWithCorners).gameObject == object.gameObject) return false;
 		}
 		return true;
+	}
+	public function howToGetThere(object :GameObject, start :GameObject, target :GameObject, tolerance :float, stats :Capabilities) :Array {
+		var objectExtend :General.ObjectWithCorners = new General.ObjectWithCorners(object);
+		var startExtend :General.ObjectWithCorners = new General.ObjectWithCorners(start);
+		var targetExtend :General.ObjectWithCorners = new General.ObjectWithCorners(target);
+		if (!PathFinding.reachable(startExtend, targetExtend, stats)) return new Array();
+		
+		if (startExtend.corners.landCenter.y > targetExtend.corners.landCenter.y && targetExtend.corners.topLeft.x <= startExtend.corners.topLeft.x -
+			methods.distance(objectExtend.corners.bottomLeft, objectExtend.corners.bottomRight) / 2f && targetExtend.corners.topRight.x >= startExtend.corners.topLeft.x
+		) {
+			return new Array('FallLeft');
+		} else if (startExtend.corners.landCenter.y > targetExtend.corners.landCenter.y && targetExtend.corners.topRight.x >= startExtend.corners.topRight.x +
+			methods.distance(objectExtend.corners.bottomLeft, objectExtend.corners.bottomRight) / 2f && targetExtend.corners.topLeft.x <= startExtend.corners.topRight.x
+		) {
+			return new Array('FallRight');
+		} else if (startExtend.corners.landCenter.y > targetExtend.corners.landCenter.y && targetExtend.corners.landCenter.x >= startExtend.corners.topLeft.x &&
+			targetExtend.corners.landCenter.x <= startExtend.corners.topRight.x
+		) {
+			if (startExtend.corners.topLeft.x - targetExtend.corners.topLeft.x >= targetExtend.corners.topRight.x - startExtend.corners.topRight.x) {
+				return new Array('FallAroundLeft', targetExtend.corners.topLeft);
+			}
+			else return new Array('FallAroundRight', targetExtend.corners.topRight);
+		} else if (methods.distance(startExtend.corners.topLeft, targetExtend.corners.topRight) <= tolerance) {
+			return new Array('MoveLeft', targetExtend.corners.topRight);
+		} else if (methods.distance(startExtend.corners.topRight, targetExtend.corners.topLeft) <= tolerance) {
+			return new Array('MoveRight', targetExtend.corners.topLeft);
+		} else if (startExtend.corners.topLeft.x > targetExtend.corners.topRight.x) {
+			return new Array('JumpLeft', startExtend.corners.topLeft, targetExtend.corners.topRight);
+		} else if (startExtend.corners.topRight.x < targetExtend.corners.topLeft.x) {
+			return new Array('JumpRight', startExtend.corners.topRight, targetExtend.corners.topLeft);
+		} else if (startExtend.corners.landCenter.y < targetExtend.corners.landCenter.y && targetExtend.corners.landCenter.x >= startExtend.corners.topLeft.x &&
+			targetExtend.corners.landCenter.x <= startExtend.corners.topRight.x
+		) {
+			if (targetExtend.corners.topLeft.x - startExtend.corners.topLeft.x >= startExtend.corners.topRight.x - targetExtend.corners.topRight.x) {
+				return new Array('JumpAroundLeft', startExtend.corners.topLeft, targetExtend.corners.topLeft);
+			}
+			else return new Array('JumpAroundRight', startExtend.corners.topRight, targetExtend.corners.topRight);
+		}
+		else return new Array();
 	}
 }
