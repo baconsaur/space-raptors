@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8cccfe2105b124e8ba634b9f5a7ec5ac
-timeCreated: 1450807007
+timeCreated: 1451167998
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,11 @@ TextureImporter:
     21300024: stegs_placeholder_12
     21300026: stegs_placeholder_13
     21300028: stegs_placeholder_14
+    21300030: stegs_placeholder_15
+    21300032: stegs_placeholder_16
+    21300034: stegs_placeholder_17
+    21300036: stegs_placeholder_18
+    21300038: stegs_placeholder_19
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -200,6 +205,66 @@ TextureImporter:
         serializedVersion: 2
         x: 170
         y: 128
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_14
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 128
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_15
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 128
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_16
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 128
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_17
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 128
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: stegs_placeholder_19
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
         width: 170
         height: 128
       alignment: 0
