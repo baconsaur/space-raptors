@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-public class General extends ScriptableObject {
+public class Methods extends MonoBehaviour {
 	public class Corners {
 		public var topLeft :Vector2;
 		public var topRight :Vector2;
@@ -16,7 +16,7 @@ public class General extends ScriptableObject {
 			topRight = new Vector2(pos.x + ext.x + off.x, pos.y + ext.y + off.y);
 			bottomLeft = new Vector2(pos.x - ext.x + off.x, pos.y - ext.y + off.y);
 			bottomRight = new Vector2(pos.x + ext.x + off.x, pos.y - ext.y + off.y);
-			landCenter = new Vector2(General.average(topLeft.x, topRight.x), topLeft.y);
+			landCenter = new Vector2(Methods.average(topLeft.x, topRight.x), topLeft.y);
 		}
 	}
 	public class ObjectWithCorners {
@@ -30,12 +30,12 @@ public class General extends ScriptableObject {
 	
 	
 	
-	static function onTaggedObject(object :GameObject, tolerance :float, tag :String) :GameObject {
+	public static function onTaggedObject(object :GameObject, tolerance :float, tag :String) :GameObject {
 		var objectCorners :Corners = new Corners(object);
 		var platforms :GameObject[] = GameObject.FindGameObjectsWithTag(tag);
 		for (var i :int; i < platforms.length; i++) {
 			var corners :Corners = new Corners(platforms[i]);
-			if (objectCorners.bottomRight.x >= corners.topLeft.x && objectCorners.bottomLeft.x <= corners.topRight.x &&
+			if (objectCorners.bottomRight.x > corners.topLeft.x && objectCorners.bottomLeft.x < corners.topRight.x &&
 			Mathf.Abs(objectCorners.bottomLeft.y - corners.topLeft.y) <= tolerance) return platforms[i];
 		}
 		return null;

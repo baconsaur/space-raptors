@@ -27,77 +27,95 @@ public var pointers :Pointers;
 
 
 // Script Variables
-private var methods :General;
-private var pathFinding :PathFinding;
+private var Methods :Methods;
+private var PathFinding :PathFinding;
 private var playerPlatform :GameObject;
-private var followAI :FollowAI;
-
-
-
-// Private Classes
-private class Step {
-	public var doThis :Function;
-	public var whileThis :Function;
-	public function Step(doFunc :Function, whileFunc :Function) {
-		doThis = doFunc;
-		whileThis = whileFunc;
-	}
-}
-private class FollowAI {
-	private var pathFinding :PathFinding;
-	public var path :Array;
-	public var step :Array;
-	public var currentStep :int;
-	private var self :GameObject;
-	private var stats :Capabilities;
-	public function FollowAI(pathway :Array, pathFind :PathFinding, me :GameObject, capabilities :Capabilities) {
-		pathFinding = pathFind;
-		path = pathway;
-		currentStep = 1;
-		self = me;
-		stats = capabilities;
-	}
-	public function Clear() {
-		path = new Array();
-		currentStep = 0;
-		step = null;
-	}
-}
+private var path :Array;
+private var timeUntilReady :float;
+var async :boolean = false;
 
 
 
 
 
 function Start () {
-	pathFinding = ScriptableObject.CreateInstance('PathFinding') as PathFinding;
-	methods = ScriptableObject.CreateInstance('General') as General;
-	followAI = new FollowAI(new Array(), pathFinding, this.gameObject, capabilities);
+	timeUntilReady = 0f;
 }
 
 function FixedUpdate () {	
-	var platform = methods.onTaggedObject(pointers.player, 0.1, 'Platform');
-	if (platform) playerPlatform = platform;
-	if (!followAI.path || !followAI.path.length || followAI.path[followAI.path.length - 1] != playerPlatform) {
-		var path = pathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0.1, capabilities);
-		if (path.length >= 2) {
-			followAI = new FollowAI(path, pathFinding, this.gameObject, capabilities);	
-		}
+	var playerPlat = Methods.onTaggedObject(pointers.player, 0.1, 'Platform');
+	var myPlat = Methods.onTaggedObject(this.gameObject, 0.1, 'Platform');
+	if (playerPlat) playerPlatform = playerPlat;
+	if (!async && !timeUntilReady && myPlat && playerPlat && (!path || !path.length || myPlat != playerPlat)) {
+		path = PathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0.1, capabilities);
+		StartCoroutine(FollowPath(path, 0.1, this.gameObject, pointers.rigidBody, capabilities));
+		timeUntilReady = reactions.reactionTime;
 	}
-	if (followAI.currentStep < followAI.path.length) {
-		if (!followAI.step) {
-			followAI.step = pathFinding.howToGetThere(this.gameObject, followAI.path[followAI.currentStep - 1] as GameObject, followAI.path[followAI.currentStep] as GameObject,
-				0.1, capabilities);
-		}
-		if (!followAI.step.length) followAI.Clear();
-		else {
-			MoveMe(followAI.step, this.gameObject, pointers.rigidBody, capabilities);
-		}
-	}
+	if (timeUntilReady && !async) timeUntilReady = Mathf.Max(timeUntilReady - (reactions.reactionTime * Time.deltaTime), 0);
 }
 
 
-function MoveMe(step :Array, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
-	methods.forEach(step, Debug.Log);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public function FollowPath(path :Array, timeout :float, me: GameObject, body :Rigidbody2D, stats :Capabilities) {
+	var PathFinding :PathFinding;
+	async = true;
+	for (var i :int = 1; i < path.length; i++) {
+		var howTo :Array = PathFinding.howToGetThere(me, path[i - 1], path[i], 0.1, stats);
+		if (howTo.length) {
+			yield StartCoroutine(Move(howTo, me, body, stats));
+			yield WaitForSeconds(timeout);
+		} else {
+			i = path.length;
+		}
+	}
+	async = false;
+}
+private function Move(step :Array, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
+	var Methods :Methods;
+	Methods.forEach(step, Debug.Log);
 	var method :String = step.Shift();
 	switch (method) {
 		case 'FallLeft':
@@ -135,18 +153,18 @@ function MoveMe(step :Array, me :GameObject, body :Rigidbody2D, stats :Capabilit
 	}
 }
 
-function DoUntil(action :Function, condition :Function) {
+private function DoUntil(action :Function, condition :Function) {
 	while (condition()) {
 		action();
 		yield WaitForFixedUpdate();
 	}
 }
 
-function Jump(body :Rigidbody2D, stats :Capabilities) {
+private function Jump(body :Rigidbody2D, stats :Capabilities) {
 	body.AddForce(Vector2(0, stats.jumpForce));
 }
 
-function GoLeft(position :Vector2, me :GameObject, stats :Capabilities) {
+private function GoLeft(position :Vector2, me :GameObject, stats :Capabilities) {
 	me.transform.localScale.x = 1f;
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
@@ -155,7 +173,7 @@ function GoLeft(position :Vector2, me :GameObject, stats :Capabilities) {
 	}));
 }
 
-function GoRight(position :Vector2, me :GameObject, stats :Capabilities) {
+private function GoRight(position :Vector2, me :GameObject, stats :Capabilities) {
 	me.transform.localScale.x = -1f;
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
@@ -164,7 +182,7 @@ function GoRight(position :Vector2, me :GameObject, stats :Capabilities) {
 	}));
 }
 
-function FallLeft(me :GameObject, y :float, stats :Capabilities) {
+private function FallLeft(me :GameObject, y :float, stats :Capabilities) {
 	me.transform.localScale.x = 1f;
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
@@ -173,7 +191,7 @@ function FallLeft(me :GameObject, y :float, stats :Capabilities) {
 	}));
 }
 
-function FallRight(me :GameObject, y :float, stats :Capabilities) {
+private function FallRight(me :GameObject, y :float, stats :Capabilities) {
 	me.transform.localScale.x = -1f;
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
@@ -183,14 +201,7 @@ function FallRight(me :GameObject, y :float, stats :Capabilities) {
 
 }
 
-
-
-
-
-
-
-
-function FallAroundLeft(position :Vector2, me :GameObject, y :float, stats :Capabilities) {
+private function FallAroundLeft(position :Vector2, me :GameObject, y :float, stats :Capabilities) {
 	yield StartCoroutine(FallLeft(me, y, stats));
 	yield WaitForFixedUpdate();
 	while (me.transform.position.y >= y - 1f) {
@@ -200,7 +211,7 @@ function FallAroundLeft(position :Vector2, me :GameObject, y :float, stats :Capa
 	yield WaitForFixedUpdate();
 }
 
-function FallAroundRight(position :Vector2, me :GameObject, y :float, stats :Capabilities) {
+private function FallAroundRight(position :Vector2, me :GameObject, y :float, stats :Capabilities) {
 	yield StartCoroutine(FallRight(me, y, stats));
 	yield WaitForFixedUpdate();
 	while (me.transform.position.y >= y - 1f) {
@@ -210,7 +221,7 @@ function FallAroundRight(position :Vector2, me :GameObject, y :float, stats :Cap
 	yield WaitForFixedUpdate();
 }
 
-function JumpLeft(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
+private function JumpLeft(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
 	yield StartCoroutine(GoLeft(arg1, me, stats));
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
@@ -218,7 +229,7 @@ function JumpLeft(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2
 	yield WaitForFixedUpdate();
 }
 
-function JumpRight(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
+private function JumpRight(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
 	yield StartCoroutine(GoRight(arg1, me, stats));
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
@@ -226,38 +237,38 @@ function JumpRight(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody
 	yield WaitForFixedUpdate();
 }
 
-function JumpAroundLeft(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
+private function JumpAroundLeft(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
 	yield StartCoroutine(GoLeft(arg1, me, stats));
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		var objWCorn :General.ObjectWithCorners = new General.ObjectWithCorners(me);
+		var objWCorn :Methods.ObjectWithCorners = new Methods.ObjectWithCorners(me);
 		return objWCorn.corners.topRight.x >= arg2.x;
 	}));
 	do {
 		yield WaitForFixedUpdate();
-		var objWCorn :General.ObjectWithCorners = new General.ObjectWithCorners(me);
+		var objWCorn :Methods.ObjectWithCorners = new Methods.ObjectWithCorners(me);
 	} while (objWCorn.corners.topRight.y < arg2.y);
 	yield WaitForFixedUpdate();
 	yield StartCoroutine(GoRight(arg2, me ,stats));
 	yield WaitForFixedUpdate();
 }
 
-function JumpAroundRight(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
+private function JumpAroundRight(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
 	yield StartCoroutine(GoRight(arg1, me, stats));
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		var objWCorn :General.ObjectWithCorners = new General.ObjectWithCorners(me);
+		var objWCorn :Methods.ObjectWithCorners = new Methods.ObjectWithCorners(me);
 		return objWCorn.corners.topLeft.x <= arg2.x;
 	}));
 	do {
 		yield WaitForFixedUpdate();
-		var objWCorn :General.ObjectWithCorners = new General.ObjectWithCorners(me);
+		var objWCorn :Methods.ObjectWithCorners = new Methods.ObjectWithCorners(me);
 	} while (objWCorn.corners.topRight.y < arg2.y);
 	yield WaitForFixedUpdate();
 	yield StartCoroutine(GoLeft(arg2, me ,stats));
