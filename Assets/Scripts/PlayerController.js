@@ -9,8 +9,9 @@ var turnDeadZone :float;
 var animator :Animator;
 var shotOffset :Vector2;
 var currentWeapon :GameObject;
-var defaultCooldown : int;
-var weapons : Array;
+var defaultCooldown :int;
+var weapons : GameObject[];
+var switchCooldown :int;
 
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
@@ -25,6 +26,9 @@ function Start () {
 function FixedUpdate () {
 	if (shotCooldown) {
 		shotCooldown--;
+	}
+	if (switchCooldown) {
+		switchCooldown--;
 	}
 	var direction = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
 	transform.Translate(new Vector2(direction, 0));
@@ -64,10 +68,32 @@ function FixedUpdate () {
 		newShot.GetComponent(ProjectileController).direction = transform.localScale.x;
 		shotCooldown = defaultCooldown;
 	}
+	
+	var weaponSwitch = 0;
+	
+	if (Input.GetAxis("Fire2")) {
+		weaponSwitch = -1;
+	} else if (Input.GetAxis("Fire3")) {
+		weaponSwitch = 1;
+	}
+	if (!switchCooldown && weaponSwitch) {
+		switchCooldown = 25;
+		var current :int;
+		for (var i=0;i<weapons.length;i++) {
+			if (weapons[i].name == currentWeapon.name.Replace("(Clone)", "")) {
+				current = i;
+				break;
+			}
+		}
+		if(current + weaponSwitch >= 0 && current + weaponSwitch < weapons.length) {
+			SwitchWeapon(weapons[current + weaponSwitch]);
+		}
+	}
 }
 
 function ItemPickup (newItem :GameObject) {
 	if (newItem.tag == "Weapon") {
+		ArrayUtility.Add(weapons, newItem);
 		SwitchWeapon(newItem);
 	}
 }
@@ -81,9 +107,10 @@ function TakeDamage (damage :int) {
 
 function SwitchWeapon (weapon :GameObject) {
 	Destroy(transform.GetChild(0).gameObject);
-	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
-
-	newWeapon.transform.parent = gameObject.transform;
+	
+	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);	newWeapon.transform.parent = gameObject.transform;
+	
+	newWeapon.transform.localScale.x *= transform.localScale.x;
 	currentWeapon = newWeapon;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
