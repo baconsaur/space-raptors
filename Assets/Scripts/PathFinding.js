@@ -143,7 +143,7 @@ public class PathFinding extends MonoBehaviour {
 		////
 		// Aim toward the sky and rise
 		////
-		} else if (startExtend.corners.landCenter.y < targetExtend.corners.landCenter.y + tolerance) {
+		} else if (startExtend.corners.landCenter.y < targetExtend.corners.landCenter.y) {
 			if (startExtend.corners.topLeft.x >= targetExtend.corners.topRight.x + (myWidth / 2f)) {
 				// jump across left
 				Debug.Log('first:');
@@ -157,7 +157,7 @@ public class PathFinding extends MonoBehaviour {
 				return new Array('JumpLeft', position, targetExtend.corners.landCenter.y, targetExtend.corners.topRight);
 			} else if (startExtend.corners.topLeft.x < targetExtend.corners.topLeft.x + myWidth) {
 				// jump up right
-				position = new Vector2(targetExtend.corners.topLeft.x - myWidth,startExtend.corners.landCenter.y);
+				position = new Vector2(targetExtend.corners.topLeft.x - myWidth, startExtend.corners.landCenter.y);
 				return new Array('JumpRight', position, targetExtend.corners.landCenter.y, targetExtend.corners.topLeft);
 			} else if (startExtend.corners.topLeft.x <= targetExtend.corners.topLeft.x) {
 				// jump around left

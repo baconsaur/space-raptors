@@ -103,14 +103,24 @@ public function FollowPath(path :Array, timeout :float, me: GameObject, body :Ri
 	var PathFinding :PathFinding;
 	following = true;
 	for (var i :int = 1; i < path.length && following; i++) {
-		var howTo :Array = PathFinding.howToGetThere(me, path[i - 1], path[i], 0.1, stats);
-		if (howTo.length) {
-			yield StartCoroutine(Move(howTo, me, body, stats));
-//			yield WaitForSeconds(timeout);
-		} else {
-			Debug.Log('cannot get there');
+		if (path[i - 1] != Methods.onTaggedObject(me, 0.1, 'Platform')) {
+			Debug.Log('previous move did not work');
 			i = path.length;
+		} else {
+			var howTo :Array = PathFinding.howToGetThere(me, path[i - 1], path[i], 0.1, stats);
+			if (howTo.length) {
+				Debug.Log('start:');
+				Debug.Log(path[i - 1]);
+				Debug.Log('target:');
+				Debug.Log(path[i]);
+				yield StartCoroutine(Move(howTo, me, body, stats));
+	//			yield WaitForSeconds(timeout);
+			} else {
+				Debug.Log('cannot get there');
+				i = path.length;
+			}
 		}
+		
 	}
 	following = false;
 }
@@ -181,6 +191,7 @@ private function GoRight(position :Vector2, me :GameObject, stats :Capabilities)
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
+		Debug.Log(me.transform.position.x);
 		return me.transform.position.x < position.x;
 	}));
 }
@@ -190,7 +201,7 @@ private function FallLeft(position :Vector2, me :GameObject, untilY :float, stat
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.y >= untilY - 0.1 || me.transform.position.x >= position.x;
+		return me.transform.position.y >= untilY - 0.1 && me.transform.position.x >= position.x;
 	}));
 }
 
@@ -199,7 +210,7 @@ private function FallRight(position :Vector2, me :GameObject, untilY :float, sta
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.y >= untilY - 0.1 || me.transform.position.x <= position.x;
+		return me.transform.position.y >= untilY - 0.1 && me.transform.position.x <= position.x;
 	}));
 
 }
@@ -225,7 +236,9 @@ private function FallAroundRight(position :Vector2, me :GameObject, untilY :floa
 }
 
 private function JumpLeft(arg1 :Vector2, untilY :float, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
-	yield StartCoroutine(GoLeft(arg1, me, stats));
+	// GO LEFT OR RIGHT????
+	yield arg1.x < me.transform.position.x ? StartCoroutine(GoLeft(arg1, me, stats)) : StartCoroutine(GoRight(arg1, me, stats));
+//	yield StartCoroutine(GoLeft(arg1, me, stats));
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
 	yield StartCoroutine(DoUntil(function() {}, function () {
@@ -237,7 +250,9 @@ private function JumpLeft(arg1 :Vector2, untilY :float, arg2 :Vector2, me :GameO
 }
 
 private function JumpRight(arg1 :Vector2, untilY :float, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
-	yield StartCoroutine(GoRight(arg1, me, stats));
+	// GO LEFT OR RIGHT????
+	yield arg1.x < me.transform.position.x ? StartCoroutine(GoLeft(arg1, me, stats)) : StartCoroutine(GoRight(arg1, me, stats));
+//	yield StartCoroutine(GoRight(arg1, me, stats));
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
 	yield StartCoroutine(DoUntil(function() {}, function () {
