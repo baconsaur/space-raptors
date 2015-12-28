@@ -5,6 +5,8 @@ var shotOffset :Vector2;
 var currentWeapon :GameObject;
 var defaultCooldown :int;
 var animator :Animator;
+var player :GameObject;
+var shootDifferentialY :float;
 
 private var shotCooldown :int;
 
@@ -16,7 +18,9 @@ function Update () {
 	if (shotCooldown) {
 		shotCooldown--;
 	}
-	if (!shotCooldown) {
+	var compareY :float = Mathf.Abs(player.transform.position.y - this.gameObject.transform.position.y);
+	if (!shotCooldown && compareY <= shootDifferentialY) {
+		FacePlayer();
 		animator.SetTrigger("shoot");
 		var newShot = Instantiate(currentWeapon, Vector2(gameObject.transform.position.x + shotOffset.x, gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
 		newShot.GetComponent(ProjectileController).direction = -transform.localScale.x;
@@ -29,4 +33,8 @@ function TakeDamage (damage :int) {
 	if (health <= 0) {
 		Destroy(gameObject);
 	}
+}
+
+function FacePlayer() {
+	this.gameObject.transform.localScale.x = player.transform.position.x <= this.transform.position.x ? 1f : -1f;
 }
