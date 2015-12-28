@@ -181,7 +181,7 @@ public class PathFinding extends MonoBehaviour {
 					// jump left
 					return new Array('JumpLeft', startExtend.corners.topLeft, startExtend.corners.landCenter.y, targetExtend.corners.topLeft);
 				}
-			} else if (startExtend.corners.topRight.x < targetExtend.corners.topRight.x + myWidth) {
+			} else if (startExtend.corners.topRight.x < targetExtend.corners.topRight.x - myWidth) {
 				// Fall or Jump Right?
 				yOffset = Mathf.Sqrt(targetExtend.corners.landCenter.y - startExtend.corners.landCenter.y);
 				if (startExtend.corners.topRight.x > targetExtend.corners.topLeft.x - myWidth - yOffset) {

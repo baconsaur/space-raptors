@@ -190,7 +190,7 @@ private function FallLeft(position :Vector2, me :GameObject, untilY :float, stat
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.y >= untilY && me.transform.position.x >= position.x;
+		return me.transform.position.y >= untilY - 0.1 || me.transform.position.x >= position.x;
 	}));
 }
 
@@ -199,25 +199,25 @@ private function FallRight(position :Vector2, me :GameObject, untilY :float, sta
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.y >= untilY && me.transform.position.x <= position.x;
+		return me.transform.position.y >= untilY - 0.1 || me.transform.position.x <= position.x;
 	}));
 
 }
 
-private function FallAroundLeft(position :Vector2, me :GameObject, y :float, stats :Capabilities) {
-	yield StartCoroutine(FallLeft(position, me, y, stats));
+private function FallAroundLeft(position :Vector2, me :GameObject, untilY :float, stats :Capabilities) {
+	yield StartCoroutine(FallLeft(position, me, untilY, stats));
 	yield WaitForFixedUpdate();
-	while (me.transform.position.y >= y - 1f && following) {
+	while (me.transform.position.y >= untilY - 1f && following) {
 		yield WaitForFixedUpdate();
 	}
 	yield StartCoroutine(GoRight(position, me, stats));
 	yield WaitForFixedUpdate();
 }
 
-private function FallAroundRight(position :Vector2, me :GameObject, y :float, stats :Capabilities) {
-	yield StartCoroutine(FallRight(position, me, y, stats));
+private function FallAroundRight(position :Vector2, me :GameObject, untilY :float, stats :Capabilities) {
+	yield StartCoroutine(FallRight(position, me, untilY, stats));
 	yield WaitForFixedUpdate();
-	while (me.transform.position.y >= y - 1f && following) {
+	while (me.transform.position.y >= untilY - 1f && following) {
 		yield WaitForFixedUpdate();
 	}
 	yield StartCoroutine(GoLeft(position, me, stats));
