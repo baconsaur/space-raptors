@@ -32,8 +32,9 @@ function FixedUpdate () {
 		switchCooldown--;
 	}
 	var direction = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
-	transform.Translate(new Vector2(direction, 0));
-	
+	if (animator.GetBool("hit") == false) {
+		transform.Translate(new Vector2(direction, 0));
+	}
 	if (direction > turnDeadZone) {
 		transform.localScale = new Vector3(1, 1, 1);
 		animator.SetBool("walking", true);
@@ -62,7 +63,7 @@ function FixedUpdate () {
 	}
 	
 	var shoot = Input.GetAxis("Fire1");
-	if (!shotCooldown && shoot) {
+	if (!shotCooldown && shoot && animator.GetBool("hit") == false) {
 	animator.SetTrigger("shoot");
 	weaponAnimator.SetTrigger("shoot");
 		var newShot = Instantiate(weaponProjectile, Vector2(gameObject.transform.position.x + shotOffset.x, gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
@@ -77,7 +78,7 @@ function FixedUpdate () {
 	} else if (Input.GetAxis("Fire3")) {
 		weaponSwitch = 1;
 	}
-	if (!switchCooldown && weaponSwitch) {
+	if (!switchCooldown && weaponSwitch && animator.GetBool("hit") == false) {
 		switchCooldown = 25;
 		var current :int;
 		for (var i=0;i<weapons.length;i++) {
@@ -86,7 +87,7 @@ function FixedUpdate () {
 				break;
 			}
 		}
-		if(current + weaponSwitch >= 0 && current + weaponSwitch < weapons.length) {
+		if(current + weaponSwitch >= 0 && current + weaponSwitch < weapons.length && animator.GetBool("hit") == false) {
 			SwitchWeapon(weapons[current + weaponSwitch]);
 		}
 	}
@@ -124,6 +125,7 @@ function HealDamage (heal :int) {
 }
 
 function TakeDamage (damage :int) {
+	animator.SetTrigger("hit");
 	if (armor) {
 		armor -= damage;
 		if (armor < 0) {

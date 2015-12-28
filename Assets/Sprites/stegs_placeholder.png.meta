@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8cccfe2105b124e8ba634b9f5a7ec5ac
-timeCreated: 1451167998
+timeCreated: 1451328039
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -24,6 +24,9 @@ TextureImporter:
     21300034: stegs_placeholder_17
     21300036: stegs_placeholder_18
     21300038: stegs_placeholder_19
+    21300040: stegs_placeholder_20
+    21300042: stegs_placeholder_21
+    21300044: stegs_placeholder_22
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +40,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -62,7 +65,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 42
   alphaIsTransparency: 1
@@ -74,202 +77,495 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
+        y: 896
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 60}
+        - {x: -38, y: 53}
+        - {x: -57, y: 34}
+        - {x: -73, y: 14}
+        - {x: -85, y: -4}
+        - {x: -85, y: -56}
+        - {x: -57, y: -60}
+        - {x: 69, y: -60}
+        - {x: 69, y: 60}
     - name: stegs_placeholder_1
       rect:
         serializedVersion: 2
         x: 170
-        y: 384
+        y: 896
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 58}
+        - {x: -72, y: 44}
+        - {x: -85, y: 2}
+        - {x: -85, y: -32}
+        - {x: -46, y: -60}
+        - {x: 69, y: -60}
+        - {x: 69, y: 43}
+        - {x: 63, y: 58}
     - name: stegs_placeholder_2
       rect:
         serializedVersion: 2
         x: 340
-        y: 384
+        y: 896
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 56}
+        - {x: -32, y: 40}
+        - {x: -47, y: 29}
+        - {x: -40, y: 3}
+        - {x: -37, y: 2}
+        - {x: -32, y: -5}
+        - {x: -68, y: -3}
+        - {x: -69, y: -6}
+        - {x: -78, y: -3}
+        - {x: -85, y: -7}
+        - {x: -85, y: -24}
+        - {x: -43, y: -60}
+        - {x: 69, y: -60}
+        - {x: 69, y: 32}
+        - {x: 52, y: 56}
     - name: stegs_placeholder_3
       rect:
         serializedVersion: 2
         x: 510
-        y: 384
+        y: 896
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: 54}
+        - {x: -13, y: 54}
+        - {x: -38, y: 47}
+        - {x: -47, y: 27}
+        - {x: -40, y: 1}
+        - {x: -37, y: 0}
+        - {x: -82, y: -2}
+        - {x: -85, y: -9}
+        - {x: -85, y: -43}
+        - {x: -19, y: -60}
+        - {x: 64, y: -60}
+        - {x: 69, y: -42}
+        - {x: 69, y: 24}
     - name: stegs_placeholder_4
       rect:
         serializedVersion: 2
         x: 680
-        y: 384
+        y: 896
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 58}
+        - {x: -50, y: 1}
+        - {x: -27, y: -14}
+        - {x: -21, y: -14}
+        - {x: -35, y: -14}
+        - {x: -61, y: -4}
+        - {x: -85, y: -14}
+        - {x: -85, y: -35}
+        - {x: -36, y: -60}
+        - {x: 69, y: -60}
+        - {x: 69, y: 58}
     - name: stegs_placeholder_5
       rect:
         serializedVersion: 2
         x: 850
-        y: 384
+        y: 896
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 60}
+        - {x: -55, y: 35}
+        - {x: -40, y: 7}
+        - {x: -27, y: -12}
+        - {x: -21, y: -12}
+        - {x: -39, y: -12}
+        - {x: -70, y: -2}
+        - {x: -85, y: -15}
+        - {x: -85, y: -32}
+        - {x: -80, y: -36}
+        - {x: -36, y: -60}
+        - {x: 64, y: -60}
+        - {x: 69, y: -58}
+        - {x: 69, y: 60}
     - name: stegs_placeholder_6
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 768
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 60}
+        - {x: -50, y: 33}
+        - {x: -38, y: 5}
+        - {x: -31, y: -3}
+        - {x: -67, y: 0}
+        - {x: -85, y: -4}
+        - {x: -85, y: -35}
+        - {x: -27, y: -58}
+        - {x: 69, y: -58}
+        - {x: 69, y: 60}
     - name: stegs_placeholder_7
       rect:
         serializedVersion: 2
         x: 170
-        y: 256
+        y: 768
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33, y: 64}
+        - {x: -4, y: 64}
+        - {x: -34, y: 50}
+        - {x: -49, y: 39}
+        - {x: -42, y: 13}
+        - {x: -39, y: 12}
+        - {x: -68, y: 6}
+        - {x: -85, y: -1}
+        - {x: -85, y: -32}
+        - {x: -56, y: -58}
+        - {x: 59, y: -58}
+        - {x: 61, y: -46}
+        - {x: 61, y: 37}
+        - {x: 57, y: 58}
     - name: stegs_placeholder_8
       rect:
         serializedVersion: 2
         x: 340
-        y: 256
+        y: 768
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 64}
+        - {x: -66, y: 45}
+        - {x: -85, y: 14}
+        - {x: -85, y: -33}
+        - {x: -53, y: -58}
+        - {x: 46, y: -58}
+        - {x: 63, y: -25}
+        - {x: 63, y: 39}
+        - {x: 52, y: 64}
     - name: stegs_placeholder_9
       rect:
         serializedVersion: 2
         x: 510
-        y: 256
+        y: 768
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 64}
+        - {x: -85, y: 23}
+        - {x: -85, y: -38}
+        - {x: -51, y: -56}
+        - {x: 63, y: -56}
+        - {x: 63, y: 64}
     - name: stegs_placeholder_10
       rect:
         serializedVersion: 2
         x: 680
-        y: 256
+        y: 768
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26, y: 60}
+        - {x: -8, y: 60}
+        - {x: -55, y: 44}
+        - {x: -84, y: -14}
+        - {x: -85, y: -17}
+        - {x: -85, y: -43}
+        - {x: -22, y: -60}
+        - {x: 45, y: -60}
+        - {x: 57, y: -24}
+        - {x: 57, y: 17}
+        - {x: 45, y: 51}
     - name: stegs_placeholder_11
       rect:
         serializedVersion: 2
         x: 850
-        y: 256
+        y: 768
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53, y: 62}
+        - {x: -85, y: 27}
+        - {x: -85, y: -50}
+        - {x: -30, y: -60}
+        - {x: 40, y: -60}
+        - {x: 59, y: -22}
+        - {x: 59, y: 44}
+        - {x: 43, y: 62}
     - name: stegs_placeholder_12
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 640
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 60}
+        - {x: -40, y: 55}
+        - {x: -82, y: 6}
+        - {x: -85, y: -4}
+        - {x: -85, y: -40}
+        - {x: -31, y: -60}
+        - {x: 38, y: -60}
+        - {x: 53, y: -57}
+        - {x: 65, y: -16}
+        - {x: 65, y: 29}
+        - {x: 42, y: 60}
     - name: stegs_placeholder_13
       rect:
         serializedVersion: 2
         x: 170
-        y: 128
+        y: 640
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 60}
+        - {x: -33, y: 49}
+        - {x: -45, y: 33}
+        - {x: -40, y: 11}
+        - {x: -38, y: 5}
+        - {x: -31, y: -3}
+        - {x: -68, y: -3}
+        - {x: -84, y: -9}
+        - {x: -85, y: -10}
+        - {x: -85, y: -32}
+        - {x: -27, y: -59}
+        - {x: -23, y: -60}
+        - {x: 69, y: -60}
+        - {x: 69, y: 52}
+        - {x: 67, y: 60}
     - name: stegs_placeholder_14
       rect:
         serializedVersion: 2
         x: 340
-        y: 128
+        y: 640
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -68, y: 60}
+        - {x: -85, y: 37}
+        - {x: -85, y: -27}
+        - {x: -80, y: -31}
+        - {x: -23, y: -60}
+        - {x: 69, y: -60}
+        - {x: 69, y: 60}
     - name: stegs_placeholder_15
       rect:
         serializedVersion: 2
         x: 510
-        y: 128
+        y: 640
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 60}
+        - {x: -70, y: 52}
+        - {x: -85, y: 26}
+        - {x: -85, y: -31}
+        - {x: -35, y: -60}
+        - {x: 69, y: -60}
+        - {x: 69, y: 32}
+        - {x: 58, y: 60}
     - name: stegs_placeholder_16
       rect:
         serializedVersion: 2
         x: 680
-        y: 128
+        y: 640
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 60}
+        - {x: -37, y: 49}
+        - {x: -49, y: 33}
+        - {x: -42, y: 7}
+        - {x: -39, y: 6}
+        - {x: -80, y: -1}
+        - {x: -85, y: -2}
+        - {x: -85, y: -32}
+        - {x: -51, y: -60}
+        - {x: 67, y: -60}
+        - {x: 67, y: 34}
+        - {x: 49, y: 60}
     - name: stegs_placeholder_17
       rect:
         serializedVersion: 2
         x: 850
-        y: 128
+        y: 640
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -56, y: 60}
+        - {x: -85, y: 15}
+        - {x: -85, y: -50}
+        - {x: -48, y: -60}
+        - {x: 65, y: -60}
+        - {x: 65, y: 37}
+        - {x: 49, y: 60}
     - name: stegs_placeholder_18
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 512
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 60}
+        - {x: -69, y: 46}
+        - {x: -83, y: 2}
+        - {x: -83, y: -25}
+        - {x: -34, y: -60}
+        - {x: 65, y: -60}
+        - {x: 65, y: 28}
+        - {x: 46, y: 60}
     - name: stegs_placeholder_19
       rect:
         serializedVersion: 2
         x: 170
-        y: 0
+        y: 512
         width: 170
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 67, y: -49}
+        - {x: 69, y: -18}
+        - {x: 69, y: 19}
+        - {x: 53, y: 46}
+        - {x: 43, y: 56}
+        - {x: 35, y: 60}
+        - {x: -24, y: 60}
+        - {x: -41, y: 58}
+        - {x: -85, y: 11}
+        - {x: -85, y: -34}
+        - {x: -31, y: -60}
+        - {x: 68, y: -60}
+    - name: stegs_placeholder_20
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 512
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: 62}
+        - {x: -49, y: 62}
+        - {x: -85, y: 34}
+        - {x: -85, y: -16}
+        - {x: -76, y: -23}
+        - {x: -43, y: -38}
+        - {x: -28, y: -58}
+        - {x: 64, y: -58}
+        - {x: 65, y: -51}
+        - {x: 65, y: 34}
+        - {x: 57, y: 55}
+    - name: stegs_placeholder_21
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 512
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -83, y: 64}
+        - {x: -85, y: 58}
+        - {x: -85, y: -12}
+        - {x: -49, y: -58}
+        - {x: 43, y: -58}
+        - {x: 43, y: 64}
+    - name: stegs_placeholder_22
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 512
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 64}
+        - {x: -66, y: 43}
+        - {x: -70, y: 38}
+        - {x: -60, y: 11}
+        - {x: -53, y: 8}
+        - {x: -54, y: 3}
+        - {x: -56, y: 7}
+        - {x: -64, y: 13}
+        - {x: -72, y: 24}
+        - {x: -81, y: 14}
+        - {x: -81, y: -14}
+        - {x: -36, y: -58}
+        - {x: 39, y: -58}
+        - {x: 39, y: 64}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
