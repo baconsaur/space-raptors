@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 624cd6fd7663b42358e35730f732b30b
-timeCreated: 1451275590
+timeCreated: 1451278905
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,18 @@ TextureImporter:
     21300006: powerup_sprites_3
     21300008: powerup_sprites_4
     21300010: powerup_sprites_5
+    21300012: powerup_sprites_6
+    21300014: powerup_sprites_7
+    21300016: powerup_sprites_8
+    21300018: powerup_sprites_9
+    21300020: powerup_sprites_10
+    21300022: powerup_sprites_11
+    21300024: powerup_sprites_12
+    21300026: powerup_sprites_13
+    21300028: powerup_sprites_14
+    21300030: powerup_sprites_15
+    21300032: powerup_sprites_16
+    21300034: powerup_sprites_17
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -111,6 +123,126 @@ TextureImporter:
         serializedVersion: 2
         x: 320
         y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_9
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: powerup_sprites_17
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
         width: 64
         height: 64
       alignment: 0
