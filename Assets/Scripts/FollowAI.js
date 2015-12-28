@@ -179,6 +179,7 @@ private function Jump(body :Rigidbody2D, stats :Capabilities) {
 
 private function GoLeft(position :Vector2, me :GameObject, stats :Capabilities) {
 	me.transform.localScale.x = 1f;
+	me.GetComponent(EnemyController).shotOffset.x = -2;
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
@@ -188,6 +189,7 @@ private function GoLeft(position :Vector2, me :GameObject, stats :Capabilities) 
 
 private function GoRight(position :Vector2, me :GameObject, stats :Capabilities) {
 	me.transform.localScale.x = -1f;
+	me.GetComponent(EnemyController).shotOffset.x = 2;
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
 	}, function() {

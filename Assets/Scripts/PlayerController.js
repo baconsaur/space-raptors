@@ -9,8 +9,10 @@ var turnDeadZone :float;
 var animator :Animator;
 var shotOffset :Vector2;
 var currentWeapon :GameObject;
-var defaultCooldown : int;
-var weapons : Array;
+var defaultCooldown :int;
+var weapons : GameObject[];
+var switchCooldown :int;
+var armor :int;
 
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
@@ -25,6 +27,9 @@ function Start () {
 function FixedUpdate () {
 	if (shotCooldown) {
 		shotCooldown--;
+	}
+	if (switchCooldown) {
+		switchCooldown--;
 	}
 	var direction = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
 	transform.Translate(new Vector2(direction, 0));
@@ -64,11 +69,84 @@ function FixedUpdate () {
 		newShot.GetComponent(ProjectileController).direction = transform.localScale.x;
 		shotCooldown = defaultCooldown;
 	}
+	
+	var weaponSwitch = 0;
+	
+	if (Input.GetAxis("Fire2")) {
+		weaponSwitch = -1;
+	} else if (Input.GetAxis("Fire3")) {
+		weaponSwitch = 1;
+	}
+	if (!switchCooldown && weaponSwitch) {
+		switchCooldown = 25;
+		var current :int;
+		for (var i=0;i<weapons.length;i++) {
+			if (weapons[i].name == currentWeapon.name.Replace("(Clone)", "")) {
+				current = i;
+				break;
+			}
+		}
+		if(current + weaponSwitch >= 0 && current + weaponSwitch < weapons.length) {
+			SwitchWeapon(weapons[current + weaponSwitch]);
+		}
+	}
+}
+
+function ItemPickup (newItem :GameObject) {
+	if (newItem.tag == "Weapon") {
+		ArrayUtility.Add(weapons, newItem);
+		SwitchWeapon(newItem);
+	} else if (newItem.tag == "Powerup") {
+		if (newItem.name.Contains("Health" && "25")) {
+			HealDamage(25);
+		} else if (newItem.name.Contains("Health" && "50")) {
+			HealDamage(50);
+		} else if (newItem.name.Contains("Health" && "Max")) {
+			HealDamage(100);
+		} else if (newItem.name.Contains("Armor" && "50")) {
+			armor += 50;
+		} else if (newItem.name.Contains("Armor" && "100")) {
+			armor += 100;
+		}
+		
+		if (armor > 100) {
+			armor = 100;
+		}
+	}
+}
+
+function HealDamage (heal :int) {
+	health += heal;
+	if (health > 100) {
+		health = 100;
+	}
+	Debug.Log(health);
 }
 
 function TakeDamage (damage :int) {
-	health -= damage;
-	if (health <= 0) {
-		Application.LoadLevel (Application.loadedLevel);
+	if (armor) {
+		armor -= damage;
+		if (armor < 0) {
+			armor = 0;
+		}
+		Debug.Log(armor);
+	} else {
+		health -= damage;
+		Debug.Log(health);
+		if (health <= 0) {
+			Application.LoadLevel (Application.loadedLevel);
+		}
 	}
+}
+
+function SwitchWeapon (weapon :GameObject) {
+	Destroy(transform.GetChild(0).gameObject);
+	
+	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);	newWeapon.transform.parent = gameObject.transform;
+	
+	newWeapon.transform.localScale.x *= transform.localScale.x;
+	currentWeapon = newWeapon;
+	weaponAnimator = currentWeapon.GetComponent(Animator);
+	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
+
 }
