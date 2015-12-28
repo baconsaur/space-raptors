@@ -12,6 +12,7 @@ var currentWeapon :GameObject;
 var defaultCooldown :int;
 var weapons : GameObject[];
 var switchCooldown :int;
+var armor :int;
 
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
@@ -95,13 +96,41 @@ function ItemPickup (newItem :GameObject) {
 	if (newItem.tag == "Weapon") {
 		ArrayUtility.Add(weapons, newItem);
 		SwitchWeapon(newItem);
+	} else if (newItem.tag == "Powerup") {
+		if (newItem.name.Contains("Health" && "25")) {
+			HealDamage(25);
+		} else if (newItem.name.Contains("Health" && "50")) {
+			HealDamage(50);
+		} else if (newItem.name.Contains("Health" && "Max")) {
+			HealDamage(100);
+		}
+		if (newItem.name.Contains("Armor")) {
+			armor = 100;
+		}
 	}
 }
 
+function HealDamage (heal :int) {
+	health += heal;
+	if (health > 100) {
+		health = 100;
+	}
+	Debug.Log(health);
+}
+
 function TakeDamage (damage :int) {
-	health -= damage;
-	if (health <= 0) {
-		Application.LoadLevel (Application.loadedLevel);
+	if (armor) {
+		armor -= damage;
+		if (armor < 0) {
+			armor = 0;
+		}
+		Debug.Log(armor);
+	} else {
+		health -= damage;
+		Debug.Log(health);
+		if (health <= 0) {
+			Application.LoadLevel (Application.loadedLevel);
+		}
 	}
 }
 
