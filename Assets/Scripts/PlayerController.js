@@ -103,8 +103,13 @@ function ItemPickup (newItem :GameObject) {
 			HealDamage(50);
 		} else if (newItem.name.Contains("Health" && "Max")) {
 			HealDamage(100);
+		} else if (newItem.name.Contains("Armor" && "50")) {
+			armor += 50;
+		} else if (newItem.name.Contains("Armor" && "100")) {
+			armor += 100;
 		}
-		if (newItem.name.Contains("Armor")) {
+		
+		if (armor > 100) {
 			armor = 100;
 		}
 	}
