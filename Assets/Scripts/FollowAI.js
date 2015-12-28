@@ -183,7 +183,7 @@ private function GoLeft(position :Vector2, me :GameObject, stats :Capabilities) 
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.x > position.x;
+		return me.transform.position.x > position.x - (stats.speed * Time.deltaTime);
 	}));
 }
 
@@ -193,8 +193,7 @@ private function GoRight(position :Vector2, me :GameObject, stats :Capabilities)
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		Debug.Log(me.transform.position.x);
-		return me.transform.position.x < position.x;
+		return me.transform.position.x < position.x + (stats.speed * Time.deltaTime);
 	}));
 }
 
@@ -203,7 +202,7 @@ private function FallLeft(position :Vector2, me :GameObject, untilY :float, stat
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.y >= untilY - 0.1 && me.transform.position.x >= position.x;
+		return me.transform.position.y >= untilY - 0.1 || me.transform.position.x >= position.x;
 	}));
 }
 
@@ -212,7 +211,7 @@ private function FallRight(position :Vector2, me :GameObject, untilY :float, sta
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.y >= untilY - 0.1 && me.transform.position.x <= position.x;
+		return me.transform.position.y >= untilY - 0.1 || me.transform.position.x <= position.x;
 	}));
 
 }
