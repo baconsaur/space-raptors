@@ -82,37 +82,121 @@ public class PathFinding extends MonoBehaviour {
 		var targetExtend :Methods.ObjectWithCorners = new Methods.ObjectWithCorners(target);
 		if (!PathFinding.reachable(startExtend, targetExtend, stats)) return new Array();
 		
-		if (startExtend.corners.landCenter.y > targetExtend.corners.landCenter.y && targetExtend.corners.topLeft.x <= startExtend.corners.topLeft.x -
-			Methods.distance(objectExtend.corners.bottomLeft, objectExtend.corners.bottomRight) / 2f && targetExtend.corners.topRight.x >= startExtend.corners.topLeft.x
-		) {
-			return new Array('FallLeft');
-		} else if (startExtend.corners.landCenter.y > targetExtend.corners.landCenter.y && targetExtend.corners.topRight.x >= startExtend.corners.topRight.x +
-			Methods.distance(objectExtend.corners.bottomLeft, objectExtend.corners.bottomRight) / 2f && targetExtend.corners.topLeft.x <= startExtend.corners.topRight.x
-		) {
-			return new Array('FallRight');
-		} else if (startExtend.corners.landCenter.y > targetExtend.corners.landCenter.y && targetExtend.corners.landCenter.x >= startExtend.corners.topLeft.x &&
-			targetExtend.corners.landCenter.x <= startExtend.corners.topRight.x
-		) {
-			if (startExtend.corners.topLeft.x - targetExtend.corners.topLeft.x >= targetExtend.corners.topRight.x - startExtend.corners.topRight.x) {
-				return new Array('FallAroundLeft', targetExtend.corners.topLeft);
+//		if (startExtend.corners.landCenter.y > targetExtend.corners.landCenter.y && targetExtend.corners.topLeft.x <= startExtend.corners.topLeft.x -
+//			Methods.distance(objectExtend.corners.bottomLeft, objectExtend.corners.bottomRight) / 2f && targetExtend.corners.topRight.x >= startExtend.corners.topLeft.x
+//		) {
+//			return new Array('FallLeft');
+//		} else if (startExtend.corners.landCenter.y > targetExtend.corners.landCenter.y && targetExtend.corners.topRight.x >= startExtend.corners.topRight.x +
+//			Methods.distance(objectExtend.corners.bottomLeft, objectExtend.corners.bottomRight) / 2f && targetExtend.corners.topLeft.x <= startExtend.corners.topRight.x
+//		) {
+//			return new Array('FallRight');
+//		} else if (startExtend.corners.landCenter.y > targetExtend.corners.landCenter.y && targetExtend.corners.landCenter.x >= startExtend.corners.topLeft.x &&
+//			targetExtend.corners.landCenter.x <= startExtend.corners.topRight.x
+//		) {
+//			if (startExtend.corners.topLeft.x - targetExtend.corners.topLeft.x >= targetExtend.corners.topRight.x - startExtend.corners.topRight.x) {
+//				return new Array('FallAroundLeft', targetExtend.corners.topLeft);
+//			}
+//			else return new Array('FallAroundRight', targetExtend.corners.topRight);
+//		} else if (Methods.distance(startExtend.corners.topLeft, targetExtend.corners.topRight) <= tolerance) {
+//			return new Array('MoveLeft', targetExtend.corners.topRight);
+//		} else if (Methods.distance(startExtend.corners.topRight, targetExtend.corners.topLeft) <= tolerance) {
+//			return new Array('MoveRight', targetExtend.corners.topLeft);
+//		} else if (startExtend.corners.topLeft.x > targetExtend.corners.topRight.x) {
+//			return new Array('JumpLeft', startExtend.corners.topLeft, targetExtend.corners.topRight);
+//		} else if (startExtend.corners.topRight.x < targetExtend.corners.topLeft.x) {
+//			return new Array('JumpRight', startExtend.corners.topRight, targetExtend.corners.topLeft);
+//		} else if (startExtend.corners.landCenter.y < targetExtend.corners.landCenter.y && targetExtend.corners.landCenter.x >= startExtend.corners.topLeft.x &&
+//			targetExtend.corners.landCenter.x <= startExtend.corners.topRight.x
+//		) {
+//			if (targetExtend.corners.topLeft.x - startExtend.corners.topLeft.x >= startExtend.corners.topRight.x - targetExtend.corners.topRight.x) {
+//				return new Array('JumpAroundLeft', startExtend.corners.topLeft, targetExtend.corners.topLeft);
+//			}
+//			else return new Array('JumpAroundRight', startExtend.corners.topRight, targetExtend.corners.topRight);
+//		}
+//		else return new Array('no method');
+		
+		
+		var myWidth = Methods.distance(objectExtend.corners.bottomLeft, objectExtend.corners.bottomRight);
+		var position :Vector2;
+		var yOffset :float;
+		
+		////
+		// On the Level
+		////
+		if (Mathf.Abs(startExtend.corners.landCenter.y - targetExtend.corners.landCenter.y) <= tolerance) {
+			if (startExtend.corners.landCenter.x > targetExtend.corners.landCenter.x) {
+				// => to the left
+				if (startExtend.corners.topLeft.x < targetExtend.corners.topRight.x + myWidth) {
+					return new Array('MoveLeft', targetExtend.corners.topRight);
+				} else {
+					return new Array('JumpLeft', startExtend.corners.topLeft, startExtend.corners.landCenter.y, targetExtend.corners.topRight);
+				}
+			} else {
+				// => to the right
+				if (startExtend.corners.topRight.x > targetExtend.corners.topLeft.x - myWidth) {
+					return new Array('MoveRight', targetExtend.corners.topLeft);
+				} else {
+					return new Array('JumpRight', startExtend.corners.topRight, startExtend.corners.landCenter.y, targetExtend.corners.topLeft);
+				}
 			}
-			else return new Array('FallAroundRight', targetExtend.corners.topRight);
-		} else if (Methods.distance(startExtend.corners.topLeft, targetExtend.corners.topRight) <= tolerance) {
-			return new Array('MoveLeft', targetExtend.corners.topRight);
-		} else if (Methods.distance(startExtend.corners.topRight, targetExtend.corners.topLeft) <= tolerance) {
-			return new Array('MoveRight', targetExtend.corners.topLeft);
-		} else if (startExtend.corners.topLeft.x > targetExtend.corners.topRight.x) {
-			return new Array('JumpLeft', startExtend.corners.topLeft, targetExtend.corners.topRight);
-		} else if (startExtend.corners.topRight.x < targetExtend.corners.topLeft.x) {
-			return new Array('JumpRight', startExtend.corners.topRight, targetExtend.corners.topLeft);
-		} else if (startExtend.corners.landCenter.y < targetExtend.corners.landCenter.y && targetExtend.corners.landCenter.x >= startExtend.corners.topLeft.x &&
-			targetExtend.corners.landCenter.x <= startExtend.corners.topRight.x
-		) {
-			if (targetExtend.corners.topLeft.x - startExtend.corners.topLeft.x >= startExtend.corners.topRight.x - targetExtend.corners.topRight.x) {
+			
+		////
+		// Aim toward the sky and rise
+		////
+		} else if (startExtend.corners.landCenter.y < targetExtend.corners.landCenter.y + tolerance) {
+			if (startExtend.corners.topLeft.x >= targetExtend.corners.topRight.x + (myWidth / 2f)) {
+				// jump across left
+				Debug.Log('first:');
+				return new Array('JumpLeft', startExtend.corners.topLeft, startExtend.corners.landCenter.y, targetExtend.corners.topRight);
+			} else if (startExtend.corners.topRight.x <= targetExtend.corners.topLeft.x - (myWidth / 2f)) {
+				// jump acrros right
+				return new Array('JumpRight', startExtend.corners.topRight, startExtend.corners.landCenter.y, targetExtend.corners.topLeft);
+			} else if (startExtend.corners.topRight.x > targetExtend.corners.topRight.x + myWidth) {
+				// jump up left
+				position = new Vector2(targetExtend.corners.topRight.x + myWidth, startExtend.corners.landCenter.y);
+				return new Array('JumpLeft', position, targetExtend.corners.landCenter.y, targetExtend.corners.topRight);
+			} else if (startExtend.corners.topLeft.x < targetExtend.corners.topLeft.x + myWidth) {
+				// jump up right
+				position = new Vector2(targetExtend.corners.topLeft.x - myWidth,startExtend.corners.landCenter.y);
+				return new Array('JumpRight', position, targetExtend.corners.landCenter.y, targetExtend.corners.topLeft);
+			} else if (startExtend.corners.topLeft.x <= targetExtend.corners.topLeft.x) {
+				// jump around left
 				return new Array('JumpAroundLeft', startExtend.corners.topLeft, targetExtend.corners.topLeft);
+			} else if (startExtend.corners.topRight.x >= targetExtend.corners.topRight.x) {
+				// jump around right
+				return new Array('JumpAroundRight', startExtend.corners.topRight, targetExtend.corners.topRight);
+			} else return new Array('PATHFINDING ERROR: jump, but no go');
+			
+		////
+		// I was up above it
+		////
+		} else {
+			if (startExtend.corners.topLeft.x > targetExtend.corners.topLeft.x + myWidth) {
+				// Fall or Jump Left?
+				yOffset = Mathf.Sqrt(targetExtend.corners.landCenter.y - startExtend.corners.landCenter.y);
+				if (startExtend.corners.topLeft.x < targetExtend.corners.topRight.x + myWidth + yOffset) {
+					// fall left
+					return new Array('FallLeft', targetExtend.corners.topRight);
+				} else {
+					// jump left
+					return new Array('JumpLeft', startExtend.corners.topLeft, startExtend.corners.landCenter.y, targetExtend.corners.topLeft);
+				}
+			} else if (startExtend.corners.topRight.x < targetExtend.corners.topRight.x + myWidth) {
+				// Fall or Jump Right?
+				yOffset = Mathf.Sqrt(targetExtend.corners.landCenter.y - startExtend.corners.landCenter.y);
+				if (startExtend.corners.topRight.x > targetExtend.corners.topLeft.x - myWidth - yOffset) {
+					// fall right
+					return new Array('FallRight', targetExtend.corners.topLeft);
+				} else {
+					return new Array('JumpRight', startExtend.corners.topRight, startExtend.corners.landCenter.y, targetExtend.corners.topRight);
+				}
+			} else if (Methods.distance(startExtend.corners.topLeft, targetExtend.corners.topLeft) <=
+				Methods.distance(startExtend.corners.topRight, targetExtend.corners.topLeft)
+			) {
+				return new Array('FallAroundLeft', targetExtend.corners.topLeft);
+			} else {
+				return new Array('FallAroundRight', targetExtend.corners.topRight);
 			}
-			else return new Array('JumpAroundRight', startExtend.corners.topRight, targetExtend.corners.topRight);
 		}
-		else return new Array();
 	}
 }
