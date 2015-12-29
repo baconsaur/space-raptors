@@ -39,7 +39,7 @@ Animator:
   m_GameObject: {fileID: 174044}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 260e5dc8397a64c83a9321bae9a97fc7, type: 2}
+  m_Controller: {fileID: 9100000, guid: cd0c51dec7f03469fa7d9a951b4451d7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -100,6 +100,10 @@ Prefab:
       propertyPath: m_TagString
       value: Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cd0c51dec7f03469fa7d9a951b4451d7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174044}

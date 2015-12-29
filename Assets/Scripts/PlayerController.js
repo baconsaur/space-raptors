@@ -50,17 +50,30 @@ function FixedUpdate () {
 		animator.SetBool("walking", false);
 		weaponAnimator.SetBool("walking", false);
 	}
-	
-	if (Input.GetAxis("Vertical") > 0 && rigidBody.velocity.y == 0) {
-		animator.SetBool("jumping", true);
+
+
+	if (Input.GetAxis("Jump") > 0 && rigidBody.velocity.y == 0) {
 		animator.SetBool("walking", false);
-		weaponAnimator.SetBool("jumping", true);
 		weaponAnimator.SetBool("walking", false);
 		rigidBody.AddForce(Vector2(0, jumpForce));
+	}
+
+	if (rigidBody.velocity.y > 0) {
+		animator.SetBool("jumping", true);
+		animator.SetBool("falling", false);
+		weaponAnimator.SetBool("jumping", true);
+		weaponAnimator.SetBool("falling", false);
+	} else if (rigidBody.velocity.y < 0) {
+		animator.SetBool("jumping", false);
+		animator.SetBool("falling", true);
+		weaponAnimator.SetBool("jumping", false);
+		weaponAnimator.SetBool("falling", true);
 	} else if (rigidBody.velocity.y == 0) {
 	//TODO: This also gets set to 0 at the apex of a jump
 		animator.SetBool("jumping", false);
+		animator.SetBool("falling", false);
 		weaponAnimator.SetBool("jumping", false);
+		weaponAnimator.SetBool("falling", false);
 	}
 	
 	var shoot = Input.GetAxis("Fire1");
@@ -133,6 +146,7 @@ function HealDamage (heal :int) {
 
 function TakeDamage (damage :int) {
 	animator.SetTrigger("hit");
+	weaponAnimator.SetTrigger("hit");
 	if (armor) {
 		armor -= damage;
 		if (armor < 0) {
@@ -144,6 +158,7 @@ function TakeDamage (damage :int) {
 		Debug.Log(health);
 		if (health <= 0) {
 			animator.SetBool("dead", true);
+			weaponAnimator.SetBool("dead", true);
 		}
 	}
 }

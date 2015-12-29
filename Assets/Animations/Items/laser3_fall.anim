@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: stegs_fall
+  m_Name: laser3_fall
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,9 +19,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300052, guid: 8cccfe2105b124e8ba634b9f5a7ec5ac, type: 3}
+      value: {fileID: 21300052, guid: 47c69bde6db004d2e92f6f870b68dc1e, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300054, guid: 8cccfe2105b124e8ba634b9f5a7ec5ac, type: 3}
+      value: {fileID: 21300054, guid: 47c69bde6db004d2e92f6f870b68dc1e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,8 +40,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300052, guid: 8cccfe2105b124e8ba634b9f5a7ec5ac, type: 3}
-    - {fileID: 21300054, guid: 8cccfe2105b124e8ba634b9f5a7ec5ac, type: 3}
+    - {fileID: 21300052, guid: 47c69bde6db004d2e92f6f870b68dc1e, type: 3}
+    - {fileID: 21300054, guid: 47c69bde6db004d2e92f6f870b68dc1e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
