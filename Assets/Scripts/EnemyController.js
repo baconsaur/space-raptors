@@ -37,6 +37,8 @@ function TakeDamage (damage :int) {
 		newEnemy.GetComponent(FollowAI).pointers.player = player;
 		newEnemy.GetComponent(EnemyController).enemyType = enemyType;
 		Destroy(gameObject);
+	} else {
+		this.gameObject.SendMessage('DisplayDamage');
 	}
 }
 

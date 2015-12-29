@@ -161,6 +161,9 @@ function TakeDamage (damage :int) {
 			weaponAnimator.SetBool("dead", true);
 		}
 	}
+	if (health > 0) {
+		this.gameObject.SendMessage('DisplayDamage');
+	}
 }
 
 function SwitchWeapon (weapon :GameObject) {
@@ -178,3 +181,4 @@ function SwitchWeapon (weapon :GameObject) {
 function Die () {
 	Application.LoadLevel (Application.loadedLevel);
 }
+

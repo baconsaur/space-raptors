@@ -109,10 +109,6 @@ public function FollowPath(path :Array, timeout :float, me: GameObject, body :Ri
 		} else {
 			var howTo :Array = PathFinding.howToGetThere(me, path[i - 1], path[i], 0.1, stats);
 			if (howTo.length) {
-				Debug.Log('start:');
-				Debug.Log(path[i - 1]);
-				Debug.Log('target:');
-				Debug.Log(path[i]);
 				yield StartCoroutine(Move(howTo, me, body, stats));
 	//			yield WaitForSeconds(timeout);
 			} else {
@@ -183,7 +179,7 @@ private function GoLeft(position :Vector2, me :GameObject, stats :Capabilities) 
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.x > position.x - (stats.speed * Time.deltaTime);
+		return me.transform.position.x > position.x - (stats.speed * Time.deltaTime + 1f);
 	}));
 }
 
@@ -193,7 +189,7 @@ private function GoRight(position :Vector2, me :GameObject, stats :Capabilities)
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.x < position.x + (stats.speed * Time.deltaTime);
+		return me.transform.position.x < position.x + (stats.speed * Time.deltaTime + 1f);
 	}));
 }
 
