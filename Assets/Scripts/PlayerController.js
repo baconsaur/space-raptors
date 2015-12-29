@@ -9,15 +9,18 @@ var turnDeadZone :float;
 var animator :Animator;
 var shotOffset :Vector2;
 var currentWeapon :GameObject;
-var defaultCooldown :int;
+var defaultCooldown :float;
 var weapons : GameObject[];
-var switchCooldown :int;
+var switchCooldown :float;
 var armor :int;
 var collisionDamage :int;
+var stealthTime :float;
+var stealth :boolean;
+var stealthCooldown :float;
 
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
-private var shotCooldown :int;
+private var shotCooldown :float;
 
 function Start () {
 	shotCooldown = 0;
@@ -26,11 +29,22 @@ function Start () {
 }
 
 function FixedUpdate () {
+	if (stealthTime && stealth) {
+		stealthTime -= Time.deltaTime;
+		if (stealthTime <= 0) {
+			stealth = false;
+			GetComponent(SpriteRenderer).color.a = 1;
+		}
+	}
+
 	if (shotCooldown) {
-		shotCooldown--;
+		shotCooldown -= Time.deltaTime;
+	}
+	if (stealthCooldown) {
+		stealthCooldown -= Time.deltaTime;
 	}
 	if (switchCooldown) {
-		switchCooldown--;
+		switchCooldown -= Time.deltaTime;
 	}
 	var direction = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
 	if (animator.GetBool("dead") == false) {
@@ -77,7 +91,7 @@ function FixedUpdate () {
 	}
 	
 	var shoot = Input.GetAxis("Fire1");
-	if (!shotCooldown && shoot && animator.GetBool("dead") == false) {
+	if (shotCooldown <= 0 && shoot && animator.GetBool("dead") == false) {
 	animator.SetTrigger("shoot");
 	weaponAnimator.SetTrigger("shoot");
 		var newShot = Instantiate(weaponProjectile, Vector2(gameObject.transform.position.x + shotOffset.x, gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
@@ -86,14 +100,25 @@ function FixedUpdate () {
 	}
 	
 	var weaponSwitch = 0;
-	
+
+	if (Input.GetAxis("Stealth") && stealthCooldown <= 0) {
+		stealthCooldown = defaultCooldown;
+		if (stealth) {
+			stealth = false;
+			GetComponent(SpriteRenderer).color.a = 1;
+		} else if (!stealth && stealthTime) {
+			stealth = true;
+			GetComponent(SpriteRenderer).color.a = 0.2;
+		}
+	}
+
 	if (Input.GetAxis("Fire2")) {
 		weaponSwitch = -1;
 	} else if (Input.GetAxis("Fire3")) {
 		weaponSwitch = 1;
 	}
-	if (!switchCooldown && weaponSwitch && animator.GetBool("dead") == false) {
-		switchCooldown = 25;
+	if (switchCooldown <= 0 && weaponSwitch && animator.GetBool("dead") == false) {
+		switchCooldown = defaultCooldown;
 		var current :int;
 		for (var i=0;i<weapons.length;i++) {
 			if (weapons[i].name == currentWeapon.name.Replace("(Clone)", "")) {

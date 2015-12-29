@@ -145,12 +145,15 @@ MonoBehaviour:
   animator: {fileID: 93899207}
   shotOffset: {x: 2, y: 0.25}
   currentWeapon: {fileID: 601094713}
-  defaultCooldown: 25
+  defaultCooldown: 0.5
   weapons:
   - {fileID: 101436, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
-  switchCooldown: 25
+  switchCooldown: 2
   armor: 25
   collisionDamage: 10
+  stealthTime: 20
+  stealth: 0
+  stealthCooldown: 0
 --- !u!61 &93899209
 BoxCollider2D:
   m_ObjectHideFlags: 0
