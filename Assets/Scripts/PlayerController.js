@@ -52,7 +52,7 @@ function FixedUpdate () {
 	}
 
 
-	if (Input.GetAxis("Jump") > 0 && rigidBody.velocity.y == 0) {
+	if (Input.GetAxis("Jump") > 0 && rigidBody.velocity.y == 0 && animator.GetBool("dead") == false) {
 		animator.SetBool("walking", false);
 		weaponAnimator.SetBool("walking", false);
 		rigidBody.AddForce(Vector2(0, jumpForce));
