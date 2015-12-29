@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8cccfe2105b124e8ba634b9f5a7ec5ac
-timeCreated: 1451337180
+timeCreated: 1451415123
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -29,6 +29,9 @@ TextureImporter:
     21300044: stegs_placeholder_22
     21300046: stegs_placeholder_23
     21300048: stegs_placeholder_24
+    21300050: stegs_placeholder_25
+    21300052: stegs_placeholder_26
+    21300054: stegs_placeholder_27
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -604,14 +607,87 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -8, y: 24}
-        - {x: -73, y: -21}
-        - {x: -81, y: -34}
-        - {x: -81, y: -45}
-        - {x: -41, y: -64}
+      - - {x: -31, y: 26}
+        - {x: -81, y: -23}
+        - {x: -81, y: -53}
+        - {x: -47, y: -64}
         - {x: 61, y: -64}
         - {x: 61, y: -30}
-        - {x: 20, y: 24}
+        - {x: 23, y: 26}
+    - name: stegs_placeholder_25
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 384
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 59, y: 46}
+        - {x: 35, y: 54}
+        - {x: -1, y: 54}
+        - {x: -33, y: 40}
+        - {x: -47, y: 27}
+        - {x: -42, y: 0}
+        - {x: -70, y: -6}
+        - {x: -85, y: -13}
+        - {x: -85, y: -41}
+        - {x: -84, y: -44}
+        - {x: -25, y: -60}
+        - {x: 30, y: -60}
+        - {x: 68, y: -58}
+        - {x: 63, y: -14}
+        - {x: 69, y: -6}
+        - {x: 69, y: 18}
+    - name: stegs_placeholder_26
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 384
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 62}
+        - {x: -43, y: 39}
+        - {x: -41, y: 9}
+        - {x: -37, y: 8}
+        - {x: -67, y: -46}
+        - {x: -67, y: -60}
+        - {x: -64, y: -62}
+        - {x: 63, y: -62}
+        - {x: 63, y: 57}
+        - {x: 35, y: 62}
+    - name: stegs_placeholder_27
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 384
+        width: 170
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 58}
+        - {x: -50, y: 42}
+        - {x: -46, y: 2}
+        - {x: -24, y: -15}
+        - {x: -21, y: -16}
+        - {x: -19, y: -16}
+        - {x: -21, y: -16}
+        - {x: -54, y: -15}
+        - {x: -81, y: -28}
+        - {x: -81, y: -56}
+        - {x: -39, y: -62}
+        - {x: 64, y: -62}
+        - {x: 65, y: -61}
+        - {x: 65, y: 41}
+        - {x: 56, y: 58}
     outline: []
   spritePackingTag: 
   userData: 

@@ -150,7 +150,6 @@ MonoBehaviour:
   switchCooldown: 25
   armor: 25
   collisionDamage: 10
-  knockback: 0.5
 --- !u!61 &93899209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1066,6 +1065,10 @@ Prefab:
       propertyPath: enemyType
       value: 
       objectReference: {fileID: 150218, guid: cf87caf1ba70441e194cda143cf67ab4, type: 2}
+    - target: {fileID: 6197020, guid: cf87caf1ba70441e194cda143cf67ab4, type: 2}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf87caf1ba70441e194cda143cf67ab4, type: 2}
   m_IsPrefabParent: 0
