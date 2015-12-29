@@ -32,10 +32,11 @@ function Update () {
 function TakeDamage (damage :int) {
 	health -= damage;
 	if (health <= 0) {
-		Destroy(gameObject);
-		var newEnemy = Instantiate(enemyType);
+		var newEnemy = Instantiate(enemyType, Vector2(Random.Range(-9, 9), 6), Quaternion.identity);
 		newEnemy.GetComponent(EnemyController).player = player;
 		newEnemy.GetComponent(FollowAI).pointers.player = player;
+		newEnemy.GetComponent(EnemyController).enemyType = enemyType;
+		Destroy(gameObject);
 	}
 }
 
