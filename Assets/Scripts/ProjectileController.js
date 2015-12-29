@@ -25,7 +25,7 @@ function Update () {
 	}
 }
 
-function OnCollisionEnter2D(collision :Collision2D) {
+function OnTriggerEnter2D(collision :Collider2D) {
 	if (collision.gameObject.tag == "Player" && weaponId != 2) {
 		return;
 	} else if (collision.gameObject.tag == "Enemy" && weaponId == 2) {
