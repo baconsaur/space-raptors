@@ -13,6 +13,7 @@ var defaultCooldown :int;
 var weapons : GameObject[];
 var switchCooldown :int;
 var armor :int;
+var collisionDamage :int;
 
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
@@ -113,6 +114,12 @@ function ItemPickup (newItem :GameObject) {
 		if (armor > 100) {
 			armor = 100;
 		}
+	}
+}
+
+function OnCollisionEnter2D (collision :Collision2D) {
+	if (collision.gameObject.tag == "Enemy") {
+		TakeDamage(collisionDamage);
 	}
 }
 

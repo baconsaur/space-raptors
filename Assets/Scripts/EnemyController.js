@@ -7,6 +7,7 @@ var defaultCooldown :int;
 var animator :Animator;
 var player :GameObject;
 var shootDifferentialY :float;
+var enemyType :GameObject;
 
 private var shotCooldown :int;
 
@@ -32,6 +33,9 @@ function TakeDamage (damage :int) {
 	health -= damage;
 	if (health <= 0) {
 		Destroy(gameObject);
+		var newEnemy = Instantiate(enemyType);
+		newEnemy.GetComponent(EnemyController).player = player;
+		newEnemy.GetComponent(FollowAI).pointers.player = player;
 	}
 }
 
