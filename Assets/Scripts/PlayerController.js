@@ -14,7 +14,9 @@ var weapons : GameObject[];
 var switchCooldown :int;
 var armor :int;
 var collisionDamage :int;
+var HUDCanvas :Canvas;
 
+private var HUDManager :HUDManager;
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
 private var shotCooldown :int;
@@ -23,6 +25,7 @@ function Start () {
 	shotCooldown = 0;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
+	HUDManager = HUDCanvas.GetComponent("HUDManager");
 }
 
 function FixedUpdate () {
@@ -127,6 +130,8 @@ function ItemPickup (newItem :GameObject) {
 		if (armor > 100) {
 			armor = 100;
 		}
+
+		HUDManager.UpdateArmor(armor);
 	}
 }
 
@@ -141,6 +146,7 @@ function HealDamage (heal :int) {
 	if (health > 100) {
 		health = 100;
 	}
+	HUDManager.UpdateHealth(health);
 	Debug.Log(health);
 }
 
@@ -152,10 +158,12 @@ function TakeDamage (damage :int) {
 		if (armor < 0) {
 			armor = 0;
 		}
+		HUDManager.UpdateArmor(armor);
 		Debug.Log(armor);
 	} else {
 		health -= damage;
 		Debug.Log(health);
+		HUDManager.UpdateHealth(health);
 		if (health <= 0) {
 			animator.SetBool("dead", true);
 			weaponAnimator.SetBool("dead", true);
