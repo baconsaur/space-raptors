@@ -63,7 +63,7 @@ public class Methods extends MonoBehaviour {
 		return ret;
 	}
 	static function forEach(array :Array, func :Function) {
-		for (var i :int; i < array.length; i++) {
+		for (var i :int = 0; i < array.length; i++) {
 			func(array[i]);
 		}
 	}
