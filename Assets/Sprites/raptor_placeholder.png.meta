@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 73884f8867a0f44708c359af6ea07046
-timeCreated: 1451245511
+timeCreated: 1451505622
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -30,7 +30,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -55,7 +55,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 42
   alphaIsTransparency: 1
@@ -67,132 +67,269 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 384
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 70, y: 58}
+        - {x: 59, y: 58}
+        - {x: -72, y: 20}
+        - {x: -72, y: -60}
+        - {x: -14, y: -48}
+        - {x: -7, y: -43}
+        - {x: -13, y: -47}
+        - {x: -30, y: -62}
+        - {x: 63, y: -62}
+        - {x: 72, y: 29}
+        - {x: 72, y: 57}
     - name: raptor_placeholder_1
       rect:
         serializedVersion: 2
         x: 144
-        y: 128
+        y: 384
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 48, y: 56}
+        - {x: -68, y: 19}
+        - {x: -72, y: 4}
+        - {x: -72, y: -62}
+        - {x: 66, y: -62}
+        - {x: 70, y: -7}
+        - {x: 70, y: 56}
     - name: raptor_placeholder_2
       rect:
         serializedVersion: 2
         x: 288
-        y: 128
+        y: 384
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 43, y: 50}
+        - {x: -63, y: 13}
+        - {x: -70, y: -7}
+        - {x: -70, y: -34}
+        - {x: -59, y: -50}
+        - {x: -25, y: -62}
+        - {x: 59, y: -62}
+        - {x: 68, y: -3}
+        - {x: 68, y: 50}
     - name: raptor_placeholder_3
       rect:
         serializedVersion: 2
         x: 432
-        y: 128
+        y: 384
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 48, y: 48}
+        - {x: -70, y: 5}
+        - {x: -70, y: -38}
+        - {x: -40, y: -62}
+        - {x: 47, y: -62}
+        - {x: 62, y: -4}
+        - {x: 62, y: 48}
     - name: raptor_placeholder_4
       rect:
         serializedVersion: 2
         x: 576
-        y: 128
+        y: 384
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 48, y: 50}
+        - {x: -68, y: 4}
+        - {x: -68, y: -46}
+        - {x: -61, y: -58}
+        - {x: -25, y: -62}
+        - {x: 43, y: -62}
+        - {x: 72, y: 15}
+        - {x: 72, y: 50}
     - name: raptor_placeholder_5
       rect:
         serializedVersion: 2
         x: 720
-        y: 128
+        y: 384
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 68, y: 51}
+        - {x: 61, y: 42}
+        - {x: 55, y: 34}
+        - {x: -46, y: 16}
+        - {x: -55, y: 9}
+        - {x: -70, y: -4}
+        - {x: -70, y: -26}
+        - {x: -69, y: -35}
+        - {x: -41, y: -62}
+        - {x: 33, y: -62}
+        - {x: 39, y: -55}
+        - {x: 72, y: 17}
+        - {x: 72, y: 51}
     - name: raptor_placeholder_6
       rect:
         serializedVersion: 2
         x: 864
-        y: 128
+        y: 384
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 72, y: 62}
+        - {x: 65, y: 62}
+        - {x: -61, y: 24}
+        - {x: -70, y: 7}
+        - {x: -70, y: -33}
+        - {x: -64, y: -44}
+        - {x: -35, y: -45}
+        - {x: -12, y: -44}
+        - {x: -15, y: -49}
+        - {x: -18, y: -59}
+        - {x: -7, y: -62}
+        - {x: 33, y: -62}
+        - {x: 40, y: -55}
+        - {x: 35, y: -37}
+        - {x: 72, y: 30}
     - name: raptor_placeholder_7
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 256
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 64, y: 58}
+        - {x: 61, y: 53}
+        - {x: 54, y: 28}
+        - {x: -72, y: 12}
+        - {x: -72, y: -62}
+        - {x: 60, y: -62}
+        - {x: 72, y: 29}
+        - {x: 72, y: 58}
     - name: raptor_placeholder_8
       rect:
         serializedVersion: 2
         x: 144
-        y: 0
+        y: 256
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 32, y: 58}
+        - {x: -70, y: 4}
+        - {x: -70, y: -32}
+        - {x: -24, y: -62}
+        - {x: 35, y: -62}
+        - {x: 46, y: -57}
+        - {x: 72, y: 2}
+        - {x: 72, y: 58}
     - name: raptor_placeholder_9
       rect:
         serializedVersion: 2
         x: 288
-        y: 0
+        y: 256
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 57, y: 58}
+        - {x: -56, y: 15}
+        - {x: -66, y: 0}
+        - {x: -66, y: -59}
+        - {x: -58, y: -62}
+        - {x: 60, y: -62}
+        - {x: 72, y: 7}
+        - {x: 72, y: 58}
     - name: raptor_placeholder_10
       rect:
         serializedVersion: 2
         x: 432
-        y: 0
+        y: 256
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 55, y: 58}
+        - {x: -56, y: 15}
+        - {x: -66, y: 0}
+        - {x: -66, y: -58}
+        - {x: -54, y: -62}
+        - {x: 56, y: -62}
+        - {x: 70, y: 9}
+        - {x: 70, y: 58}
     - name: raptor_placeholder_11
       rect:
         serializedVersion: 2
         x: 576
-        y: 0
+        y: 256
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: 60}
+        - {x: -56, y: 17}
+        - {x: -66, y: 3}
+        - {x: -66, y: -35}
+        - {x: -58, y: -43}
+        - {x: -19, y: -62}
+        - {x: 0, y: -62}
+        - {x: 2, y: -57}
+        - {x: 16, y: -62}
+        - {x: 33, y: -62}
+        - {x: 41, y: -55}
+        - {x: 72, y: 22}
+        - {x: 72, y: 60}
     - name: raptor_placeholder_12
       rect:
         serializedVersion: 2
         x: 720
-        y: 0
+        y: 256
         width: 144
         height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -70, y: 3}
+        - {x: -70, y: -35}
+        - {x: -39, y: -62}
+        - {x: 57, y: -62}
+        - {x: 72, y: -10}
+        - {x: 72, y: 58}
+        - {x: 50, y: 58}
+        - {x: -57, y: 13}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
