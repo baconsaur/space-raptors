@@ -9,31 +9,42 @@ var turnDeadZone :float;
 var animator :Animator;
 var shotOffset :Vector2;
 var currentWeapon :GameObject;
-var defaultCooldown :int;
+var defaultCooldown :float;
 var weapons : GameObject[];
-var switchCooldown :int;
+var switchCooldown :float;
 var armor :int;
 var collisionDamage :int;
-var HUDCanvas :Canvas;
+var stealthTime :float;
+var stealth :boolean;
+var stealthCooldown :float;
 
-private var HUDManager :HUDManager;
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
-private var shotCooldown :int;
+private var shotCooldown :float;
 
 function Start () {
 	shotCooldown = 0;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
-	HUDManager = HUDCanvas.GetComponent("HUDManager");
 }
 
 function FixedUpdate () {
+	if (stealthTime && stealth) {
+		stealthTime -= Time.deltaTime;
+		if (stealthTime <= 0) {
+			stealth = false;
+			GetComponent(SpriteRenderer).color.a = 1;
+		}
+	}
+
 	if (shotCooldown) {
-		shotCooldown--;
+		shotCooldown -= Time.deltaTime;
+	}
+	if (stealthCooldown) {
+		stealthCooldown -= Time.deltaTime;
 	}
 	if (switchCooldown) {
-		switchCooldown--;
+		switchCooldown -= Time.deltaTime;
 	}
 	var direction = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
 	if (animator.GetBool("dead") == false) {
@@ -72,31 +83,42 @@ function FixedUpdate () {
 		weaponAnimator.SetBool("jumping", false);
 		weaponAnimator.SetBool("falling", true);
 	} else if (rigidBody.velocity.y == 0) {
-	//TODO: This also gets set to 0 at the apex of a jump
+		//TODO: This also gets set to 0 at the apex of a jump
 		animator.SetBool("jumping", false);
 		animator.SetBool("falling", false);
 		weaponAnimator.SetBool("jumping", false);
 		weaponAnimator.SetBool("falling", false);
 	}
-	
+
 	var shoot = Input.GetAxis("Fire1");
-	if (!shotCooldown && shoot && animator.GetBool("dead") == false) {
-	animator.SetTrigger("shoot");
-	weaponAnimator.SetTrigger("shoot");
+	if (shotCooldown <= 0 && shoot && animator.GetBool("dead") == false) {
+		animator.SetTrigger("shoot");
+		weaponAnimator.SetTrigger("shoot");
 		var newShot = Instantiate(weaponProjectile, Vector2(gameObject.transform.position.x + shotOffset.x, gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
 		newShot.GetComponent(ProjectileController).direction = transform.localScale.x;
 		shotCooldown = defaultCooldown;
 	}
-	
+
 	var weaponSwitch = 0;
-	
+
+	if (Input.GetAxis("Stealth") && stealthCooldown <= 0) {
+		stealthCooldown = defaultCooldown;
+		if (stealth) {
+			stealth = false;
+			GetComponent(SpriteRenderer).color.a = 1;
+		} else if (!stealth && stealthTime) {
+			stealth = true;
+			GetComponent(SpriteRenderer).color.a = 0.2;
+		}
+	}
+
 	if (Input.GetAxis("Fire2")) {
 		weaponSwitch = -1;
 	} else if (Input.GetAxis("Fire3")) {
 		weaponSwitch = 1;
 	}
-	if (!switchCooldown && weaponSwitch && animator.GetBool("dead") == false) {
-		switchCooldown = 25;
+	if (switchCooldown <= 0 && weaponSwitch && animator.GetBool("dead") == false) {
+		switchCooldown = defaultCooldown;
 		var current :int;
 		for (var i=0;i<weapons.length;i++) {
 			if (weapons[i].name == currentWeapon.name.Replace("(Clone)", "")) {
@@ -126,12 +148,10 @@ function ItemPickup (newItem :GameObject) {
 		} else if (newItem.name.Contains("Armor" && "100")) {
 			armor += 100;
 		}
-		
+
 		if (armor > 100) {
 			armor = 100;
 		}
-
-		HUDManager.UpdateArmor(armor);
 	}
 }
 
@@ -146,7 +166,6 @@ function HealDamage (heal :int) {
 	if (health > 100) {
 		health = 100;
 	}
-	HUDManager.UpdateHealth(health);
 	Debug.Log(health);
 }
 
@@ -158,12 +177,10 @@ function TakeDamage (damage :int) {
 		if (armor < 0) {
 			armor = 0;
 		}
-		HUDManager.UpdateArmor(armor);
 		Debug.Log(armor);
 	} else {
 		health -= damage;
 		Debug.Log(health);
-		HUDManager.UpdateHealth(health);
 		if (health <= 0) {
 			animator.SetBool("dead", true);
 			weaponAnimator.SetBool("dead", true);
@@ -175,18 +192,15 @@ function TakeDamage (damage :int) {
 }
 
 function SwitchWeapon (weapon :GameObject) {
-	Destroy(transform.GetChild(0).gameObject);
-	
-	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);	newWeapon.transform.parent = gameObject.transform;
-	
+	Destroy(currentWeapon);
+	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
+	newWeapon.transform.parent = gameObject.transform;
 	newWeapon.transform.localScale.x *= transform.localScale.x;
 	currentWeapon = newWeapon;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
-
 }
 
 function Die () {
 	Application.LoadLevel (Application.loadedLevel);
 }
-

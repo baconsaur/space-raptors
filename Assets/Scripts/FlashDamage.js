@@ -10,7 +10,8 @@ function FixedUpdate() {
 
 public function DisplayDamage() {
 	var renderer :SpriteRenderer = GetComponent(SpriteRenderer);
-	renderer.color = Color(0.9, 0.5, 0.5, 1);
+	var alpha = renderer.color.a;
+	renderer.color = Color(0.9, 0.5, 0.5, alpha);
 	yield WaitForSeconds(0.333);
-	renderer.color = Color.white;
+	renderer.color = Color(1, 1, 1, alpha);
 }
