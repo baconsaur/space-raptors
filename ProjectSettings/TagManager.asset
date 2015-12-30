@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - Powerup
   - Pickup
+  - Spikes
   layers:
   - Default
   - TransparentFX
