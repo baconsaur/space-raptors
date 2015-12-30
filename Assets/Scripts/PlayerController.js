@@ -17,6 +17,7 @@ var collisionDamage :int;
 var stealthTime :float;
 var stealth :boolean;
 var stealthCooldown :float;
+var HUDManager :HUDManager;
 
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
@@ -26,6 +27,8 @@ function Start () {
 	shotCooldown = 0;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
+	//var HUDCanvas = GameObject.Find("HUDCanvas");
+	HUDManager = GameObject.Find("HUDCanvas").GetComponent("HUDManager");
 }
 
 function FixedUpdate () {
@@ -144,13 +147,9 @@ function ItemPickup (newItem :GameObject) {
 		} else if (newItem.name.Contains("Health" && "Max")) {
 			HealDamage(100);
 		} else if (newItem.name.Contains("Armor" && "50")) {
-			armor += 50;
+			IncreaseArmor(50);
 		} else if (newItem.name.Contains("Armor" && "100")) {
-			armor += 100;
-		}
-
-		if (armor > 100) {
-			armor = 100;
+			IncreaseArmor(100);
 		}
 	}
 }
@@ -161,12 +160,23 @@ function OnCollisionEnter2D (collision :Collision2D) {
 	}
 }
 
+//TODO: Refactor IncreaseArmor and HealDamage into a PowerUp function
+function IncreaseArmor (heal :int) {
+	armor += heal;
+	if (armor > 100) {
+		armor = 100;
+	}
+	Debug.Log(armor);
+	HUDManager.UpdateArmor(armor);
+}
+
 function HealDamage (heal :int) {
 	health += heal;
 	if (health > 100) {
 		health = 100;
 	}
 	Debug.Log(health);
+	HUDManager.UpdateHealth(health);
 }
 
 function TakeDamage (damage :int) {
@@ -188,6 +198,11 @@ function TakeDamage (damage :int) {
 	}
 	if (health > 0) {
 		this.gameObject.SendMessage('DisplayDamage');
+		HUDManager.UpdateArmor(armor);
+		HUDManager.UpdateHealth(health);
+	} else {
+		HUDManager.UpdateArmor(0);
+		HUDManager.UpdateHealth(0);
 	}
 }
 
