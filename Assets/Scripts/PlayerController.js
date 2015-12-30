@@ -144,7 +144,8 @@ function FixedUpdate () {
 
 function ItemPickup (newItem :GameObject) {
 	if (newItem.tag == "Weapon") {
-		ArrayUtility.Add(weapons, newItem);
+		System.Array.Resize.<GameObject>(weapons, weapons.length + 1);
+		weapons[weapons.length - 1] = newItem;
 		SwitchWeapon(newItem);
 	} else if (newItem.tag == "Powerup") {
 		if (newItem.name.Contains("Health" && "25")) {
