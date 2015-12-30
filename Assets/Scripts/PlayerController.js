@@ -22,6 +22,7 @@ var HUDManager :HUDManager;
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
 private var shotCooldown :float;
+private var previousPosition :Vector2;
 
 function Start () {
 	shotCooldown = 0;
@@ -29,6 +30,7 @@ function Start () {
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
 	//var HUDCanvas = GameObject.Find("HUDCanvas");
 	HUDManager = GameObject.Find("HUDCanvas").GetComponent("HUDManager");
+	previousPosition = new Vector2(0,0);
 }
 
 function FixedUpdate () {
@@ -51,7 +53,12 @@ function FixedUpdate () {
 	}
 	var direction = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
 	if (animator.GetBool("dead") == false) {
-		transform.Translate(new Vector2(direction, 0));
+		var moved :boolean = !Mathf.Approximately(transform.position.x, previousPosition.x) ||
+			!Mathf.Approximately(transform.position.y, previousPosition.y);
+		var tried :boolean = !Mathf.Approximately(direction, 0) && !Mathf.Approximately(transform.position.x, previousPosition.x);
+		Debug.Log(tried);
+		transform.Translate(new Vector2(direction, tried ? 0.1 : 0));
+		previousPosition = transform.position;
 	}
 	if (direction > turnDeadZone) {
 		transform.localScale = new Vector3(1, 1, 1);
