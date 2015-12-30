@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: 0b110e37e15aa40c9a4d4bd3db036b17
+timeCreated: 1451500569
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: hazard_sprites_0
+    21300002: hazard_sprites_1
+    21300004: hazard_sprites_2
+    21300006: hazard_sprites_3
+    21300008: hazard_sprites_4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 42
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: hazard_sprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 18}
+        - {x: -2, y: 18}
+        - {x: -8, y: 6}
+        - {x: -24, y: -29}
+        - {x: -24, y: -32}
+        - {x: 22, y: -32}
+        - {x: 22, y: -28}
+        - {x: 5, y: 17}
+    - name: hazard_sprites_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 8}
+        - {x: -24, y: -32}
+        - {x: 22, y: -32}
+        - {x: 22, y: 8}
+    - name: hazard_sprites_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 8}
+        - {x: -24, y: -32}
+        - {x: 22, y: -32}
+        - {x: 22, y: 8}
+    - name: hazard_sprites_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 32}
+        - {x: -32, y: 24}
+        - {x: -32, y: 0}
+        - {x: -20, y: -19}
+        - {x: -6, y: -30}
+        - {x: 32, y: -30}
+        - {x: 32, y: 32}
+    - name: hazard_sprites_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 32}
+        - {x: -31, y: 27}
+        - {x: -23, y: 21}
+        - {x: -16, y: 20}
+        - {x: -32, y: -6}
+        - {x: -32, y: -20}
+        - {x: -26, y: -30}
+        - {x: -6, y: -30}
+        - {x: 22, y: -20}
+        - {x: 32, y: -1}
+        - {x: 32, y: 22}
+        - {x: 31, y: 32}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

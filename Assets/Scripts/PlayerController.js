@@ -157,6 +157,12 @@ function ItemPickup (newItem :GameObject) {
 function OnCollisionEnter2D (collision :Collision2D) {
 	if (collision.gameObject.tag == "Enemy") {
 		TakeDamage(collisionDamage);
+	} else if (collision.gameObject.tag == "Spikes") {
+		if (armor > 0) {
+			TakeDamage(collisionDamage * 2);
+		} else {
+			TakeDamage(collisionDamage * 4);
+		}
 	}
 }
 
