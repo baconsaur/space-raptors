@@ -83,22 +83,22 @@ function FixedUpdate () {
 		weaponAnimator.SetBool("jumping", false);
 		weaponAnimator.SetBool("falling", true);
 	} else if (rigidBody.velocity.y == 0) {
-	//TODO: This also gets set to 0 at the apex of a jump
+		//TODO: This also gets set to 0 at the apex of a jump
 		animator.SetBool("jumping", false);
 		animator.SetBool("falling", false);
 		weaponAnimator.SetBool("jumping", false);
 		weaponAnimator.SetBool("falling", false);
 	}
-	
+
 	var shoot = Input.GetAxis("Fire1");
 	if (shotCooldown <= 0 && shoot && animator.GetBool("dead") == false) {
-	animator.SetTrigger("shoot");
-	weaponAnimator.SetTrigger("shoot");
+		animator.SetTrigger("shoot");
+		weaponAnimator.SetTrigger("shoot");
 		var newShot = Instantiate(weaponProjectile, Vector2(gameObject.transform.position.x + shotOffset.x, gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
 		newShot.GetComponent(ProjectileController).direction = transform.localScale.x;
 		shotCooldown = defaultCooldown;
 	}
-	
+
 	var weaponSwitch = 0;
 
 	if (Input.GetAxis("Stealth") && stealthCooldown <= 0) {
@@ -148,7 +148,7 @@ function ItemPickup (newItem :GameObject) {
 		} else if (newItem.name.Contains("Armor" && "100")) {
 			armor += 100;
 		}
-		
+
 		if (armor > 100) {
 			armor = 100;
 		}
@@ -192,18 +192,15 @@ function TakeDamage (damage :int) {
 }
 
 function SwitchWeapon (weapon :GameObject) {
-	Destroy(transform.GetChild(0).gameObject);
-	
-	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);	newWeapon.transform.parent = gameObject.transform;
-	
+	Destroy(currentWeapon);
+	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
+	newWeapon.transform.parent = gameObject.transform;
 	newWeapon.transform.localScale.x *= transform.localScale.x;
 	currentWeapon = newWeapon;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
-
 }
 
 function Die () {
 	Application.LoadLevel (Application.loadedLevel);
 }
-
