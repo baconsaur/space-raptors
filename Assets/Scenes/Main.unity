@@ -341,7 +341,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 93899206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.3, y: -7.1, z: 0}
+  m_LocalPosition: {x: -10.4, y: -11.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1400909300}
@@ -1543,11 +1543,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 487612, guid: edf929c5438f84f2e9b24d1ec570e9dd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.6
+      value: -24.5
       objectReference: {fileID: 0}
     - target: {fileID: 487612, guid: edf929c5438f84f2e9b24d1ec570e9dd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: -7.9
       objectReference: {fileID: 0}
     - target: {fileID: 487612, guid: edf929c5438f84f2e9b24d1ec570e9dd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1584,6 +1584,14 @@ Prefab:
     - target: {fileID: 189112, guid: edf929c5438f84f2e9b24d1ec570e9dd, type: 2}
       propertyPath: m_Name
       value: Raptor
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430802, guid: edf929c5438f84f2e9b24d1ec570e9dd, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11448458, guid: edf929c5438f84f2e9b24d1ec570e9dd, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edf929c5438f84f2e9b24d1ec570e9dd, type: 2}
@@ -1676,6 +1684,14 @@ Prefab:
     - target: {fileID: 121928, guid: 0276c2c59bbb0554d842ff9f81c2d996, type: 2}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 172798, guid: 0276c2c59bbb0554d842ff9f81c2d996, type: 2}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 172798, guid: 0276c2c59bbb0554d842ff9f81c2d996, type: 2}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0276c2c59bbb0554d842ff9f81c2d996, type: 2}
@@ -1972,6 +1988,7 @@ GameObject:
   - 114: {fileID: 1104949402}
   - 114: {fileID: 1104949401}
   - 114: {fileID: 1104949408}
+  - 114: {fileID: 1104949409}
   m_Layer: 0
   m_Name: Raptor
   m_TagString: Enemy
@@ -1986,7 +2003,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 734442444}
   m_GameObject: {fileID: 1104949400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91b3e81876b0242b086b15f0b8553db4, type: 3}
   m_Name: 
@@ -2009,7 +2026,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 734442444}
   m_GameObject: {fileID: 1104949400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae71d8c448ab743bfbb252cc578f23a7, type: 3}
   m_Name: 
@@ -2111,8 +2128,8 @@ Transform:
   m_PrefabInternal: {fileID: 734442444}
   m_GameObject: {fileID: 1104949400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6, y: -5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -24.5, y: -7.9, z: 0}
+  m_LocalScale: {x: 1, y: 1.0745299, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -2128,6 +2145,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39edf1aa114454379a0acb4df2ac2c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1104949409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1104949400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03282ac91d7443f986faff2c0aeef0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 15
+  speed: 15
+  shotOffset: {x: -2, y: -0.7}
+  currentWeapon: {fileID: 102198, guid: b9790a4d4a62a4633b43a5e337f48f26, type: 2}
+  shootingCooldown: 100
+  animator: {fileID: 1104949404}
+  enemyType: {fileID: 150218, guid: cf87caf1ba70441e194cda143cf67ab4, type: 2}
+  activationDistance: 100
+  sightDistance: 20
+  waitAfterShooting: 10
+  patrolSpeed: 60
+  jumpForce: 7000
+  maxPlayerProximity: 6
 --- !u!1 &1124601708
 GameObject:
   m_ObjectHideFlags: 0
