@@ -131,7 +131,7 @@ MonoBehaviour:
   width: 10
   startRotation: 130
   honingSpeed: 0.5
-  coneOffset: {x: 0, y: 0}
+  coneOffset: {x: 0.5, y: -0.5}
   damage: 10
   laserPrefab: {fileID: 0}
   startColor: {r: 0, g: 0.49803922, b: 0, a: 1}
