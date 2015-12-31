@@ -261,7 +261,6 @@ function FollowAttack(obstacles :Obstacles) {
 		}
 
 		if (distanceToPlayer > maxPlayerProximity) {
-			Debug.Log(distanceToPlayer);
 
 			transform.Translate(Vector2(speed * -transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
 		}

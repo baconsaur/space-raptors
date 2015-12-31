@@ -131,12 +131,11 @@ MonoBehaviour:
   width: 10
   startRotation: 130
   honingSpeed: 0.5
-  coneOffsetX: 0.5
-  coneOffsetY: -0.5
+  coneOffset: {x: 0.5, y: -0.5}
   damage: 10
-  laserPrefab: {fileID: 168368, guid: 9ff1236da938f4755b519aa7540392ff, type: 2}
-  startColor: {r: 0, g: 0.49803922, b: 0, a: 0}
-  endColor: {r: 1, g: 0, b: 0, a: 0}
+  laserPrefab: {fileID: 0}
+  startColor: {r: 0, g: 0.49803922, b: 0, a: 1}
+  endColor: {r: 1, g: 0, b: 0, a: 1}
   damageRate: 25
 --- !u!120 &12043232
 LineRenderer:
