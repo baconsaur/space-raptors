@@ -100,7 +100,7 @@ MonoBehaviour:
   currentWeapon: {fileID: 102198, guid: b9790a4d4a62a4633b43a5e337f48f26, type: 2}
   shootingCooldown: 100
   animator: {fileID: 9512450}
-  enemyType: {fileID: 150218, guid: cf87caf1ba70441e194cda143cf67ab4, type: 2}
+  enemyType: {fileID: 198612}
   activationDistance: 100
   sightDistance: 20
   waitAfterShooting: 10
@@ -204,6 +204,10 @@ Prefab:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: enemyType
+      value: 
+      objectReference: {fileID: 198612}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 198612}

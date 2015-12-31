@@ -56,7 +56,6 @@ function FixedUpdate () {
 		var moved :boolean = !Mathf.Approximately(transform.position.x, previousPosition.x) ||
 			!Mathf.Approximately(transform.position.y, previousPosition.y);
 		var tried :boolean = !Mathf.Approximately(direction, 0) && !Mathf.Approximately(transform.position.x, previousPosition.x);
-		Debug.Log(tried);
 		transform.Translate(new Vector2(direction, tried ? 0.1 : 0));
 		previousPosition = transform.position;
 	}
@@ -144,7 +143,8 @@ function FixedUpdate () {
 
 function ItemPickup (newItem :GameObject) {
 	if (newItem.tag == "Weapon") {
-		ArrayUtility.Add(weapons, newItem);
+		System.Array.Resize.<GameObject>(weapons, weapons.length + 1);
+		weapons[weapons.length - 1] = newItem;
 		SwitchWeapon(newItem);
 	} else if (newItem.tag == "Powerup") {
 		if (newItem.name.Contains("Health" && "25")) {

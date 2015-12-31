@@ -4,6 +4,7 @@ UnityGenerated/
 Library/
 Assets/AssetStoreTools*
 Art/
+Builds/
 
 ExportedObj/
 *.svd

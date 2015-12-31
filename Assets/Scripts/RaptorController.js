@@ -68,8 +68,8 @@ function FixedUpdate () {
 	if (awareOfPlayer) {
 		FollowAttack(obstacles);
 	}
-	
 
+	//TODO (Ben or Mike): Please add animator.SetBool("walking", true) when it's walking!
 
 	// Shoot at player
 //	FacePlayer();
