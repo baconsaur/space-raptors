@@ -1522,6 +1522,10 @@ Prefab:
       propertyPath: m_Name
       value: Raptor (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 11427902, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
+      propertyPath: stealthTimeout
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
   m_IsPrefabParent: 0
