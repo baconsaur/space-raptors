@@ -118,7 +118,7 @@ function UpdateLine(object :GameObject, percent :float, startColor :Color, endCo
 	var vertices :Vector3[] = new Vector3[2];
 	var coneOffset :Vector3 = new Vector3(coneOffsetX, coneOffsetY, 0);
 	vertices[0] = coneOffset + this.gameObject.transform.position;
-	vertices[1] = RotatePoint(player.transform.position, vertices[0], percent * honingSpeed * 10) - vertices[0];
+	vertices[1] = RotatePoint(player.transform.position, vertices[0], percent * honingSpeed * 20) - vertices[0];
 	line.SetPositions(vertices);
 	var color :Color = Color.Lerp(endColor, startColor, Mathf.Abs(percent));
 	line.SetColors(color, color);
