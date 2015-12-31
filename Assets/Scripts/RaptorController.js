@@ -16,11 +16,11 @@ public var maxPlayerProximity :float;
 
 
 private var shotCooldown :int;
-private var stelthReset :int = 0;
+private var stealthReset :int = 0;
 private var moveWait :int;
 private var player :GameObject;
 private var platform :GameObject;
-private var faceSensitivity :float = 0.1;
+private var faceSensitivity :float = 0.2;
 private var awareOfPlayer :boolean;
 private var myCollider :BoxCollider2D;
 private var roughRadius :float;
@@ -72,23 +72,12 @@ function FixedUpdate () {
 	if (awareOfPlayer) {
 		FollowAttack(obstacles);
 	}
-
-	//TODO (Ben or Mike): Please add animator.SetBool("walking", true) when it's walking!
-
-	// Shoot at player
-//	FacePlayer();
-
-	// Move toward player
 }
 
 function TakeDamage (damage :int) {
 	awareOfPlayer = true;
 	health -= damage;
 	if (health <= 0) {
-//		var newEnemy = Instantiate(enemyType, Vector2(Random.Range(-9, 9), 6), Quaternion.identity);
-//		newEnemy.GetComponent(EnemyController).player = player;
-//		newEnemy.GetComponent(FollowAI).pointers.player = player;
-//		newEnemy.GetComponent(EnemyController).enemyType = enemyType;
 		Destroy(gameObject);
 	} else {
 		this.gameObject.SendMessage('DisplayDamage');
@@ -96,14 +85,13 @@ function TakeDamage (damage :int) {
 }
 
 function FacePlayer () {
-//	var prevDirection :float = transform.localScale.x;
 	if (player.transform.position.x - transform.position.x > faceSensitivity) transform.localScale.x = -1f;
 	else if (transform.position.x - player.transform.position.x > faceSensitivity) transform.localScale.x = 1f;
-//	if (transform.localScale.x != prevDirection) ScanTerrain();
 }
 
 function Jump() {
 	if (onGround) {
+		animator.SetBool("walking", false);
 		body.AddForce(Vector2(0, jumpForce));
 		SoundFXManager.Play(audioSource, "action", "raptor_jump");
 	}
@@ -198,75 +186,85 @@ function Patrol(obstacles :Obstacles) {
 	var distanceToGround :float = Methods.distance(obstacles.downward.point, transform.position);
 	var distanceToWall :float = Methods.distance(obstacles.forward.point, transform.position);
 	if (distanceToGround <= roughRadius && distanceToWall >= roughRadius) {
-		transform.Translate(Vector2(speed / 2f * -transform.localScale.x * Time.deltaTime, 0.1));
+		AnimateMove(Vector2(speed / 2f * -transform.localScale.x * Time.deltaTime, 0.1));
 	} else if (turnWait) {
+		animator.SetBool("walking", false);
 		turnWait --;
 	}
 	else {
+		animator.SetBool("walking", false);
 		turnWait = patrolSpeed;
 		transform.localScale.x *= -1f;
 	}
 }
 
 function FollowAttack(obstacles :Obstacles) {
-
-	var lastKnownY :float;
-	var lastKnownX :float;
+	var lastKnownPos :Vector2;
 	var distanceToWall :float;
 	var distanceToPlayer :float;
 	var actionDirection : int;
 	var backJump : float;
 
-	if(player.GetComponent(PlayerController).stealth){
-		if(stelthReset == 0){
-			lastKnownX = player.transform.position.x;
-			lastKnownY = player.transform.position.y;
-			stelthReset = 500;
+	if (player.GetComponent(PlayerController).stealth){
+		if (stealthReset == 0) {
+			lastKnownPos = player.transform.position;
+			stealthReset = 500;
 			FacePlayer();
 		}
-		if (distanceToPlayer < maxPlayerProximity && !shotCooldown) {
-			animator.SetTrigger("shoot");
-			var newShot = Instantiate(currentWeapon, Vector2(gameObject.transform.position.x + (shotOffset.x * transform.localScale.x), gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
-			newShot.GetComponent(ProjectileController).direction = -transform.localScale.x;
-			shotCooldown = shootingCooldown;
+		if (distanceToPlayer < maxPlayerProximity && !shotCooldown &&
+			Mathf.Abs(player.transform.position.y - transform.position.y) < 0.2
+		) {
+			Shoot();
 		} else if (!moveWait && obstacles.forward && obstacles.forward.transform.gameObject != player) {
-	//		var distanceToGround :float = Methods.distance(obstacles.downward.point, transform.position);
 			distanceToWall = Methods.distance(obstacles.forward.point, transform.position);
-	//		var distanceToPlatform :float = Methods.distance(obstacles.upward.point, transform.position);
-			distanceToPlayer = Mathf.Abs(lastKnownX - transform.position.x);
-			if (lastKnownY >= transform.position.y && distanceToWall <= roughRadius * 2 && onGround) Jump();
-			if (distanceToPlayer > maxPlayerProximity) {
-				transform.Translate(Vector2(speed * -transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
+			distanceToPlayer = Mathf.Abs(lastKnownPos.x - transform.position.x);
+			if (lastKnownPos.y >= transform.position.y && distanceToWall <= roughRadius * 2 && onGround) Jump();
+			if (distanceToPlayer > maxPlayerProximity || Mathf.Abs(transform.position.y - lastKnownPos.y) > 0.2) {
+				AnimateMove(Vector2(speed * -transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
+			} else {
+				animator.SetBool("walking", false);
 			}
 		}
-		stelthReset --;
-		if(stelthReset == 0){
+		stealthReset--;
+		if (!stealthReset) {
 			awareOfPlayer = false;
 		}
-	} else{
+	} else {
 		FacePlayer();
-	 if (!shotCooldown && obstacles.forward && obstacles.forward.transform.gameObject == player && onGround) {
-		animator.SetTrigger("shoot");
-		newShot = Instantiate(currentWeapon, Vector2(gameObject.transform.position.x + (shotOffset.x * transform.localScale.x), gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
-		newShot.GetComponent(ProjectileController).direction = -transform.localScale.x;
-		shotCooldown = shootingCooldown;
-		moveWait = waitAfterShooting;
-	} else if (!moveWait && obstacles.forward && obstacles.forward.transform.gameObject != player) {
+	  if (!shotCooldown && obstacles.forward && obstacles.forward.transform.gameObject == player &&
+	  	Mathf.Abs(player.transform.position.y - transform.position.y) < 0.2 /*&& onGround*/
+  	) {
+			Shoot();
+		} else if (!moveWait && obstacles.forward && obstacles.forward.transform.gameObject != player) {
+			distanceToWall = Methods.distance(obstacles.forward.point, transform.position);
+			backJump = Methods.distance(obstacles.backward.point, transform.position);
+			distanceToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
 
-//		var distanceToGround :float = Methods.distance(obstacles.downward.point, transform.position);
-		distanceToWall = Methods.distance(obstacles.forward.point, transform.position);
-		backJump = Methods.distance(obstacles.backward.point, transform.position);
-//		var distanceToPlatform :float = Methods.distance(obstacles.upward.point, transform.position);
-		distanceToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
-		if (player.transform.position.y >= transform.position.y && (distanceToWall <= roughRadius * 2 || backJump <= roughRadius * 2) && onGround) Jump();
-		if (distanceToPlayer < 3){
-		transform.Translate(Vector2(speed * transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
-		}
-
-		if (distanceToPlayer > maxPlayerProximity) {
-
-			transform.Translate(Vector2(speed * -transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
+			if (player.transform.position.y >= transform.position.y && (distanceToWall <= roughRadius * 2 || backJump <= roughRadius * 2) && onGround) Jump();
+			if (distanceToPlayer < 3) {
+				AnimateMove(Vector2(speed * transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
+			} else {
+				animator.SetBool("walking", false);
+			}
+			if (distanceToPlayer > maxPlayerProximity) {
+				AnimateMove(Vector2(speed * -transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
+			} else {
+				animator.SetBool("walking", false);
+			}
 		}
 	}
-	}
+}
+
+function AnimateMove(amount :Vector2) {
+	if (onGround) animator.SetBool("walking", true);
+	transform.Translate(amount);
+}
+
+function Shoot() {
+	animator.SetBool("walking", false);
+	animator.SetTrigger("shoot");
+	var newShot :GameObject = Instantiate(currentWeapon, Vector2(gameObject.transform.position.x + (shotOffset.x * transform.localScale.x), gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
+	newShot.GetComponent(ProjectileController).direction = -transform.localScale.x;
+	shotCooldown = shootingCooldown;
+	moveWait = waitAfterShooting;	
 }

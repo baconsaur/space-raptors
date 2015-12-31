@@ -245,7 +245,7 @@ function SwitchWeapon (weapon :GameObject) {
 }
 
 function Die () {
-	transform.position = spawnPoint.position;
-	health = 100;
-//	Application.LoadLevel (Application.loadedLevel);
+//	transform.position = spawnPoint.position;
+//	health = 100;
+	Application.LoadLevel (Application.loadedLevel);
 }
