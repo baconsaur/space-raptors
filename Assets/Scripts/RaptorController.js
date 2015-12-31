@@ -98,7 +98,11 @@ function FacePlayer () {
 }
 
 function Jump() {
-	if (onGround) body.AddForce(Vector2(0, jumpForce));
+	if (onGround) {
+		body.AddForce(Vector2(0, jumpForce));
+
+	}
+
 }
 
 function CoolDowns() {
@@ -209,7 +213,10 @@ function FollowAttack(obstacles :Obstacles) {
 		var distanceToWall :float = Methods.distance(obstacles.forward.point, transform.position);
 //		var distanceToPlatform :float = Methods.distance(obstacles.upward.point, transform.position);
 		var distanceToPlayer :float = Mathf.Abs(player.transform.position.x - transform.position.x);
-		if (player.transform.position.y >= transform.position.y && distanceToWall <= roughRadius && onGround) Jump();
+		if (player.transform.position.y >= transform.position.y && distanceToWall <= roughRadius * 2 && onGround){
+	
+			Jump();
+		 }
 		if (distanceToPlayer > maxPlayerProximity) {
 			transform.Translate(Vector2(speed * -transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
 		}
