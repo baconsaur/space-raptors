@@ -17,6 +17,8 @@ var collisionDamage :int;
 var stealthTime :float;
 var stealth :boolean;
 var stealthCooldown :float;
+public var spawnPoint :Transform;
+
 
 private var HUDManager :HUDManager;
 private var SoundFXManager :SoundFXManager;
@@ -243,5 +245,7 @@ function SwitchWeapon (weapon :GameObject) {
 }
 
 function Die () {
-	Application.LoadLevel (Application.loadedLevel);
+	transform.position = spawnPoint.position;
+	health = 100;
+//	Application.LoadLevel (Application.loadedLevel);
 }

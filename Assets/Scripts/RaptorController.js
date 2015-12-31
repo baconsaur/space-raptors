@@ -85,10 +85,10 @@ function TakeDamage (damage :int) {
 	awareOfPlayer = true;
 	health -= damage;
 	if (health <= 0) {
-		var newEnemy = Instantiate(enemyType, Vector2(Random.Range(-9, 9), 6), Quaternion.identity);
-		newEnemy.GetComponent(EnemyController).player = player;
-		newEnemy.GetComponent(FollowAI).pointers.player = player;
-		newEnemy.GetComponent(EnemyController).enemyType = enemyType;
+//		var newEnemy = Instantiate(enemyType, Vector2(Random.Range(-9, 9), 6), Quaternion.identity);
+//		newEnemy.GetComponent(EnemyController).player = player;
+//		newEnemy.GetComponent(FollowAI).pointers.player = player;
+//		newEnemy.GetComponent(EnemyController).enemyType = enemyType;
 		Destroy(gameObject);
 	} else {
 		this.gameObject.SendMessage('DisplayDamage');
@@ -123,10 +123,12 @@ private class Obstacles {
 	public var forward :RaycastHit2D;
 	public var upward :RaycastHit2D;
 	public var downward :RaycastHit2D;
-	public function Obstacles(front :RaycastHit2D, up :RaycastHit2D, down :RaycastHit2D) {
+	public var backward :RaycastHit2D;
+	public function Obstacles(front :RaycastHit2D, up :RaycastHit2D, down :RaycastHit2D, back :RaycastHit2D) {
 		forward = front;
 		upward = up;
 		downward = down;
+		backward = back;
 	}
 }
 
@@ -134,7 +136,8 @@ function ScanTerrain() :Obstacles {
 	var forward :RaycastHit2D = RaycastClosest(Vector2(-transform.localScale.x, 0));
 	var up :RaycastHit2D = RaycastClosest(Vector2(-transform.localScale.x, 1f));
 	var down :RaycastHit2D = RaycastClosest(Vector2(-transform.localScale.x, -1f));
-	return new Obstacles(forward, up, down);
+	var backward :RaycastHit2D = RaycastClosest(Vector2(transform.localScale.x, 0));
+	return new Obstacles(forward, up, down, backward);
 }
 
 function Raycast(direction :Vector2) :RaycastHit2D[] {
@@ -212,6 +215,7 @@ function FollowAttack(obstacles :Obstacles) {
 	var distanceToWall :float;
 	var distanceToPlayer :float;
 	var actionDirection : int;
+	var backJump : float;
 
 	if(player.GetComponent(PlayerController).stealth){
 		if(stelthReset == 0){
@@ -251,16 +255,15 @@ function FollowAttack(obstacles :Obstacles) {
 
 //		var distanceToGround :float = Methods.distance(obstacles.downward.point, transform.position);
 		distanceToWall = Methods.distance(obstacles.forward.point, transform.position);
+		backJump = Methods.distance(obstacles.backward.point, transform.position);
 //		var distanceToPlatform :float = Methods.distance(obstacles.upward.point, transform.position);
 		distanceToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
-		if (player.transform.position.y >= transform.position.y && distanceToWall <= roughRadius * 2 && onGround){
-		Jump();
-		}
+		if (player.transform.position.y >= transform.position.y && (distanceToWall <= roughRadius * 2 || backJump <= roughRadius * 2) && onGround) Jump();
 		if (distanceToPlayer < 3){
 		transform.Translate(Vector2(speed * transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
 		}
+
 		if (distanceToPlayer > maxPlayerProximity) {
-			Debug.Log(distanceToPlayer);
 
 			transform.Translate(Vector2(speed * -transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
 		}
