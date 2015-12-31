@@ -270,6 +270,7 @@ MonoBehaviour:
   stealthTime: 20
   stealth: 0
   stealthCooldown: 0
+  bootDust: {fileID: 125086, guid: dcc7115da279045628407f7a924660c0, type: 2}
 --- !u!61 &93899209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2364,7 +2365,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 415184, guid: 0276c2c59bbb0554d842ff9f81c2d996, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 159338, guid: 0276c2c59bbb0554d842ff9f81c2d996, type: 2}
       propertyPath: m_Name
