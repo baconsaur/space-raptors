@@ -112,4 +112,34 @@ public class Methods extends MonoBehaviour {
 		}
 		return array;
 	}
+	static function Raycast(position :Vector2, direction :Vector2, trans :Transform) :RaycastHit2D[] {
+		var rays :RaycastHit2D[];
+		var array :Array = new Array();
+		rays = Physics2D.RaycastAll(position, direction);
+		if (!rays.Length) return;
+		for (var i: int = 0; i < rays.Length; i++) {
+			array.Push(rays[i]);
+		}
+		array = filter(array, function(ray :RaycastHit2D) {
+			return ray.transform != trans && !ray.collider.isTrigger;
+		});
+		rays = new RaycastHit2D[array.length];
+		for (i = 0; i < array.length; i++) {
+			rays[i] = array[i];
+		}
+		return rays;
+	}
+
+	static function RaycastClosest(position :Vector2, direction :Vector2, trans :Transform) :RaycastHit2D {
+		var rays :RaycastHit2D[] = Raycast(position, direction, trans);
+		var array :Array = new Array();
+		if (!rays.Length) return;
+		for (var i: int = 0; i < rays.Length; i++) {
+			array.Push(rays[i]);
+		}
+		sort(array, function(ray1 :RaycastHit2D, ray2 :RaycastHit2D) {
+			return distance(trans.position, ray2.point) - distance(trans.position, ray1.point);
+		});
+		return array[0];
+	}
 }
