@@ -5,7 +5,6 @@ public var shotOffset :Vector2;
 public var currentWeapon :GameObject;
 public var shootingCooldown :int;
 public var animator :Animator;
-public var enemyType :GameObject;
 public var activationDistance :float;
 public var sightDistance :float;
 public var waitAfterShooting :int;
