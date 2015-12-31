@@ -3,8 +3,7 @@ public var distance :float;
 public var width :float;
 public var startRotation :float;
 public var honingSpeed :float;
-public var coneOffsetX :float;
-public var coneOffsetY :float;
+public var coneOffset :Vector2;
 public var damage :int;
 public var laserPrefab :GameObject;
 public var startColor :Color;
@@ -39,7 +38,7 @@ function Start () {
 
 
 	var vex :Vector2[] = new Vector2[3];
-	vex[0] = new Vector2(coneOffsetX, coneOffsetY);
+	vex[0] = new Vector2(coneOffset.x, coneOffset.y);
   vex[1] = RotatePoint(Vector2(0, distance) + vex[0], vex[0], startRotation + (width / 2));
   vex[2] = RotatePoint(Vector2(0, distance) + vex[0], vex[0], startRotation - (width / 2));
 	area.SetPath(0, vex);
@@ -112,12 +111,10 @@ function DestroyLines() {
 }
 
 function UpdateLine(object :GameObject, percent :float, startColor :Color, endColor :Color) {
-	startColor.a = 1f;
-	endColor.a = 1f;
 	var line :LineRenderer = object.GetComponent(LineRenderer);
 	var vertices :Vector3[] = new Vector3[2];
-	var coneOffset :Vector3 = new Vector3(coneOffsetX, coneOffsetY, 0);
-	vertices[0] = coneOffset + this.gameObject.transform.position;
+	var cone :Vector3 = new Vector3(coneOffset.x, coneOffset.y, 1);
+	vertices[0] = cone + this.gameObject.transform.position;
 	vertices[1] = RotatePoint(player.transform.position, vertices[0], percent * honingSpeed * 20) - vertices[0];
 	line.SetPositions(vertices);
 	var color :Color = Color.Lerp(endColor, startColor, Mathf.Abs(percent));
