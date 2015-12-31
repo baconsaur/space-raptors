@@ -17,8 +17,10 @@ var collisionDamage :int;
 var stealthTime :float;
 var stealth :boolean;
 var stealthCooldown :float;
-var HUDManager :HUDManager;
 
+private var HUDManager :HUDManager;
+private var SoundFXManager :SoundFXManager;
+private var audioSource :AudioSource;
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
 private var shotCooldown :float;
@@ -28,8 +30,9 @@ function Start () {
 	shotCooldown = 0;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
-	//var HUDCanvas = GameObject.Find("HUDCanvas");
 	HUDManager = GameObject.Find("HUDCanvas").GetComponent("HUDManager");
+	SoundFXManager = GameObject.Find("SoundFX").GetComponent("SoundFXManager");
+	audioSource = gameObject.GetComponent(AudioSource);
 	previousPosition = new Vector2(0,0);
 }
 
@@ -79,6 +82,7 @@ function FixedUpdate () {
 		animator.SetBool("walking", false);
 		weaponAnimator.SetBool("walking", false);
 		rigidBody.AddForce(Vector2(0, jumpForce));
+		SoundFXManager.Play(audioSource, "action", "player_jump");
 	}
 
 	if (rigidBody.velocity.y > 0) {
@@ -149,14 +153,19 @@ function ItemPickup (newItem :GameObject) {
 	} else if (newItem.tag == "Powerup") {
 		if (newItem.name.Contains("Health" && "25")) {
 			HealDamage(25);
+			SoundFXManager.Play(audioSource, "item_pickup", "health_25");
 		} else if (newItem.name.Contains("Health" && "50")) {
 			HealDamage(50);
+			SoundFXManager.Play(audioSource, "item_pickup", "health_50");
 		} else if (newItem.name.Contains("Health" && "Max")) {
 			HealDamage(100);
+			SoundFXManager.Play(audioSource, "item_pickup", "health_max");
 		} else if (newItem.name.Contains("Armor" && "50")) {
 			IncreaseArmor(50);
+			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
 		} else if (newItem.name.Contains("Armor" && "100")) {
 			IncreaseArmor(100);
+			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
 		}
 	}
 }
@@ -164,11 +173,14 @@ function ItemPickup (newItem :GameObject) {
 function OnCollisionEnter2D (collision :Collision2D) {
 	if (collision.gameObject.tag == "Enemy") {
 		TakeDamage(collisionDamage);
+		SoundFXManager.Play(audioSource, "explosion", "small");
 	} else if (collision.gameObject.tag == "Spikes") {
 		if (armor > 0) {
 			TakeDamage(collisionDamage * 2);
+			SoundFXManager.Play(audioSource, "explosion", "small");
 		} else {
 			TakeDamage(collisionDamage * 4);
+			SoundFXManager.Play(audioSource, "explosion", "medium");
 		}
 	}
 }
