@@ -27,6 +27,8 @@ private var roughRadius :float;
 private var turnWait :float;
 private var body :Rigidbody2D;
 private var onGround :boolean;
+private var SoundFXManager :SoundFXManager;
+private var audioSource :AudioSource;
 
 
 
@@ -40,6 +42,8 @@ function Start () {
 	myCollider = this.gameObject.GetComponent(BoxCollider2D);
 	body = this.gameObject.GetComponent(Rigidbody2D);
 	roughRadius = Mathf.Sqrt(Mathf.Pow(myCollider.bounds.extents.x * 2, 2f) + Mathf.Pow(myCollider.bounds.extents.y * 2, 2f));
+	SoundFXManager = gameObject.Find("SoundFX").GetComponent("SoundFXManager");
+	audioSource = gameObject.GetComponent(AudioSource);
 }
 
 function FixedUpdate () {
@@ -58,7 +62,7 @@ function FixedUpdate () {
 	if (!awareOfPlayer) {
 		awareOfPlayer = CanSeePlayer();
 	}
-	
+
 	// Patrol
 	if (!awareOfPlayer) {
 		Patrol(obstacles);
@@ -101,7 +105,7 @@ function FacePlayer () {
 function Jump() {
 	if (onGround) {
 		body.AddForce(Vector2(0, jumpForce));
-
+		SoundFXManager.Play(audioSource, "action", "raptor_jump");
 	}
 
 }
@@ -202,7 +206,7 @@ function Patrol(obstacles :Obstacles) {
 }
 
 function FollowAttack(obstacles :Obstacles) {
-	
+
 	var lastKnownY :float;
 	var lastKnownX :float;
 	var distanceToWall :float;
@@ -249,7 +253,7 @@ function FollowAttack(obstacles :Obstacles) {
 		distanceToWall = Methods.distance(obstacles.forward.point, transform.position);
 //		var distanceToPlatform :float = Methods.distance(obstacles.upward.point, transform.position);
 		distanceToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
-		if (player.transform.position.y >= transform.position.y && distanceToWall <= roughRadius * 2 && onGround){ 
+		if (player.transform.position.y >= transform.position.y && distanceToWall <= roughRadius * 2 && onGround){
 		Jump();
 		}
 		if (distanceToPlayer < 3){
