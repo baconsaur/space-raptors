@@ -249,8 +249,15 @@ function FollowAttack(obstacles :Obstacles) {
 		distanceToWall = Methods.distance(obstacles.forward.point, transform.position);
 //		var distanceToPlatform :float = Methods.distance(obstacles.upward.point, transform.position);
 		distanceToPlayer = Mathf.Abs(player.transform.position.x - transform.position.x);
-		if (player.transform.position.y >= transform.position.y && distanceToWall <= roughRadius * 2 && onGround) Jump();
+		if (player.transform.position.y >= transform.position.y && distanceToWall <= roughRadius * 2 && onGround){ 
+		Jump();
+		}
+		if (distanceToPlayer < 3){
+		transform.Translate(Vector2(speed * transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
+		}
 		if (distanceToPlayer > maxPlayerProximity) {
+			Debug.Log(distanceToPlayer);
+
 			transform.Translate(Vector2(speed * -transform.localScale.x * Time.deltaTime, onGround ? 0.1 : 0));
 		}
 	}
