@@ -419,7 +419,6 @@ MonoBehaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 103998987}
   m_Enabled: 1
-<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 853051423, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name:
@@ -513,7 +512,7 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 103998987}
 --- !u!1 &141404010
-=======
+
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 2b614739664a54c8fb9e36839f5982a9, type: 2}
   m_IsTrigger: 0
@@ -2083,6 +2082,8 @@ Transform:
   m_RootOrder: 11
 --- !u!1 &327984434
 >>>>>>> particle-systems
+=======
+>>>>>>> 8d3bc75cbe6ccbd451060057272664ad0235a2ba
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -4756,13 +4757,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe8f40867856041eab673c31fb52dd54, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &1240200718 stripped
 Transform:
   m_PrefabParentObject: {fileID: 462026, guid: fe8f40867856041eab673c31fb52dd54, type: 2}
   m_PrefabInternal: {fileID: 1240200717}
 --- !u!1 &1293421739
-=======
+
 --- !u!1 &913147377
 GameObject:
   m_ObjectHideFlags: 0
@@ -6334,6 +6334,8 @@ Transform:
   m_RootOrder: 0
 --- !u!1 &965221038
 >>>>>>> particle-systems
+=======
+>>>>>>> 8d3bc75cbe6ccbd451060057272664ad0235a2ba
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -7618,12 +7620,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe8f40867856041eab673c31fb52dd54, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!4 &2032365994 stripped
 Transform:
   m_PrefabParentObject: {fileID: 462026, guid: fe8f40867856041eab673c31fb52dd54, type: 2}
   m_PrefabInternal: {fileID: 2032365993}
-=======
+
 --- !u!1 &2087941490
 GameObject:
   m_ObjectHideFlags: 0
@@ -10748,3 +10749,5 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
 >>>>>>> particle-systems
+=======
+>>>>>>> 8d3bc75cbe6ccbd451060057272664ad0235a2ba
