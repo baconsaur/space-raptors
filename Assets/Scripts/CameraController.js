@@ -17,7 +17,7 @@ private var shaking :boolean;
 
 
 function Start () {
-	zoom = setZoom;
+	zoom = cameraComponent.orthographicSize;
 	position = new Vector3(setPosition.x, setPosition.y, -10f);
 	player = GameObject.Find('Player');
 }
