@@ -150,56 +150,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &32750818
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 703623518}
-    m_Modifications:
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 80.33073
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 102.69567
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_Name
-      value: Turret (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &32750819 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_PrefabInternal: {fileID: 32750818}
 --- !u!1 &46524017
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +235,7 @@ GameObject:
   - 61: {fileID: 55333887}
   m_Layer: 0
   m_Name: Spike (72)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,7 +310,7 @@ GameObject:
   - 61: {fileID: 71486332}
   m_Layer: 0
   m_Name: Spike (69)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -667,7 +617,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.3073578
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_LocalPosition.y
@@ -695,7 +645,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 198612, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_Name
@@ -1081,7 +1031,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 158761575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.621078, y: 46.001648, z: 0}
+  m_LocalPosition: {x: 30.21, y: 47.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 997768085}
@@ -1175,7 +1125,7 @@ GameObject:
   - 61: {fileID: 158880563}
   m_Layer: 0
   m_Name: Spike (67)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1250,7 +1200,7 @@ GameObject:
   - 61: {fileID: 162752007}
   m_Layer: 0
   m_Name: Spike (52)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1398,7 +1348,7 @@ GameObject:
   - 61: {fileID: 176948680}
   m_Layer: 0
   m_Name: Spike (73)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1473,7 +1423,7 @@ GameObject:
   - 61: {fileID: 180494846}
   m_Layer: 0
   m_Name: Spike (8)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1698,7 +1648,7 @@ GameObject:
   - 61: {fileID: 208150484}
   m_Layer: 0
   m_Name: Spike (63)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1710,7 +1660,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 208150482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.15, y: 53.18, z: 0}
+  m_LocalPosition: {x: -53.15, y: 53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -1924,7 +1874,7 @@ GameObject:
   - 61: {fileID: 274976993}
   m_Layer: 0
   m_Name: Spike (74)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1999,7 +1949,7 @@ GameObject:
   - 61: {fileID: 276165892}
   m_Layer: 0
   m_Name: Spike (60)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2011,7 +1961,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 276165890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -66.9, y: 17.95, z: 0}
+  m_LocalPosition: {x: -67.61, y: 17.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -2183,7 +2133,7 @@ GameObject:
   - 61: {fileID: 308933746}
   m_Layer: 0
   m_Name: Spike (3)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2195,7 +2145,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 308933744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.7523575, y: -36.428734, z: 0}
+  m_LocalPosition: {x: -15.7523575, y: -36.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -2342,7 +2292,7 @@ Transform:
   - {fileID: 862139439}
   - {fileID: 1061842578}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 21
+  m_RootOrder: 13
 --- !u!114 &322497584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2370,7 +2320,7 @@ GameObject:
   - 61: {fileID: 332575620}
   m_Layer: 0
   m_Name: Spike (50)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2546,7 +2496,7 @@ Transform:
   - {fileID: 1053718053}
   - {fileID: 1377612817}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 20
+  m_RootOrder: 12
 --- !u!114 &346486681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2666,7 +2616,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 703623518}
-  m_RootOrder: 24
+  m_RootOrder: 16
 --- !u!61 &355246772
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2693,7 +2643,7 @@ GameObject:
   - 61: {fileID: 359959156}
   m_Layer: 0
   m_Name: Spike (20)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2785,7 +2735,7 @@ Transform:
   - {fileID: 789708122}
   - {fileID: 686069823}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 22
+  m_RootOrder: 14
 --- !u!114 &362450920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2946,7 +2896,7 @@ Transform:
   - {fileID: 1402676889}
   - {fileID: 553313515}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 14
+  m_RootOrder: 6
 --- !u!114 &432301854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2982,7 +2932,7 @@ GameObject:
   - 61: {fileID: 448028069}
   m_Layer: 0
   m_Name: Spike (13)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2994,7 +2944,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 448028067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.612358, y: 70.83127, z: 0}
+  m_LocalPosition: {x: -23.612358, y: 70.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -3258,7 +3208,7 @@ Transform:
   - {fileID: 1935731817}
   - {fileID: 1564188076}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 16
+  m_RootOrder: 8
 --- !u!114 &527444075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3286,7 +3236,7 @@ GameObject:
   - 61: {fileID: 530918373}
   m_Layer: 0
   m_Name: Spike (62)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3298,7 +3248,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 530918371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.18, y: 53.18, z: 0}
+  m_LocalPosition: {x: -54.18, y: 53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -3361,7 +3311,7 @@ GameObject:
   - 61: {fileID: 533275204}
   m_Layer: 0
   m_Name: Spike (22)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3373,7 +3323,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 533275202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.687645, y: 24.231268, z: 0}
+  m_LocalPosition: {x: 16.61, y: 25.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -3546,7 +3496,7 @@ GameObject:
   - 61: {fileID: 561617446}
   m_Layer: 0
   m_Name: Spike (11)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3558,7 +3508,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 561617444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -68.05236, y: -1.2787323, z: 0}
+  m_LocalPosition: {x: -68.05236, y: -1.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -4068,7 +4018,7 @@ GameObject:
   - 61: {fileID: 659539872}
   m_Layer: 0
   m_Name: Spike (65)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4405,14 +4355,6 @@ Transform:
   - {fileID: 1010551629}
   - {fileID: 997768085}
   - {fileID: 753710372}
-  - {fileID: 816204182}
-  - {fileID: 749659215}
-  - {fileID: 1830255835}
-  - {fileID: 1727542649}
-  - {fileID: 32750819}
-  - {fileID: 1355949388}
-  - {fileID: 1567281613}
-  - {fileID: 1418100050}
   - {fileID: 710033986}
   - {fileID: 1044403754}
   - {fileID: 1730049185}
@@ -4486,7 +4428,7 @@ Transform:
   - {fileID: 775255663}
   - {fileID: 1826364404}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 11
+  m_RootOrder: 3
 --- !u!114 &710033987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4560,7 +4502,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 703623518}
-  m_RootOrder: 25
+  m_RootOrder: 17
 --- !u!61 &720343709
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4675,7 +4617,7 @@ GameObject:
   - 61: {fileID: 736237013}
   m_Layer: 0
   m_Name: Spike (41)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4750,7 +4692,7 @@ GameObject:
   - 61: {fileID: 739076014}
   m_Layer: 0
   m_Name: Spike (31)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4813,56 +4755,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1001 &749659214
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 703623518}
-    m_Modifications:
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 61.071106
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 47.854874
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_Name
-      value: Turret (6)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &749659215 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_PrefabInternal: {fileID: 749659214}
 --- !u!1 &753710371
 GameObject:
   m_ObjectHideFlags: 0
@@ -4964,7 +4856,7 @@ GameObject:
   - 61: {fileID: 761335374}
   m_Layer: 0
   m_Name: Spike (1)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4976,7 +4868,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 761335372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.412357, y: -39.608734, z: 0}
+  m_LocalPosition: {x: -48.412357, y: -39.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -5039,7 +4931,7 @@ GameObject:
   - 61: {fileID: 771023112}
   m_Layer: 0
   m_Name: Spike (19)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5164,7 +5056,7 @@ GameObject:
   - 61: {fileID: 787958788}
   m_Layer: 0
   m_Name: Spike (28)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5247,7 +5139,7 @@ GameObject:
   - 61: {fileID: 796915723}
   m_Layer: 0
   m_Name: Spike (6)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5322,7 +5214,7 @@ GameObject:
   - 61: {fileID: 797163614}
   m_Layer: 0
   m_Name: Spike (42)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5385,56 +5277,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1001 &816204181
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 703623518}
-    m_Modifications:
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 72.2787
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 17.931831
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_Name
-      value: Turret (7)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &816204182 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_PrefabInternal: {fileID: 816204181}
 --- !u!1 &823541670
 GameObject:
   m_ObjectHideFlags: 0
@@ -5461,7 +5303,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 823541670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.98764, y: 53.931267, z: 0}
+  m_LocalPosition: {x: 8.83, y: 42.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 997768085}
@@ -5944,7 +5786,7 @@ GameObject:
   - 61: {fileID: 884412262}
   m_Layer: 0
   m_Name: Spike (43)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6052,7 +5894,7 @@ GameObject:
   - 61: {fileID: 902087497}
   m_Layer: 0
   m_Name: Spike (66)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6365,7 +6207,7 @@ GameObject:
   - 61: {fileID: 953734461}
   m_Layer: 0
   m_Name: Spike (54)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6377,7 +6219,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 953734459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.62, y: -18.99, z: 0}
+  m_LocalPosition: {x: -27.62, y: -19.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -6504,11 +6346,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 91.19451
+      value: 92.5
       objectReference: {fileID: 0}
     - target: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 120.619
+      value: 122.22
       objectReference: {fileID: 0}
     - target: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6532,7 +6374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 198612, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_Name
@@ -6570,7 +6412,7 @@ Transform:
   - {fileID: 2007015569}
   - {fileID: 1076568242}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 19
+  m_RootOrder: 11
 --- !u!114 &982681368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6746,7 +6588,7 @@ GameObject:
   - 61: {fileID: 1012107079}
   m_Layer: 0
   m_Name: Spike
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6758,7 +6600,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1012107077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.441837, y: -39.608734, z: 0}
+  m_LocalPosition: {x: -49.441837, y: -39.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -6821,7 +6663,7 @@ GameObject:
   - 61: {fileID: 1022396685}
   m_Layer: 0
   m_Name: Spike (23)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7078,7 +6920,7 @@ Transform:
   - {fileID: 841793629}
   - {fileID: 659770927}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 12
+  m_RootOrder: 4
 --- !u!1 &1044708846
 GameObject:
   m_ObjectHideFlags: 0
@@ -7149,7 +6991,7 @@ Transform:
   - {fileID: 1252005546}
   - {fileID: 1274485946}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 15
+  m_RootOrder: 7
 --- !u!114 &1054322747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7185,7 +7027,7 @@ GameObject:
   - 61: {fileID: 1073787290}
   m_Layer: 0
   m_Name: Spike (34)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7274,7 +7116,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1074890593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -77.34473, y: 57.09939, z: 0}
+  m_LocalPosition: {x: -81.01, y: 61.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 997768085}
@@ -7484,7 +7326,7 @@ GameObject:
   - 61: {fileID: 1107168623}
   m_Layer: 0
   m_Name: Spike (38)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7559,7 +7401,7 @@ GameObject:
   - 61: {fileID: 1116137862}
   m_Layer: 0
   m_Name: Spike (2)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7571,7 +7413,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1116137860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.462357, y: -39.608734, z: 0}
+  m_LocalPosition: {x: -47.462357, y: -39.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -7865,7 +7707,7 @@ GameObject:
   - 61: {fileID: 1175420096}
   m_Layer: 0
   m_Name: Spike (61)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7877,7 +7719,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1175420094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.93, y: 17.95, z: 0}
+  m_LocalPosition: {x: -68.64, y: 17.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -7940,7 +7782,7 @@ GameObject:
   - 61: {fileID: 1187110439}
   m_Layer: 0
   m_Name: Spike (10)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7952,7 +7794,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1187110437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.05236, y: -1.2787323, z: 0}
+  m_LocalPosition: {x: -67.05236, y: -1.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -8015,7 +7857,7 @@ GameObject:
   - 61: {fileID: 1188672480}
   m_Layer: 0
   m_Name: Spike (51)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8090,7 +7932,7 @@ GameObject:
   - 61: {fileID: 1195519442}
   m_Layer: 0
   m_Name: Spike (64)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8102,7 +7944,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1195519440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52.2, y: 53.18, z: 0}
+  m_LocalPosition: {x: -52.2, y: 53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -8215,7 +8057,7 @@ GameObject:
   - 61: {fileID: 1260929864}
   m_Layer: 0
   m_Name: Spike (55)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8227,7 +8069,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1260929862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.65, y: -18.99, z: 0}
+  m_LocalPosition: {x: -28.65, y: -19.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -8298,7 +8140,7 @@ GameObject:
   - 61: {fileID: 1285626158}
   m_Layer: 0
   m_Name: Spike (4)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8310,7 +8152,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1285626156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.702358, y: -36.428734, z: 0}
+  m_LocalPosition: {x: -16.702358, y: -36.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -8440,7 +8282,7 @@ GameObject:
   - 61: {fileID: 1294097119}
   m_Layer: 0
   m_Name: Spike (53)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8452,7 +8294,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1294097117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.67, y: -18.99, z: 0}
+  m_LocalPosition: {x: -26.67, y: -19.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -8576,7 +8418,7 @@ GameObject:
   - 61: {fileID: 1324199667}
   m_Layer: 0
   m_Name: Spike (26)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8787,56 +8629,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &1355949387
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 703623518}
-    m_Modifications:
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 72.21088
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 30.99131
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_Name
-      value: Turret (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1355949388 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_PrefabInternal: {fileID: 1355949387}
 --- !u!1 &1360907308
 GameObject:
   m_ObjectHideFlags: 0
@@ -8918,7 +8710,7 @@ GameObject:
   - 61: {fileID: 1378798142}
   m_Layer: 0
   m_Name: Spike (21)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8930,7 +8722,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1378798140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.687645, y: 24.231268, z: 0}
+  m_LocalPosition: {x: 15.85, y: 25.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -9194,56 +8986,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 424632, guid: c1e331a9366d6284b9df9760b103adea, type: 2}
   m_PrefabInternal: {fileID: 1887384398}
---- !u!1001 &1418100049
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 703623518}
-    m_Modifications:
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 39.330193
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 101.55543
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1418100050 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_PrefabInternal: {fileID: 1418100049}
 --- !u!1001 &1423308518
 Prefab:
   m_ObjectHideFlags: 0
@@ -9302,7 +9044,7 @@ GameObject:
   - 61: {fileID: 1464105539}
   m_Layer: 0
   m_Name: Spike (12)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9314,7 +9056,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1464105537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.712357, y: 70.83127, z: 0}
+  m_LocalPosition: {x: -22.712357, y: 70.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -9377,7 +9119,7 @@ GameObject:
   - 61: {fileID: 1466304291}
   m_Layer: 0
   m_Name: Spike (14)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9389,7 +9131,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1466304289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.612358, y: 70.83127, z: 0}
+  m_LocalPosition: {x: -24.612358, y: 70.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -9452,7 +9194,7 @@ GameObject:
   - 61: {fileID: 1471436668}
   m_Layer: 0
   m_Name: Spike (57)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9464,7 +9206,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1471436666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60.64, y: -1.32, z: 0}
+  m_LocalPosition: {x: -60.64, y: -1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -9527,7 +9269,7 @@ GameObject:
   - 61: {fileID: 1475809265}
   m_Layer: 0
   m_Name: Spike (5)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9539,7 +9281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1475809263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.732357, y: -36.428734, z: 0}
+  m_LocalPosition: {x: -17.732357, y: -36.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -9743,7 +9485,7 @@ GameObject:
   - 61: {fileID: 1546645075}
   m_Layer: 0
   m_Name: Spike (59)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9755,7 +9497,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1546645073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65.95, y: 17.95, z: 0}
+  m_LocalPosition: {x: -66.66, y: 17.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -9931,56 +9673,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 475610, guid: db6c69d2126cb704e82212d16751df06, type: 2}
   m_PrefabInternal: {fileID: 678105475}
---- !u!1001 &1567281612
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 703623518}
-    m_Modifications:
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 75.5359
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 5.4071465
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_Name
-      value: Turret (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1567281613 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_PrefabInternal: {fileID: 1567281612}
 --- !u!1001 &1584081388
 Prefab:
   m_ObjectHideFlags: 0
@@ -10039,7 +9731,7 @@ GameObject:
   - 61: {fileID: 1596086195}
   m_Layer: 0
   m_Name: Spike (17)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10051,7 +9743,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1596086193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.98764, y: 67.33127, z: 0}
+  m_LocalPosition: {x: 24.46, y: 67.33127, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -10156,7 +9848,7 @@ GameObject:
   - 61: {fileID: 1607169500}
   m_Layer: 0
   m_Name: Spike (45)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10231,7 +9923,7 @@ GameObject:
   - 61: {fileID: 1625395365}
   m_Layer: 0
   m_Name: Spike (71)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10506,7 +10198,7 @@ GameObject:
   - 61: {fileID: 1666496677}
   m_Layer: 0
   m_Name: Spike (27)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10581,7 +10273,7 @@ GameObject:
   - 61: {fileID: 1690456382}
   m_Layer: 0
   m_Name: Spike (15)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10593,7 +10285,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1690456380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.087639, y: 67.33127, z: 0}
+  m_LocalPosition: {x: 22.56, y: 67.33127, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -10656,7 +10348,7 @@ GameObject:
   - 61: {fileID: 1701884854}
   m_Layer: 0
   m_Name: Spike (68)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10719,56 +10411,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1001 &1727542648
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 703623518}
-    m_Modifications:
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 75.43421
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 91.70571
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_Name
-      value: Turret (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1727542649 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_PrefabInternal: {fileID: 1727542648}
 --- !u!1 &1728520762
 GameObject:
   m_ObjectHideFlags: 0
@@ -10781,7 +10423,7 @@ GameObject:
   - 61: {fileID: 1728520764}
   m_Layer: 0
   m_Name: Spike (7)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10873,7 +10515,7 @@ Transform:
   - {fileID: 1832595578}
   - {fileID: 437340774}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 13
+  m_RootOrder: 5
 --- !u!114 &1730049186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10943,7 +10585,7 @@ GameObject:
   - 61: {fileID: 1758881133}
   m_Layer: 0
   m_Name: Spike (56)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10955,7 +10597,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1758881131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -61.67, y: -1.32, z: 0}
+  m_LocalPosition: {x: -61.67, y: -1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -11033,7 +10675,7 @@ GameObject:
   - 61: {fileID: 1774489542}
   m_Layer: 0
   m_Name: Spike (30)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11108,7 +10750,7 @@ GameObject:
   - 61: {fileID: 1784888326}
   m_Layer: 0
   m_Name: Spike (58)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11120,7 +10762,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1784888324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -59.69, y: -1.32, z: 0}
+  m_LocalPosition: {x: -59.69, y: -1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -11274,7 +10916,7 @@ GameObject:
   - 61: {fileID: 1829248633}
   m_Layer: 0
   m_Name: Spike (49)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11337,60 +10979,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1001 &1830255834
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 703623518}
-    m_Modifications:
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 91.10306
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 67.54957
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_Name
-      value: Turret (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1830255835 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
-  m_PrefabInternal: {fileID: 1830255834}
 --- !u!1 &1832595577 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 137100, guid: c1e331a9366d6284b9df9760b103adea, type: 2}
@@ -11411,7 +10999,7 @@ GameObject:
   - 61: {fileID: 1846169930}
   m_Layer: 0
   m_Name: Spike (70)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11486,7 +11074,7 @@ GameObject:
   - 61: {fileID: 1847014810}
   m_Layer: 0
   m_Name: Spike (44)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11561,7 +11149,7 @@ GameObject:
   - 61: {fileID: 1847882184}
   m_Layer: 0
   m_Name: Spike (25)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11682,7 +11270,7 @@ GameObject:
   - 61: {fileID: 1857315135}
   m_Layer: 0
   m_Name: Spike (16)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11694,7 +11282,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1857315133}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.087639, y: 67.33127, z: 0}
+  m_LocalPosition: {x: 23.56, y: 67.33127, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -11841,7 +11429,7 @@ GameObject:
   - 61: {fileID: 1892594186}
   m_Layer: 0
   m_Name: Spike (39)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11916,7 +11504,7 @@ GameObject:
   - 61: {fileID: 1898209206}
   m_Layer: 0
   m_Name: Spike (35)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12099,7 +11687,7 @@ GameObject:
   - 61: {fileID: 1922905690}
   m_Layer: 0
   m_Name: Spike (46)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12191,7 +11779,7 @@ Transform:
   - {fileID: 1851553}
   - {fileID: 422303133}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 18
+  m_RootOrder: 10
 --- !u!114 &1925895189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12319,7 +11907,7 @@ GameObject:
   - 61: {fileID: 1956459570}
   m_Layer: 0
   m_Name: Spike (33)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12394,7 +11982,7 @@ GameObject:
   - 61: {fileID: 1960166885}
   m_Layer: 0
   m_Name: Spike (47)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12469,7 +12057,7 @@ GameObject:
   - 61: {fileID: 1961171578}
   m_Layer: 0
   m_Name: Spike (29)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12544,7 +12132,7 @@ GameObject:
   - 61: {fileID: 1962933715}
   m_Layer: 0
   m_Name: Spike (36)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12725,7 +12313,7 @@ Transform:
   - {fileID: 462351964}
   - {fileID: 1557026668}
   m_Father: {fileID: 703623518}
-  m_RootOrder: 17
+  m_RootOrder: 9
 --- !u!114 &2046141644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12753,7 +12341,7 @@ GameObject:
   - 61: {fileID: 2047460366}
   m_Layer: 0
   m_Name: Spike (37)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12828,7 +12416,7 @@ GameObject:
   - 61: {fileID: 2057811806}
   m_Layer: 0
   m_Name: Spike (24)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12949,7 +12537,7 @@ GameObject:
   - 61: {fileID: 2071530954}
   m_Layer: 0
   m_Name: Spike (18)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13070,7 +12658,7 @@ GameObject:
   - 61: {fileID: 2081312452}
   m_Layer: 0
   m_Name: Spike (40)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13187,7 +12775,7 @@ GameObject:
   - 61: {fileID: 2092871398}
   m_Layer: 0
   m_Name: Spike (76)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13259,11 +12847,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 115.43964
+      value: 113.9
       objectReference: {fileID: 0}
     - target: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 134.8262
+      value: 133.17
       objectReference: {fileID: 0}
     - target: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
       propertyPath: m_LocalPosition.z
@@ -13308,7 +12896,7 @@ GameObject:
   - 61: {fileID: 2099498412}
   m_Layer: 0
   m_Name: Spike (75)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13425,7 +13013,7 @@ GameObject:
   - 61: {fileID: 2124466717}
   m_Layer: 0
   m_Name: Spike (9)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13437,7 +13025,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2124466715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -66.05236, y: -1.2787323, z: 0}
+  m_LocalPosition: {x: -66.05236, y: -1.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1010551629}
@@ -13500,7 +13088,7 @@ GameObject:
   - 61: {fileID: 2131185161}
   m_Layer: 0
   m_Name: Spike (32)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13575,7 +13163,7 @@ GameObject:
   - 61: {fileID: 2132397727}
   m_Layer: 0
   m_Name: Spike (48)
-  m_TagString: Hazard
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
