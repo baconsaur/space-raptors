@@ -25,7 +25,7 @@ private var path :Array;
 private var timeUntilReady :float;
 private var following :boolean = false;
 private var stuckMebbe :float = 0f;
-
+private var collisions :Hashtable;
 
 
 
@@ -33,6 +33,7 @@ private var stuckMebbe :float = 0f;
 function Start () {
 	timeUntilReady = 0f;
 	pointers.player = GameObject.Find('Player');
+	collisions = new Hashtable();
 }
 
 function StopThat() {
@@ -59,12 +60,32 @@ function FixedUpdate () {
 		path = PathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0.1, capabilities);
 		StartCoroutine(FollowPath(path, 0.1, this.gameObject, pointers.rigidBody, capabilities));
 		timeUntilReady = capabilities.reactionTime;
+	} else if (!following) {
+		FacePlayer();
 	}
 	if (timeUntilReady && !following) timeUntilReady = Mathf.Max(timeUntilReady - (capabilities.reactionTime * Time.deltaTime), 0);
 }
 
+function colliding(direction :Vector2) :boolean {
+	var obj :Methods.ObjectWithCorners = new Methods.ObjectWithCorners(this.gameObject);
+	var position :Vector2 = transform.position;
+	var ray :RaycastHit2D = Methods.RaycastClosest(position, direction, transform);
 
+	var width :float = Mathf.Abs(obj.corners.topRight.x - obj.corners.topLeft.x);
+	return !!ray && ray.distance < width * 2 / 3 && collisions.ContainsKey(ray.transform.gameObject) && collisions[ray.transform.gameObject];
+}
 
+function FacePlayer() {
+	transform.localScale.x = pointers.player.transform.position.x > transform.position.x ? -1f : 1f;
+}
+
+function OnCollisionEnter2D(other :Collision2D) {
+	collisions[other.transform.gameObject] = true;
+}
+
+function OnCollisionExit2D(other :Collision2D) {
+	collisions[other.transform.gameObject] = false;
+}
 
 
 
@@ -119,7 +140,7 @@ public function FollowPath(path :Array, timeout :float, me: GameObject, body :Ri
 			var howTo :Array = PathFinding.howToGetThere(me, path[i - 1] as GameObject, path[i] as GameObject, 0.1, stats);
 			if (howTo.length) {
 				yield StartCoroutine(Move(howTo, me, body, stats));
-	//			yield WaitForSeconds(timeout);
+				yield WaitForSeconds(0.1);
 			} else {
 				i = path.length;
 			}
@@ -133,7 +154,7 @@ private function Move(step :Array, me :GameObject, body :Rigidbody2D, stats :Cap
 	var Methods :Methods;
 //	Methods.forEach(step, Debug.Log);
 	var method :String = step.Shift();
-	Debug.Log(method);
+//	Debug.Log(method);
 	switch (method) {
 		case 'FallLeft':
 			yield StartCoroutine(FallLeft(step[0], me, me.transform.position.y, stats));
@@ -184,21 +205,44 @@ private function Jump(body :Rigidbody2D, stats :Capabilities) {
 
 private function GoLeft(position :Vector2, me :GameObject, stats :Capabilities) {
 	me.transform.localScale.x = 1f;
+
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.x > position.x - (stats.speed * Time.deltaTime + 1f);
+		return me.transform.position.x > position.x - (stats.speed * Time.deltaTime);// + 1f);
+	}));
+}
+
+private function GoLeft(position :Vector2, me :GameObject, stats :Capabilities, grounded :boolean) {
+	me.transform.localScale.x = 1f;
+
+	yield StartCoroutine(DoUntil(function() {
+		me.transform.Translate(Vector3(-1f * stats.speed * Time.deltaTime, 0, 0));
+	}, function() {
+		return !colliding(Vector2(-1, -0.5)) && me.transform.position.x > position.x - (stats.speed * Time.deltaTime);// + 1f);
 	}));
 }
 
 private function GoRight(position :Vector2, me :GameObject, stats :Capabilities) {
 	me.transform.localScale.x = -1f;
+
 	yield StartCoroutine(DoUntil(function() {
 		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
 	}, function() {
-		return me.transform.position.x < position.x + (stats.speed * Time.deltaTime + 1f);
+		return me.transform.position.x < position.x + (stats.speed * Time.deltaTime);// + 1f);
 	}));
 }
+
+private function GoRight(position :Vector2, me :GameObject, stats :Capabilities, grounded :boolean) {
+	me.transform.localScale.x = -1f;
+
+	yield StartCoroutine(DoUntil(function() {
+		me.transform.Translate(Vector3(stats.speed * Time.deltaTime, 0, 0));
+	}, function() {
+		return !colliding(Vector2(1, -0.5)) && me.transform.position.x < position.x + (stats.speed * Time.deltaTime);// + 1f);
+	}));
+}
+
 
 private function FallLeft(position :Vector2, me :GameObject, untilY :float, stats :Capabilities) {
 	me.transform.localScale.x = 1f;
@@ -241,7 +285,7 @@ private function FallAroundRight(position :Vector2, me :GameObject, untilY :floa
 
 private function JumpLeft(arg1 :Vector2, untilY :float, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
 	// GO LEFT OR RIGHT????
-	yield arg1.x < me.transform.position.x ? StartCoroutine(GoLeft(arg1, me, stats)) : StartCoroutine(GoRight(arg1, me, stats));
+	yield arg1.x < me.transform.position.x ? StartCoroutine(GoLeft(arg1, me, stats, true)) : StartCoroutine(GoRight(arg1, me, stats, true));
 	var currentY = me.transform.position.y;
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
@@ -256,7 +300,7 @@ private function JumpLeft(arg1 :Vector2, untilY :float, arg2 :Vector2, me :GameO
 
 private function JumpRight(arg1 :Vector2, untilY :float, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
 	// GO LEFT OR RIGHT????
-	yield arg1.x < me.transform.position.x ? StartCoroutine(GoLeft(arg1, me, stats)) : StartCoroutine(GoRight(arg1, me, stats));
+	yield arg1.x < me.transform.position.x ? StartCoroutine(GoLeft(arg1, me, stats, true)) : StartCoroutine(GoRight(arg1, me, stats, true));
 //	yield StartCoroutine(GoRight(arg1, me, stats));
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
@@ -269,7 +313,7 @@ private function JumpRight(arg1 :Vector2, untilY :float, arg2 :Vector2, me :Game
 }
 
 private function JumpAroundLeft(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
-	yield StartCoroutine(GoLeft(arg1, me, stats));
+	yield StartCoroutine(GoLeft(arg1, me, stats, true));
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
 	yield StartCoroutine(DoUntil(function() {
@@ -288,7 +332,7 @@ private function JumpAroundLeft(arg1 :Vector2, arg2 :Vector2, me :GameObject, bo
 }
 
 private function JumpAroundRight(arg1 :Vector2, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
-	yield StartCoroutine(GoRight(arg1, me, stats));
+	yield StartCoroutine(GoRight(arg1, me, stats, true));
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
 	yield StartCoroutine(DoUntil(function() {

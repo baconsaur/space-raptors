@@ -234,7 +234,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 45f599f28fd834d87875786afbc99eac, type: 3}
-  m_Color: {r: 0.5955882, g: 0.070069194, b: 0.070069194, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!4 &93625822
@@ -319,8 +319,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeRate: 50
-  meleeSpeed: 30
-  meleeRange: 4.5
+  chargeSpeed: 30
+  chargeRange: 9
+  damageRange: 4.5
   smackem: 0
 --- !u!114 &93625827
 MonoBehaviour:
@@ -3411,7 +3412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraComponent: {fileID: 1986908149}
-  setZoom: 18
+  setZoom: 17
   zoomSpeed: 0.25
   setPosition: {x: 0, y: 0}
   positionSpeed: 0.25

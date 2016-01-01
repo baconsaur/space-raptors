@@ -8,6 +8,5 @@ function Start() {
 }
 
 function OnTriggerEnter2D(other :Collider2D) {
-	Debug.Log('smack!');
 	if (other.transform.gameObject == player) player.SendMessage('TakeDamage', meleeDamage);
 }

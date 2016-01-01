@@ -112,18 +112,18 @@ public class PathFinding extends MonoBehaviour {
 		} else if (startExtend.corners.landCenter.y < targetExtend.corners.landCenter.y) {
 			if (startExtend.corners.topLeft.x >= targetExtend.corners.topRight.x + (myWidth / 2f)) {
 				// jump across left
-				return new Array('JumpLeft', startExtend.corners.topLeft, targetExtend.corners.landCenter.y, targetExtend.corners.topRight);
+				return new Array('JumpLeft', startExtend.corners.topLeft, targetExtend.corners.landCenter.y, targetExtend.corners.landCenter);
 			} else if (startExtend.corners.topRight.x <= targetExtend.corners.topLeft.x - (myWidth  / 2f)) {
 				// jump acrros right
-				return new Array('JumpRight', startExtend.corners.topRight, targetExtend.corners.landCenter.y, targetExtend.corners.topLeft);
+				return new Array('JumpRight', startExtend.corners.topRight, targetExtend.corners.landCenter.y, targetExtend.corners.landCenter);
 			} else if (startExtend.corners.topRight.x > targetExtend.corners.topRight.x + myWidth) {
 				// jump up left
-				position = new Vector2(targetExtend.corners.topRight.x + (myWidth / 2), startExtend.corners.landCenter.y);
-				return new Array('JumpLeft', position, targetExtend.corners.landCenter.y, targetExtend.corners.topRight);
+				position = new Vector2(targetExtend.corners.topRight.x, startExtend.corners.landCenter.y);
+				return new Array('JumpLeft', position, targetExtend.corners.landCenter.y, targetExtend.corners.landCenter);
 			} else if (startExtend.corners.topLeft.x < targetExtend.corners.topLeft.x + myWidth) {
 				// jump up right
-				position = new Vector2(targetExtend.corners.topLeft.x - (myWidth / 2), startExtend.corners.landCenter.y);
-				return new Array('JumpRight', position, targetExtend.corners.landCenter.y, targetExtend.corners.topLeft);
+				position = new Vector2(targetExtend.corners.topLeft.x, startExtend.corners.landCenter.y);
+				return new Array('JumpRight', position, targetExtend.corners.landCenter.y, targetExtend.corners.landCenter);
 			} else if (startExtend.corners.topLeft.x <= targetExtend.corners.topLeft.x) {
 				// jump around left
 				return new Array('JumpAroundLeft', startExtend.corners.topLeft, targetExtend.corners.topLeft);
