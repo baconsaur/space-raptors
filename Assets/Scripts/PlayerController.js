@@ -83,25 +83,22 @@ function FixedUpdate () {
 	}
 
 
+
 	if (Input.GetAxis("Jump") > 0
-		  && !animator.GetBool("jumping")
-		  && !animator.GetBool("falling")
+		  && (!animator.GetBool("jumping") && !animator.GetBool("falling"))
 		  && rigidBody.velocity.y == 0
 		  && animator.GetBool("dead") == false)
 	{
 		rigidBody.AddForce(Vector2(0, jumpForce));
 		setAnimation("walking", false);
-		setAnimation("falling", false);
 		setAnimation("jumping", true);
 		SoundFXManager.Play(audioSource, "action", "player_jump");
 		var dust = Instantiate(bootDust, transform.position, Quaternion.identity);
 		Destroy(dust, dust.GetComponent(ParticleSystem).duration);
-	}
-
-	if (rigidBody.velocity.y < 0) {
+	} else if (rigidBody.velocity.y < 0) {
 		setAnimation("jumping", false);
 		setAnimation("falling", true);
-	} else if (rigidBody.velocity.y == 0) {
+	} else if (rigidBody.velocity.y == 0 && !animator.GetBool("jumping")) {
 		setAnimation("jumping", false);
 		setAnimation("falling", false);
 	}
