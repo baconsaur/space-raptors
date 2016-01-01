@@ -17,8 +17,13 @@ var collisionDamage :int;
 var stealthTime :float;
 var stealth :boolean;
 var stealthCooldown :float;
-var HUDManager :HUDManager;
+public var spawnPoint :Transform;
+var bootDust :GameObject;
 
+
+private var HUDManager :HUDManager;
+private var SoundFXManager :SoundFXManager;
+private var audioSource :AudioSource;
 private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
 private var shotCooldown :float;
@@ -28,8 +33,9 @@ function Start () {
 	shotCooldown = 0;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
-	//var HUDCanvas = GameObject.Find("HUDCanvas");
 	HUDManager = GameObject.Find("HUDCanvas").GetComponent("HUDManager");
+	SoundFXManager = GameObject.Find("SoundFX").GetComponent("SoundFXManager");
+	audioSource = gameObject.GetComponent(AudioSource);
 	previousPosition = new Vector2(0,0);
 }
 
@@ -75,24 +81,26 @@ function FixedUpdate () {
 	}
 
 
-	if (Input.GetAxis("Jump") > 0 && rigidBody.velocity.y == 0 && animator.GetBool("dead") == false) {
+	if (Input.GetAxis("Jump") > 0 && animator.GetBool("jumping") == false
+	    && rigidBody.velocity.y == 0 && animator.GetBool("dead") == false) {
 		animator.SetBool("walking", false);
 		weaponAnimator.SetBool("walking", false);
 		rigidBody.AddForce(Vector2(0, jumpForce));
-	}
-
-	if (rigidBody.velocity.y > 0) {
 		animator.SetBool("jumping", true);
 		animator.SetBool("falling", false);
 		weaponAnimator.SetBool("jumping", true);
 		weaponAnimator.SetBool("falling", false);
-	} else if (rigidBody.velocity.y < 0) {
+		SoundFXManager.Play(audioSource, "action", "player_jump");
+		var dust = Instantiate(bootDust, transform.position, Quaternion.identity);
+		Destroy(dust, dust.GetComponent(ParticleSystem).duration);
+	}
+
+	if (rigidBody.velocity.y < 0) {
 		animator.SetBool("jumping", false);
 		animator.SetBool("falling", true);
 		weaponAnimator.SetBool("jumping", false);
 		weaponAnimator.SetBool("falling", true);
 	} else if (rigidBody.velocity.y == 0) {
-		//TODO: This also gets set to 0 at the apex of a jump
 		animator.SetBool("jumping", false);
 		animator.SetBool("falling", false);
 		weaponAnimator.SetBool("jumping", false);
@@ -149,26 +157,35 @@ function ItemPickup (newItem :GameObject) {
 	} else if (newItem.tag == "Powerup") {
 		if (newItem.name.Contains("Health" && "25")) {
 			HealDamage(25);
+			SoundFXManager.Play(audioSource, "item_pickup", "health_25");
 		} else if (newItem.name.Contains("Health" && "50")) {
 			HealDamage(50);
+			SoundFXManager.Play(audioSource, "item_pickup", "health_50");
 		} else if (newItem.name.Contains("Health" && "Max")) {
 			HealDamage(100);
+			SoundFXManager.Play(audioSource, "item_pickup", "health_max");
 		} else if (newItem.name.Contains("Armor" && "50")) {
 			IncreaseArmor(50);
+			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
 		} else if (newItem.name.Contains("Armor" && "100")) {
 			IncreaseArmor(100);
+			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
 		}
 	}
 }
 
 function OnCollisionEnter2D (collision :Collision2D) {
-	if (collision.gameObject.tag == "Enemy") {
-		TakeDamage(collisionDamage);
-	} else if (collision.gameObject.tag == "Spikes") {
+//	if (collision.gameObject.tag == "Enemy") {
+//		TakeDamage(collisionDamage);
+//		SoundFXManager.Play(audioSource, "explosion", "small");
+//	} else 
+	if (collision.gameObject.tag == "Spikes") {
 		if (armor > 0) {
 			TakeDamage(collisionDamage * 2);
+			SoundFXManager.Play(audioSource, "explosion", "small");
 		} else {
 			TakeDamage(collisionDamage * 4);
+			SoundFXManager.Play(audioSource, "explosion", "medium");
 		}
 	}
 }
@@ -230,5 +247,7 @@ function SwitchWeapon (weapon :GameObject) {
 }
 
 function Die () {
+//	transform.position = spawnPoint.position;
+//	health = 100;
 	Application.LoadLevel (Application.loadedLevel);
 }
