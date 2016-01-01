@@ -197,7 +197,7 @@ function Shoot() {
 	animator.SetBool("walking", false);
 	animator.SetTrigger("shoot");
 	var newShot :GameObject = Instantiate(currentWeapon, Vector2(gameObject.transform.position.x + (shotOffset.x * transform.localScale.x), gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
-	newShot.GetComponent(ProjectileController).direction = -transform.localScale.x;
+	newShot.GetComponent(ProjectileController).direction.x = -transform.localScale.x;
 	shotCooldown = shootingCooldown;
 	moveWait = waitAfterShooting;
 }

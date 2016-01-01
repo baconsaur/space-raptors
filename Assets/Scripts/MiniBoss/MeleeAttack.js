@@ -29,7 +29,7 @@ function FixedUpdate () {
 	if (meleeCooldown) {
 		if (GetComponent(FollowAI).getem) meleeCooldown--;
 		if (playerPlatform && myPlatform && playerPlatform == myPlatform) {
-			// back up after attack
+			// Back up after attack
 			var corners :Methods.ObjectWithCorners = new Methods.ObjectWithCorners(myPlatform);
 			var relevant = transform.localScale.x < 0 ? corners.corners.topLeft : corners.corners.topRight;
 			if (Mathf.Abs(transform.position.x - relevant.x) > speed * Time.deltaTime) {
@@ -39,6 +39,7 @@ function FixedUpdate () {
 	} else if (GetComponent(FollowAI).getem) {
 		if (playerPlatform && myPlatform && playerPlatform == myPlatform) {
 			if (DistanceToPlayerX() <= chargeRange) {
+				// ATTACK!
 				StartCoroutine(Attack());
 			} else {
 				transform.Translate(Vector2(-transform.localScale.x * speed * Time.deltaTime, 0));
@@ -56,7 +57,12 @@ function DistanceToPlayerX() :float {
 }
 
 function Attack() {
-	GetComponent(FollowAI).getem = false;
+	var follow :FollowAI = GetComponent(FollowAI);
+	var cannon1 :MainCannon = GetComponent(MainCannon);
+	var cannon2 :PlatformCannon = GetComponent(PlatformCannon);
+	if (follow) follow.getem = false;
+	if (cannon1) cannon1.shootem = false;
+	if (cannon2) cannon2.destroyem = false;
 	var Methods :Methods;
 	FacePlayer();
 	arm.SetActive(true);
@@ -72,5 +78,7 @@ function Attack() {
 	yield WaitForSeconds(0.2);
 	meleeCooldown = meleeRate;
 	arm.SetActive(false);
-	GetComponent(FollowAI).getem = true;
+	if (follow) follow.getem = true;
+	if (cannon1) cannon1.shootem = true;
+	if (cannon2) cannon2.destroyem = true;
 }

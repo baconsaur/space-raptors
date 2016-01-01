@@ -108,7 +108,7 @@ function FixedUpdate () {
 		animator.SetTrigger("shoot");
 		weaponAnimator.SetTrigger("shoot");
 		var newShot = Instantiate(weaponProjectile, Vector2(gameObject.transform.position.x + shotOffset.x, gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
-		newShot.GetComponent(ProjectileController).direction = transform.localScale.x;
+		newShot.GetComponent(ProjectileController).direction.x = transform.localScale.x;
 		shotCooldown = defaultCooldown;
 	}
 

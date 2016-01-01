@@ -174,9 +174,11 @@ GameObject:
   - 50: {fileID: 93625823}
   - 114: {fileID: 93625827}
   - 114: {fileID: 93625826}
+  - 114: {fileID: 93625829}
+  - 114: {fileID: 93625828}
   m_Layer: 0
   m_Name: MiniBoss
-  m_TagString: Untagged
+  m_TagString: MiniBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae71d8c448ab743bfbb252cc578f23a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 600
+  health: 300
 --- !u!61 &93625820
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -334,6 +336,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39edf1aa114454379a0acb4df2ac2c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &93625828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 93625818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b250ed375034f8fbb708831535f72d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyem: 0
+--- !u!114 &93625829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 93625818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9edd751741b4d6a96ede0daa66e910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootem: 0
+  shootToleranceY: 1
+  cannonCoolDown: 50
+  projectile: {fileID: 109198, guid: 29e0a74a2fd10407c925a0ed985c762b, type: 2}
 --- !u!1 &103998987
 GameObject:
   m_ObjectHideFlags: 0
