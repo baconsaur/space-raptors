@@ -19,7 +19,6 @@ public var getem :boolean;
 
 
 // Script Variables
-private var Methods :Methods;
 private var PathFinding :PathFinding;
 private var playerPlatform :GameObject;
 private var path :Array;
@@ -36,19 +35,26 @@ function Start () {
 	pointers.player = GameObject.Find('Player');
 }
 
+function StopThat() {
+	StopAllCoroutines();
+	stuckMebbe = 0;
+	following = false;
+	path = null;
+}
+
 function FixedUpdate () {
 	if (!getem) return;
 	stuckMebbe += Time.deltaTime;
 	if (stuckMebbe >= stuckYarp) {
-		StopAllCoroutines();
-		stuckMebbe = 0;
-		following = false;
-		path = null;
+		StopThat();
 	}
 	
 	var playerPlat = Methods.onTaggedObject(pointers.player, 0.1, 'Platform');
 	var myPlat = Methods.onTaggedObject(this.gameObject, 0.1, 'Platform');
-	if (playerPlat) playerPlatform = playerPlat;
+	if (playerPlat && playerPlat != playerPlatform) {
+		playerPlatform = playerPlat;
+		StopThat();
+	}
 	if (!following && !timeUntilReady && myPlat && playerPlat && (!path || !path.length || myPlat != playerPlat)) {
 		path = PathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0.1, capabilities);
 		StartCoroutine(FollowPath(path, 0.1, this.gameObject, pointers.rigidBody, capabilities));
@@ -106,16 +112,15 @@ public function FollowPath(path :Array, timeout :float, me: GameObject, body :Ri
 	var PathFinding :PathFinding;
 	following = true;
 	for (var i :int = 1; i < path.length && following; i++) {
-		if (path[i - 1] != Methods.onTaggedObject(me, 0.1, 'Platform')) {
-			Debug.Log('previous move did not work');
+		var plat :GameObject = Methods.onTaggedObject(me, 0.1, 'Platform');
+		if (plat && plat != path[i - 1]) {
 			i = path.length;
 		} else {
-			var howTo :Array = PathFinding.howToGetThere(me, path[i - 1], path[i], 0.1, stats);
+			var howTo :Array = PathFinding.howToGetThere(me, path[i - 1] as GameObject, path[i] as GameObject, 0.1, stats);
 			if (howTo.length) {
 				yield StartCoroutine(Move(howTo, me, body, stats));
 	//			yield WaitForSeconds(timeout);
 			} else {
-				Debug.Log('cannot get there');
 				i = path.length;
 			}
 		}
@@ -126,8 +131,9 @@ public function FollowPath(path :Array, timeout :float, me: GameObject, body :Ri
 private function Move(step :Array, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
 	stuckMebbe = 0;
 	var Methods :Methods;
-	Methods.forEach(step, Debug.Log);
+//	Methods.forEach(step, Debug.Log);
 	var method :String = step.Shift();
+	Debug.Log(method);
 	switch (method) {
 		case 'FallLeft':
 			yield StartCoroutine(FallLeft(step[0], me, me.transform.position.y, stats));
@@ -160,7 +166,7 @@ private function Move(step :Array, me :GameObject, body :Rigidbody2D, stats :Cap
 			yield StartCoroutine(JumpAroundRight(step[0], step[1], me, body, stats));
 			break;
 		default:
-			Debug.Log('no method');
+//			Debug.Log('no method');
 			return;
 	}
 }
@@ -236,13 +242,14 @@ private function FallAroundRight(position :Vector2, me :GameObject, untilY :floa
 private function JumpLeft(arg1 :Vector2, untilY :float, arg2 :Vector2, me :GameObject, body :Rigidbody2D, stats :Capabilities) {
 	// GO LEFT OR RIGHT????
 	yield arg1.x < me.transform.position.x ? StartCoroutine(GoLeft(arg1, me, stats)) : StartCoroutine(GoRight(arg1, me, stats));
-//	yield StartCoroutine(GoLeft(arg1, me, stats));
+	var currentY = me.transform.position.y;
 	Jump(body, stats);
 	yield WaitForFixedUpdate();
 	yield StartCoroutine(DoUntil(function() {}, function () {
 		var objWCorn :Methods.ObjectWithCorners = new Methods.ObjectWithCorners(me);
 		return objWCorn.corners.topLeft.y <= untilY;
 	}));
+	yield WaitForFixedUpdate();
 	yield StartCoroutine(GoLeft(arg2, me, stats));
 	yield WaitForFixedUpdate();
 }

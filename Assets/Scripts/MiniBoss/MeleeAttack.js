@@ -2,21 +2,24 @@
 public var meleeRate :int;
 public var meleeSpeed :float;
 public var meleeRange :float;
-public var meleeDamage :int;
+public var smackem :boolean;
 
 
 private var meleeCooldown :int;
 private var player :GameObject;
 private var myPlatform :GameObject;
 private var playerPlatform :GameObject;
-
+private var arm :GameObject;
 
 function Start() {
 	player = GameObject.Find('Player');
+	arm = this.gameObject.Find('MeleeCollision');
+	arm.SetActive(false);
+	smackem = true;
 }
 
 function FixedUpdate () {
-	var Methods :Methods;
+	if (!smackem) return;
 	playerPlatform = Methods.onTaggedObject(player, 0.1, 'Platform');
 	myPlatform = Methods.onTaggedObject(this.gameObject, 0.1, 'Platform');
 
@@ -30,9 +33,9 @@ function FixedUpdate () {
 				transform.Translate(Vector2(transform.localScale.x * speed / 3f * Time.deltaTime, 0));
 			}
 		}
-	} else {
+	} else if (GetComponent(FollowAI).getem) {
 		if (playerPlatform && myPlatform && playerPlatform == myPlatform) {
-			meleeCooldown = meleeRate;
+//			meleeCooldown = meleeRate;
 			StartCoroutine(Attack());
 		}
 	}
@@ -46,13 +49,15 @@ function Attack() {
 	GetComponent(FollowAI).getem = false;
 	var Methods :Methods;
 	FacePlayer();
+	arm.SetActive(true);
 	yield WaitForFixedUpdate();
 	while (Methods.distance(player.transform.position, transform.position) > meleeRange) {
 		transform.Translate(Vector2(meleeSpeed * -transform.localScale.x * Time.deltaTime, 0));
 		yield WaitForFixedUpdate();
 	}
 	// yield Attack Animation
-	Debug.Log('I bite you');
-	player.SendMessage('TakeDamage', meleeDamage);
+	yield WaitForSeconds(0.2);
+	meleeCooldown = meleeRate;
+	arm.SetActive(false);
 	GetComponent(FollowAI).getem = true;
 }

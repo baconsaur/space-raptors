@@ -9,11 +9,19 @@ var health :int;
 //private var player :GameObject;
 private var totalHealth :int;
 private var stage :int;
+private var player :GameObject;
 
 function Start () {
-//	player = GameObject.Find('Player');
+	player = GameObject.Find('Player');
 	totalHealth = health;
 	SetStage();
+}
+
+function FixedUpdate() {
+	if (player.GetComponent(PlayerController).health <= 0) {
+		this.gameObject.GetComponent(FollowAI).getem = false;
+		this.gameObject.GetComponent(MeleeAttack).smackem = false;
+	}
 }
 
 function TakeDamage (damage :int) {

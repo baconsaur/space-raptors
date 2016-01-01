@@ -118,11 +118,11 @@ public class PathFinding extends MonoBehaviour {
 				return new Array('JumpRight', startExtend.corners.topRight, targetExtend.corners.landCenter.y, targetExtend.corners.topLeft);
 			} else if (startExtend.corners.topRight.x > targetExtend.corners.topRight.x + myWidth) {
 				// jump up left
-				position = new Vector2(targetExtend.corners.topRight.x + myWidth, startExtend.corners.landCenter.y);
+				position = new Vector2(targetExtend.corners.topRight.x + (myWidth / 2), startExtend.corners.landCenter.y);
 				return new Array('JumpLeft', position, targetExtend.corners.landCenter.y, targetExtend.corners.topRight);
 			} else if (startExtend.corners.topLeft.x < targetExtend.corners.topLeft.x + myWidth) {
 				// jump up right
-				position = new Vector2(targetExtend.corners.topLeft.x - myWidth, startExtend.corners.landCenter.y);
+				position = new Vector2(targetExtend.corners.topLeft.x - (myWidth / 2), startExtend.corners.landCenter.y);
 				return new Array('JumpRight', position, targetExtend.corners.landCenter.y, targetExtend.corners.topLeft);
 			} else if (startExtend.corners.topLeft.x <= targetExtend.corners.topLeft.x) {
 				// jump around left
@@ -138,7 +138,7 @@ public class PathFinding extends MonoBehaviour {
 		} else {
 			if (startExtend.corners.topLeft.x > targetExtend.corners.topLeft.x + myWidth) {
 				// Fall or Jump Left?
-				yOffset = Mathf.Sqrt(targetExtend.corners.landCenter.y - startExtend.corners.landCenter.y);
+				yOffset = targetExtend.corners.landCenter.y - startExtend.corners.landCenter.y;
 				if (startExtend.corners.topLeft.x < targetExtend.corners.topRight.x + myWidth + yOffset) {
 					// fall left
 					return new Array('FallLeft', targetExtend.corners.topRight);
@@ -148,7 +148,7 @@ public class PathFinding extends MonoBehaviour {
 				}
 			} else if (startExtend.corners.topRight.x < targetExtend.corners.topRight.x - myWidth) {
 				// Fall or Jump Right?
-				yOffset = Mathf.Sqrt(targetExtend.corners.landCenter.y - startExtend.corners.landCenter.y);
+				yOffset = targetExtend.corners.landCenter.y - startExtend.corners.landCenter.y;
 				if (startExtend.corners.topRight.x > targetExtend.corners.topLeft.x - myWidth - yOffset) {
 					// fall right
 					return new Array('FallRight', targetExtend.corners.topLeft);
