@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae71d8c448ab743bfbb252cc578f23a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
+  health: 500
 --- !u!61 &93625820
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -348,6 +348,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyem: 0
+  cannonCoolDown: 0
+  projectile: {fileID: 0}
 --- !u!114 &93625829
 MonoBehaviour:
   m_ObjectHideFlags: 0
