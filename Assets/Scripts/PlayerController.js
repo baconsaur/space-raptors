@@ -195,7 +195,6 @@ function IncreaseArmor (heal :int) {
 	if (armor > 100) {
 		armor = 100;
 	}
-	Debug.Log(armor);
 	HUDManager.UpdateArmor(armor);
 }
 
@@ -204,7 +203,6 @@ function HealDamage (heal :int) {
 	if (health > 100) {
 		health = 100;
 	}
-	Debug.Log(health);
 	HUDManager.UpdateHealth(health);
 }
 
@@ -216,10 +214,8 @@ function TakeDamage (damage :int) {
 		if (armor < 0) {
 			armor = 0;
 		}
-		Debug.Log(armor);
 	} else {
 		health -= damage;
-		Debug.Log(health);
 		if (health <= 0) {
 			setAnimation("dead", true);
 		}
