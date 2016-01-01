@@ -132,11 +132,11 @@ function CanSeePlayer() :boolean {
 }
 
 function OnCollisionEnter2D(other :Collision2D) {
-	if (other.transform.gameObject == platform && other.contacts[0].point.y < transform.position.y) onGround = true;
+	if (other.transform.gameObject == platform && other.contacts[0].point.y < transform.position.y - 1f) onGround = true;
 }
 
 function OnCollisionExit2D(other :Collision2D) {
-	if (other.transform.gameObject == platform && other.contacts[0].point.y < transform.position.y) onGround = false;
+	if (other.transform.gameObject == platform && other.contacts[0].point.y < transform.position.y - 1f) onGround = false;
 }
 
 function Patrol(obstacles :Obstacles) {
