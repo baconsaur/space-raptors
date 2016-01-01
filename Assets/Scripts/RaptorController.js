@@ -132,11 +132,11 @@ function CanSeePlayer() :boolean {
 }
 
 function OnCollisionEnter2D(other :Collision2D) {
-	if (other.transform.gameObject == platform && other.contacts[0].point.y < transform.position.y) onGround = true;
+	if (other.transform.gameObject == platform && other.contacts[0].point.y < transform.position.y - 1f) onGround = true;
 }
 
 function OnCollisionExit2D(other :Collision2D) {
-	if (other.transform.gameObject == platform && other.contacts[0].point.y < transform.position.y) onGround = false;
+	if (other.transform.gameObject == platform && other.contacts[0].point.y < transform.position.y - 1f) onGround = false;
 }
 
 function Patrol(obstacles :Obstacles) {
@@ -197,7 +197,7 @@ function Shoot() {
 	animator.SetBool("walking", false);
 	animator.SetTrigger("shoot");
 	var newShot :GameObject = Instantiate(currentWeapon, Vector2(gameObject.transform.position.x + (shotOffset.x * transform.localScale.x), gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
-	newShot.GetComponent(ProjectileController).direction = -transform.localScale.x;
+	newShot.GetComponent(ProjectileController).direction.x = -transform.localScale.x;
 	shotCooldown = shootingCooldown;
 	moveWait = waitAfterShooting;
 }
