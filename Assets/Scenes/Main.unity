@@ -3122,7 +3122,7 @@ MonoBehaviour:
   parallax1: {fileID: 841793627}
   parallax2: {fileID: 659770925}
   player: {fileID: 93899206}
-  space: {fileID: 0}
+  space: {fileID: 1131992518}
 --- !u!4 &1044403754
 Transform:
   m_ObjectHideFlags: 0
