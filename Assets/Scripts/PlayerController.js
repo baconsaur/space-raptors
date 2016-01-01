@@ -39,6 +39,11 @@ function Start () {
 	previousPosition = new Vector2(0,0);
 }
 
+function setAnimation (name :String, state :boolean) {
+	animator.SetBool(name, state);
+	weaponAnimator.SetBool(name, state);
+}
+
 function FixedUpdate () {
 	if (stealthTime && stealth) {
 		stealthTime -= Time.deltaTime;
@@ -67,44 +72,38 @@ function FixedUpdate () {
 	}
 	if (direction > turnDeadZone) {
 		transform.localScale = new Vector3(1, 1, 1);
-		animator.SetBool("walking", true);
-		weaponAnimator.SetBool("walking", true);
+		setAnimation("walking", true);
 		shotOffset.x = 2;
 	} else if (direction < -turnDeadZone) {
 		transform.localScale = new Vector3(-1, 1, 1);
-		animator.SetBool("walking", true);
-		weaponAnimator.SetBool("walking", true);
+		setAnimation("walking", true);
 		shotOffset.x = -2;
 	} else {
-		animator.SetBool("walking", false);
-		weaponAnimator.SetBool("walking", false);
+		setAnimation("walking", false);
 	}
 
 
-	if (Input.GetAxis("Jump") > 0 && animator.GetBool("jumping") == false
-	    && rigidBody.velocity.y == 0 && animator.GetBool("dead") == false) {
-		animator.SetBool("walking", false);
-		weaponAnimator.SetBool("walking", false);
+	if (Input.GetAxis("Jump") > 0
+		  && !animator.GetBool("jumping")
+		  && !animator.GetBool("falling")
+		  && rigidBody.velocity.y == 0
+		  && animator.GetBool("dead") == false)
+	{
 		rigidBody.AddForce(Vector2(0, jumpForce));
-		animator.SetBool("jumping", true);
-		animator.SetBool("falling", false);
-		weaponAnimator.SetBool("jumping", true);
-		weaponAnimator.SetBool("falling", false);
+		setAnimation("walking", false);
+		setAnimation("falling", false);
+		setAnimation("jumping", true);
 		SoundFXManager.Play(audioSource, "action", "player_jump");
 		var dust = Instantiate(bootDust, transform.position, Quaternion.identity);
 		Destroy(dust, dust.GetComponent(ParticleSystem).duration);
 	}
 
 	if (rigidBody.velocity.y < 0) {
-		animator.SetBool("jumping", false);
-		animator.SetBool("falling", true);
-		weaponAnimator.SetBool("jumping", false);
-		weaponAnimator.SetBool("falling", true);
+		setAnimation("jumping", false);
+		setAnimation("falling", true);
 	} else if (rigidBody.velocity.y == 0) {
-		animator.SetBool("jumping", false);
-		animator.SetBool("falling", false);
-		weaponAnimator.SetBool("jumping", false);
-		weaponAnimator.SetBool("falling", false);
+		setAnimation("jumping", false);
+		setAnimation("falling", false);
 	}
 
 	var shoot = Input.GetAxis("Fire1");
@@ -178,7 +177,7 @@ function OnCollisionEnter2D (collision :Collision2D) {
 //	if (collision.gameObject.tag == "Enemy") {
 //		TakeDamage(collisionDamage);
 //		SoundFXManager.Play(audioSource, "explosion", "small");
-//	} else 
+//	} else
 	if (collision.gameObject.tag == "Spikes") {
 		if (armor > 0) {
 			TakeDamage(collisionDamage * 2);
@@ -222,12 +221,11 @@ function TakeDamage (damage :int) {
 		health -= damage;
 		Debug.Log(health);
 		if (health <= 0) {
-			animator.SetBool("dead", true);
-			weaponAnimator.SetBool("dead", true);
+			setAnimation("dead", true);
 		}
 	}
 	if (health > 0) {
-		this.gameObject.SendMessage('DisplayDamage');
+		this.gameObject.SendMessage("DisplayDamage");
 		HUDManager.UpdateArmor(armor);
 		HUDManager.UpdateHealth(health);
 	} else {
