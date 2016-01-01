@@ -182,8 +182,6 @@ function FollowAttack(obstacles :Obstacles) {
 		} else if (Mathf.Abs(transform.position.x - lastKnownPos.x) > maxPlayerProximity) {
 			Face(lastKnownPos);
 			AnimateMove(Vector2(-transform.localScale.x * speed * Time.deltaTime, 0.1));
-		} else {
-			Debug.Log('content?');
 		}
 	} else {
 		animator.SetBool("walking", false);
@@ -201,7 +199,7 @@ function Shoot() {
 	var newShot :GameObject = Instantiate(currentWeapon, Vector2(gameObject.transform.position.x + (shotOffset.x * transform.localScale.x), gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
 	newShot.GetComponent(ProjectileController).direction = -transform.localScale.x;
 	shotCooldown = shootingCooldown;
-	moveWait = waitAfterShooting;	
+	moveWait = waitAfterShooting;
 }
 
 function nothingBetweenMeAnd(position :Vector2, obstacles :Obstacles) :boolean {
@@ -216,7 +214,6 @@ function Face(position :Vector2) {
 }
 
 function Jump() {
-	Debug.Log('jump');
 	if (onGround) {
 		animator.SetBool("walking", false);
 		body.AddForce(Vector2(0, jumpForce));
@@ -225,7 +222,6 @@ function Jump() {
 }
 
 function GetDown(obstacles :Obstacles) {
-	Debug.Log('trying to get down');
 	if (obstacles.forward && obstacles.forward.distance < roughRadius * 3 && onGround) {
 		if ((lastKnownPos.x < transform.position.x && transform.localScale.x > 0) ||
 			(lastKnownPos.x > transform.position.x && transform.localScale.x < 0)) Jump();
