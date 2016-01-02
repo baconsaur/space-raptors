@@ -19,6 +19,7 @@ var stealth :boolean;
 var stealthCooldown :float;
 public var spawnPoint :Transform;
 var bootDust :GameObject;
+var ammo :int[];
 
 private var score : int;
 private var HUDManager :HUDManager;
@@ -28,12 +29,16 @@ private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
 private var shotCooldown :float;
 private var previousPosition :Vector2;
+private var weaponIcon :Sprite;
+private var ammoType :int;
 
 function Start () {
 	score = 0;
 	shotCooldown = 0;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
-	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
+	weaponProjectile = currentWeapon.GetComponent(WeaponDetails).projectile;
+	weaponIcon = currentWeapon.GetComponent(WeaponDetails).weaponIcon;
+	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType;
 	HUDManager = GameObject.Find("HUDCanvas").GetComponent("HUDManager");
 	SoundFXManager = GameObject.Find("SoundFX").GetComponent("SoundFXManager");
 	audioSource = gameObject.GetComponent(AudioSource);
@@ -106,12 +111,14 @@ function FixedUpdate () {
 	}
 
 	var shoot = Input.GetAxis("Fire1");
-	if (shotCooldown <= 0 && shoot && animator.GetBool("dead") == false) {
+	if (ammo[ammoType] > 0 && shotCooldown <= 0 && shoot && animator.GetBool("dead") == false) {
 		animator.SetTrigger("shoot");
 		weaponAnimator.SetTrigger("shoot");
 		var newShot = Instantiate(weaponProjectile, Vector2(gameObject.transform.position.x + shotOffset.x, gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
 		newShot.GetComponent(ProjectileController).direction.x = transform.localScale.x;
 		shotCooldown = defaultCooldown;
+		ammo[ammoType]--;
+		HUDManager.UpdateAmmo(ammo[ammoType]);
 	}
 
 	var weaponSwitch = 0;
@@ -151,6 +158,7 @@ function ItemPickup (newItem :GameObject) {
 	if (newItem.tag == "Weapon") {
 		System.Array.Resize.<GameObject>(weapons, weapons.length + 1);
 		weapons[weapons.length - 1] = newItem;
+		ammo[newItem.GetComponent(WeaponDetails).ammoType]+=20;
 		SwitchWeapon(newItem);
 	} else if (newItem.tag == "Powerup") {
 		if (newItem.name.Contains("Health" && "25")) {
@@ -236,7 +244,11 @@ function SwitchWeapon (weapon :GameObject) {
 	newWeapon.transform.localScale.x *= transform.localScale.x;
 	currentWeapon = newWeapon;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
-	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
+	weaponProjectile = currentWeapon.GetComponent(WeaponDetails).projectile;
+	weaponIcon = currentWeapon.GetComponent(WeaponDetails).weaponIcon;
+	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType;
+	HUDManager.UpdateWeapon(weaponIcon);
+	HUDManager.UpdateAmmo(ammo[ammoType]);
 }
 
 function GetPoints (points: int) {
