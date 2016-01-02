@@ -62,10 +62,6 @@ function FixedUpdate () {
 		}
 	}
 
-//	Debug.Log(cameraObj.ScreenToWorldPoint(Vector2(cameraObj.pixelWidth / 2, cameraObj.pixelHeight / 2)));
-//	Debug.Log(cameraObj.WorldToScreenPoint(targetPosition));
-
-
 }
 
 function SetZoom(zoom :float, speed :float) {
@@ -84,10 +80,6 @@ function SetPosition(position :Vector2, speed :Vector2, stayInBounds) {
 	if (stayInBounds && (boundary.extents.x || boundary.extents.y)) {
 		var minBound :Vector2 = MinBound(position);
 		var maxBound :Vector2 = MaxBound(minBound);
-
-		position = minBound;
-
-//		Debug.Log(Vector2(minBound.x - maxBound.x, minBound.y - maxBound.y));
 
 		position = new Vector2(
 			Mathf.Min(maxBound.x, minBound.x),
