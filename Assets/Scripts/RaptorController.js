@@ -12,7 +12,7 @@ public var patrolSpeed :float;
 public var jumpForce :float;
 public var maxPlayerProximity :float;
 public var stealthTimeout :int;
-
+public var pointValue :int;
 
 
 private var shotCooldown :int;
@@ -81,6 +81,7 @@ function TakeDamage (damage :int) {
 	health -= damage;
 	if (health <= 0) {
 		Destroy(gameObject);
+		player.SendMessage('GetPoints', pointValue);
 	} else {
 		this.gameObject.SendMessage('DisplayDamage');
 	}

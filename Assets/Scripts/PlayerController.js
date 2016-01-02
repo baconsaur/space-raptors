@@ -20,7 +20,7 @@ var stealthCooldown :float;
 public var spawnPoint :Transform;
 var bootDust :GameObject;
 
-
+private var score : int;
 private var HUDManager :HUDManager;
 private var SoundFXManager :SoundFXManager;
 private var audioSource :AudioSource;
@@ -30,6 +30,7 @@ private var shotCooldown :float;
 private var previousPosition :Vector2;
 
 function Start () {
+	score = 0;
 	shotCooldown = 0;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
@@ -236,6 +237,12 @@ function SwitchWeapon (weapon :GameObject) {
 	currentWeapon = newWeapon;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
+}
+
+function GetPoints (points: int) {
+	score += points;
+	HUDManager.UpdatePoints(score);
+
 }
 
 function Die () {
