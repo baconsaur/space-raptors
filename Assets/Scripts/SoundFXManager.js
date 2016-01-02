@@ -37,8 +37,23 @@ function Start() {
 }
 
 function Play(audioSource :AudioSource, type :String, description :String) {
-  if(sounds[type]){
+  if(sounds[type]) {
     if(sounds[type][description]) {
+      if (type == 'explosion') {
+      	var cam :CameraController = GameObject.Find('Main Camera').GetComponent(CameraController);
+      	switch(description) {
+      		case 'large':
+      			cam.Shake(6, 0.7);
+      			break;
+      		case 'medium':
+      			cam.Shake(4, 0.4);
+      			break;
+      		case 'small':
+      			cam.Shake(2, 0.1);
+      			break;
+      		default: break;
+      	}
+      }
       audioSource.PlayOneShot(sounds[type][description]);
     }
   }

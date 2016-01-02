@@ -50,6 +50,7 @@ function SetStage() {
 		stage = newStage;
 		switch(stage) {
 			case 1:
+				GameObject.Find('Main Camera').GetComponent(CameraController).SetZoom(15);
 				Debug.Log('Stage 1');
 				follow.enabled = true;
 				follow.getem = true;

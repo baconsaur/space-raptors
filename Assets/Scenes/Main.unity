@@ -304,7 +304,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -423,7 +423,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -863,7 +863,6 @@ Transform:
   m_LocalPosition: {x: -23.14, y: -4.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1400909300}
   - {fileID: 601094714}
   m_Father: {fileID: 0}
   m_RootOrder: 75
@@ -2953,7 +2952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 862139438}
   parallax2: {fileID: 1061842577}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1 &332575618
 GameObject:
@@ -3249,7 +3248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 1053718052}
   parallax2: {fileID: 1377612816}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1001 &348368424
 Prefab:
@@ -3288,7 +3287,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -3459,7 +3458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 789708121}
   parallax2: {fileID: 686069822}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1001 &372278289
 Prefab:
@@ -3759,7 +3758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 1402676888}
   parallax2: {fileID: 553313514}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1 &437340773 stripped
 GameObject:
@@ -4221,7 +4220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 1935731816}
   parallax2: {fileID: 1564188075}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1 &530918371
 GameObject:
@@ -4953,7 +4952,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 93899212}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &601094715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5655,7 +5654,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 79
+  m_RootOrder: 80
 --- !u!1 &686069822 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 198594, guid: db6c69d2126cb704e82212d16751df06, type: 2}
@@ -5857,7 +5856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 198594, guid: aeb2ea674f99c3b41b03e606bb2c30ce, type: 2}
   parallax2: {fileID: 198594, guid: 9ee5ca3dedacbb8448e81423307735c4, type: 2}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1 &704887578
 GameObject:
@@ -5885,7 +5884,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 76
+  m_RootOrder: 79
 --- !u!1 &710033985
 GameObject:
   m_ObjectHideFlags: 0
@@ -5929,7 +5928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 775255661}
   parallax2: {fileID: 1826364402}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1 &713776465
 GameObject:
@@ -6079,6 +6078,62 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 4.571429, y: 4.571429}
+--- !u!1 &720410568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 720410570}
+  - 61: {fileID: 720410571}
+  - 114: {fileID: 720410569}
+  m_Layer: 0
+  m_Name: LevelTransition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &720410569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720410568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52eb6e30d186f4d4ab793120c2593236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftLevel: {fileID: 1762143497}
+  rightLevel: {fileID: 1774992168}
+--- !u!4 &720410570
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720410568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 126, y: 134, z: -16.5}
+  m_LocalScale: {x: 12, y: 8, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 81
+--- !u!61 &720410571
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720410568}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!1001 &724219623
 Prefab:
   m_ObjectHideFlags: 0
@@ -7463,7 +7518,7 @@ RectTransform:
   - {fileID: 1665446755}
   - {fileID: 218335813}
   m_Father: {fileID: 0}
-  m_RootOrder: 77
+  m_RootOrder: 78
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -7987,7 +8042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 198594, guid: aeb2ea674f99c3b41b03e606bb2c30ce, type: 2}
   parallax2: {fileID: 198594, guid: 9ee5ca3dedacbb8448e81423307735c4, type: 2}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1 &909464609
 GameObject:
@@ -8513,7 +8568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 2007015568}
   parallax2: {fileID: 1076568241}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1 &984848800
 GameObject:
@@ -8875,7 +8930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -9113,7 +9168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 841793627}
   parallax2: {fileID: 659770925}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!4 &1044403754
 Transform:
@@ -9259,7 +9314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 1252005545}
   parallax2: {fileID: 1274485945}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1 &1061842577 stripped
 GameObject:
@@ -9853,7 +9908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 198594, guid: aeb2ea674f99c3b41b03e606bb2c30ce, type: 2}
   parallax2: {fileID: 198594, guid: 9ee5ca3dedacbb8448e81423307735c4, type: 2}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1 &1116137860
 GameObject:
@@ -11115,7 +11170,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 78
+  m_RootOrder: 77
 --- !u!1 &1324199665
 GameObject:
   m_ObjectHideFlags: 0
@@ -11706,7 +11761,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -12066,7 +12121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -12149,7 +12204,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
+  m_HDR: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -12161,11 +12216,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1400909295}
   m_LocalRotation: {x: 0, y: 0.008726536, z: 0, w: 0.9999619}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -6, y: -1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 93899212}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 76
 --- !u!114 &1400909301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12177,12 +12232,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba1708f25dde4d3f9964a255679bef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraComponent: {fileID: 1400909299}
-  setZoom: 10
-  zoomSpeed: 0.25
-  setPosition: {x: 0, y: 0}
-  positionSpeed: 0.25
-  shakeTest: 0
+  zoomSpeed: 10
+  positionSpeed: {x: 20, y: 50}
+  startingBounds: {fileID: 1762143497}
+  manualPositioning: 0
+  playerOffset: {x: 5, y: 1}
+  targetZoom: 0
 --- !u!1 &1402676888 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 137100, guid: c1e331a9366d6284b9df9760b103adea, type: 2}
@@ -12228,7 +12283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -12792,7 +12847,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -12842,7 +12897,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -13005,7 +13060,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -13614,7 +13669,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -13664,7 +13719,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
@@ -14560,7 +14615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 1832595577}
   parallax2: {fileID: 437340773}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1001 &1755874548
 Prefab:
@@ -14754,6 +14809,10 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1762143497 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 187526, guid: ff217d133708c3046bd4ef63a0703fb9, type: 2}
+  m_PrefabInternal: {fileID: 1584081388}
 --- !u!1 &1763820751 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 123296, guid: fe8f40867856041eab673c31fb52dd54, type: 2}
@@ -14866,6 +14925,10 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1774992168 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159516, guid: 070f6690ddf595f47817356b8fcea6b5, type: 2}
+  m_PrefabInternal: {fileID: 88191835}
 --- !u!1 &1784888324
 GameObject:
   m_ObjectHideFlags: 0
@@ -15539,7 +15602,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -15966,7 +16029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 1851552}
   parallax2: {fileID: 422303132}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1001 &1929016609
 Prefab:
@@ -16707,7 +16770,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
@@ -16917,7 +16980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallax1: {fileID: 462351963}
   parallax2: {fileID: 1557026667}
-  player: {fileID: 93899206}
+  mainCam: {fileID: 0}
   space: {fileID: 1131992518}
 --- !u!1 &2047460364
 GameObject:
