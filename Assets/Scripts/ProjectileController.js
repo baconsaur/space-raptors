@@ -41,7 +41,7 @@ function OnTriggerEnter2D(collision :Collider2D) {
 	} else {
 		animator.SetBool("hit", true);
 		hitSound.Play();
-		collision.gameObject.SendMessage("TakeDamage", damage);
+		collision.gameObject.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
 	}
 }
 
