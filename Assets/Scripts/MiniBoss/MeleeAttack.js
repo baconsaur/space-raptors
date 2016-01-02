@@ -58,11 +58,9 @@ function DistanceToPlayerX() :float {
 
 function Attack() {
 	var follow :FollowAI = GetComponent(FollowAI);
-	var cannon1 :MainCannon = GetComponent(MainCannon);
-	var cannon2 :PlatformCannon = GetComponent(PlatformCannon);
+	var cannon :MainCannon = GetComponent(MainCannon);
 	if (follow) follow.getem = false;
-	if (cannon1) cannon1.shootem = false;
-	if (cannon2) cannon2.destroyem = false;
+	if (cannon) cannon.shootem = false;
 	var Methods :Methods;
 	FacePlayer();
 	arm.SetActive(true);
@@ -79,6 +77,5 @@ function Attack() {
 	meleeCooldown = meleeRate;
 	arm.SetActive(false);
 	if (follow) follow.getem = true;
-	if (cannon1) cannon1.shootem = true;
-	if (cannon2) cannon2.destroyem = true;
+	if (cannon) cannon.shootem = true;
 }

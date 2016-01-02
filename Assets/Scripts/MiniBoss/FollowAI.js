@@ -46,7 +46,7 @@ function StopThat() {
 function FixedUpdate () {
 	if (!getem) return;
 	stuckMebbe += Time.deltaTime;
-	if (stuckMebbe >= stuckYarp) {
+	if (stuckMebbe >= stuckYarp || !getem) {
 		StopThat();
 	}
 	
@@ -138,7 +138,7 @@ public function FollowPath(path :Array, timeout :float, me: GameObject, body :Ri
 			i = path.length;
 		} else {
 			var howTo :Array = PathFinding.howToGetThere(me, path[i - 1] as GameObject, path[i] as GameObject, 0.1, stats);
-			if (howTo.length) {
+			if (howTo.length && getem) {
 				yield StartCoroutine(Move(howTo, me, body, stats));
 				yield WaitForSeconds(0.1);
 			} else {

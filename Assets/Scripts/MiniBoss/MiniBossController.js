@@ -13,7 +13,6 @@ private var player :GameObject;
 private var follow :FollowAI;
 private var melee :MeleeAttack;
 private var mainCannon :MainCannon;
-private var platformCannon :PlatformCannon;
 
 
 function Start () {
@@ -21,11 +20,9 @@ function Start () {
 	totalHealth = health;
 	follow = GetComponent(FollowAI);
 	mainCannon = GetComponent(MainCannon);
-	platformCannon = GetComponent(PlatformCannon);
 	melee = GetComponent(MeleeAttack);
 	follow.enabled = false;
 	mainCannon.enabled = false;
-	platformCannon.enabled = false;
 	SetStage();
 }
 
@@ -34,7 +31,6 @@ function FixedUpdate() {
 		follow.getem = false;
 		melee.smackem = false;
 		mainCannon.shootem = false;
-		platformCannon.destroyem = false;
 	}
 }
 
@@ -49,7 +45,7 @@ function TakeDamage (damage :int) {
 }
 
 function SetStage() {
-	var newStage :int = 4 - Mathf.Round(health * 3 / totalHealth);
+	var newStage :int = Mathf.Round(4f - (health * 3f / totalHealth));
 	if (stage != newStage) {
 		stage = newStage;
 		switch(stage) {
@@ -65,8 +61,7 @@ function SetStage() {
 				break;
 			case 3:
 				Debug.Log('Stage 3');
-				platformCannon.enabled = true;
-				platformCannon.destroyem = true;
+				mainCannon.destroyem = true;
 				break;
 			default:
 				Debug.Log('Inappropriate Stage Set');

@@ -36,11 +36,12 @@ function OnTriggerEnter2D(collision :Collider2D) {
 		return;
 	} else if (collision.gameObject.tag == "Enemy" && weaponId == 2) {
 		return;
-	} else if (collision.gameObject.tag == "MiniBoss" && weaponId == 4) {
+	} else if (collision.gameObject.tag == "MiniBoss" && (weaponId == 4 || weaponId == 5)) {
 		return;
 	} else {
 		animator.SetBool("hit", true);
 		hitSound.Play();
+		Debug.Log(collision.gameObject);
 		collision.gameObject.SendMessage("TakeDamage", damage);
 	}
 }
