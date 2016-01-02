@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 624cd6fd7663b42358e35730f732b30b
-timeCreated: 1451281311
+timeCreated: 1451715248
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -38,6 +38,16 @@ TextureImporter:
     21300062: powerup_sprites_31
     21300064: powerup_sprites_32
     21300066: powerup_sprites_33
+    21300068: powerup_sprites_34
+    21300070: powerup_sprites_35
+    21300072: powerup_sprites_36
+    21300074: powerup_sprites_37
+    21300076: powerup_sprites_38
+    21300078: powerup_sprites_39
+    21300080: powerup_sprites_40
+    21300082: powerup_sprites_41
+    21300084: powerup_sprites_42
+    21300086: powerup_sprites_43
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,7 +61,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -76,7 +86,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 42
   alphaIsTransparency: 1
@@ -94,6 +104,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_1
       rect:
         serializedVersion: 2
@@ -104,6 +123,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_2
       rect:
         serializedVersion: 2
@@ -114,6 +142,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_3
       rect:
         serializedVersion: 2
@@ -124,6 +161,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_4
       rect:
         serializedVersion: 2
@@ -134,6 +180,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_5
       rect:
         serializedVersion: 2
@@ -144,6 +199,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_6
       rect:
         serializedVersion: 2
@@ -154,6 +218,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_7
       rect:
         serializedVersion: 2
@@ -164,6 +237,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_8
       rect:
         serializedVersion: 2
@@ -174,6 +256,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_9
       rect:
         serializedVersion: 2
@@ -184,6 +275,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_10
       rect:
         serializedVersion: 2
@@ -194,6 +294,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_11
       rect:
         serializedVersion: 2
@@ -204,6 +313,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_12
       rect:
         serializedVersion: 2
@@ -214,6 +332,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_13
       rect:
         serializedVersion: 2
@@ -224,6 +351,23 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
+      - - {x: -10, y: -8}
+        - {x: -12, y: -10}
+        - {x: -12, y: -12}
+        - {x: -10, y: -14}
+        - {x: -8, y: -14}
+        - {x: -6, y: -12}
+        - {x: -6, y: -10}
+        - {x: -8, y: -8}
     - name: powerup_sprites_14
       rect:
         serializedVersion: 2
@@ -234,6 +378,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_15
       rect:
         serializedVersion: 2
@@ -244,6 +397,38 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
+      - - {x: 6, y: 6}
+        - {x: 4, y: 4}
+        - {x: 4, y: 2}
+        - {x: 6, y: 0}
+        - {x: 8, y: 0}
+        - {x: 10, y: 2}
+        - {x: 10, y: 4}
+        - {x: 8, y: 6}
+      - - {x: -18, y: 2}
+        - {x: -13, y: 2}
+        - {x: -12, y: 3}
+        - {x: -12, y: 6}
+        - {x: -13, y: 8}
+        - {x: -16, y: 8}
+        - {x: -18, y: 7}
+      - - {x: 8, y: 16}
+        - {x: 6, y: 14}
+        - {x: 6, y: 12}
+        - {x: 8, y: 10}
+        - {x: 10, y: 10}
+        - {x: 12, y: 12}
+        - {x: 12, y: 14}
+        - {x: 10, y: 16}
     - name: powerup_sprites_16
       rect:
         serializedVersion: 2
@@ -254,6 +439,31 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
+      - - {x: -12, y: 6}
+        - {x: -16, y: 6}
+        - {x: -18, y: 2}
+        - {x: -18, y: 0}
+        - {x: -14, y: -4}
+        - {x: -12, y: -4}
+        - {x: -10, y: -2}
+        - {x: -10, y: 5}
+      - - {x: 8, y: 10}
+        - {x: 4, y: 6}
+        - {x: 4, y: 4}
+        - {x: 8, y: 0}
+        - {x: 10, y: 0}
+        - {x: 14, y: 4}
+        - {x: 14, y: 6}
+        - {x: 10, y: 10}
     - name: powerup_sprites_17
       rect:
         serializedVersion: 2
@@ -264,6 +474,30 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
+      - - {x: -12, y: -6}
+        - {x: -14, y: -8}
+        - {x: -14, y: -10}
+        - {x: -12, y: -12}
+        - {x: -10, y: -12}
+        - {x: -8, y: -10}
+        - {x: -8, y: -8}
+        - {x: -10, y: -6}
+      - - {x: -13, y: 6}
+        - {x: -18, y: 6}
+        - {x: -18, y: 1}
+        - {x: -16, y: 0}
+        - {x: -13, y: 0}
+        - {x: -12, y: 2}
+        - {x: -12, y: 5}
     - name: powerup_sprites_18
       rect:
         serializedVersion: 2
@@ -274,6 +508,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_19
       rect:
         serializedVersion: 2
@@ -284,6 +527,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_20
       rect:
         serializedVersion: 2
@@ -294,6 +546,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_21
       rect:
         serializedVersion: 2
@@ -304,6 +565,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_22
       rect:
         serializedVersion: 2
@@ -314,6 +584,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_23
       rect:
         serializedVersion: 2
@@ -324,6 +603,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_24
       rect:
         serializedVersion: 2
@@ -334,6 +622,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_25
       rect:
         serializedVersion: 2
@@ -344,6 +641,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_26
       rect:
         serializedVersion: 2
@@ -354,6 +660,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_27
       rect:
         serializedVersion: 2
@@ -364,6 +679,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_28
       rect:
         serializedVersion: 2
@@ -374,6 +698,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_29
       rect:
         serializedVersion: 2
@@ -384,6 +717,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_30
       rect:
         serializedVersion: 2
@@ -394,6 +736,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_31
       rect:
         serializedVersion: 2
@@ -404,6 +755,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_32
       rect:
         serializedVersion: 2
@@ -414,6 +774,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
     - name: powerup_sprites_33
       rect:
         serializedVersion: 2
@@ -424,6 +793,196 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 26}
+        - {x: -26, y: 15}
+        - {x: -26, y: -11}
+        - {x: -15, y: -26}
+        - {x: 17, y: -26}
+        - {x: 26, y: -18}
+        - {x: 26, y: 12}
+        - {x: 18, y: 26}
+    - name: powerup_sprites_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 12}
+        - {x: -18, y: 12}
+        - {x: -18, y: -10}
+        - {x: -14, y: -12}
+        - {x: 14, y: -12}
+        - {x: 18, y: -8}
+        - {x: 18, y: 11}
+    - name: powerup_sprites_35
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 12}
+        - {x: -18, y: 12}
+        - {x: -18, y: -10}
+        - {x: -14, y: -12}
+        - {x: 14, y: -12}
+        - {x: 18, y: -8}
+        - {x: 18, y: 11}
+    - name: powerup_sprites_36
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 12}
+        - {x: -18, y: 12}
+        - {x: -18, y: -10}
+        - {x: -14, y: -12}
+        - {x: 14, y: -12}
+        - {x: 18, y: -8}
+        - {x: 18, y: 11}
+    - name: powerup_sprites_37
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 12}
+        - {x: -18, y: 12}
+        - {x: -18, y: -10}
+        - {x: -14, y: -12}
+        - {x: 14, y: -12}
+        - {x: 18, y: -8}
+        - {x: 18, y: 11}
+    - name: powerup_sprites_38
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 12}
+        - {x: -18, y: 12}
+        - {x: -18, y: -10}
+        - {x: -14, y: -12}
+        - {x: 14, y: -12}
+        - {x: 18, y: -8}
+        - {x: 18, y: 11}
+    - name: powerup_sprites_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 10}
+        - {x: -18, y: 6}
+        - {x: -18, y: -6}
+        - {x: -14, y: -8}
+        - {x: 17, y: -8}
+        - {x: 18, y: -6}
+        - {x: 18, y: 10}
+    - name: powerup_sprites_40
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 10}
+        - {x: -18, y: 6}
+        - {x: -18, y: -6}
+        - {x: -14, y: -8}
+        - {x: 17, y: -8}
+        - {x: 18, y: -6}
+        - {x: 18, y: 10}
+    - name: powerup_sprites_41
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 10}
+        - {x: -18, y: 6}
+        - {x: -18, y: -6}
+        - {x: -14, y: -8}
+        - {x: 17, y: -8}
+        - {x: 18, y: -6}
+        - {x: 18, y: 10}
+    - name: powerup_sprites_42
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 10}
+        - {x: -18, y: 6}
+        - {x: -18, y: -6}
+        - {x: -14, y: -8}
+        - {x: 17, y: -8}
+        - {x: 18, y: -6}
+        - {x: 18, y: 10}
+    - name: powerup_sprites_43
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 10}
+        - {x: -18, y: 6}
+        - {x: -18, y: -6}
+        - {x: -14, y: -8}
+        - {x: 17, y: -8}
+        - {x: 18, y: -6}
+        - {x: 18, y: 10}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

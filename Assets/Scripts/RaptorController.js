@@ -12,9 +12,9 @@ public var patrolSpeed :float;
 public var jumpForce :float;
 public var maxPlayerProximity :float;
 public var stealthTimeout :int;
+public var pointValue :int;
 
-
-
+var drops :GameObject[];
 private var shotCooldown :int;
 private var stealthReset :int;
 private var moveWait :int;
@@ -81,8 +81,27 @@ function TakeDamage (damage :int) {
 	health -= damage;
 	if (health <= 0) {
 		Destroy(gameObject);
+		player.SendMessage('GetPoints', pointValue);
+		RandomDrop();
 	} else {
 		this.gameObject.SendMessage('DisplayDamage');
+	}
+}
+
+function RandomDrop () {
+	var drop :GameObject;
+	var randomizer = Random.Range(0, 8);
+	if (randomizer == 0) {
+		return;
+	} else if (randomizer == 2) {
+		drop = Instantiate(drops[0]);
+	} else if (randomizer == 3) {
+		drop = Instantiate(drops[2]);
+	} else {
+		drop = Instantiate(drops[1]);
+	}
+	if (drop) {
+		drop.transform.position = transform.position;
 	}
 }
 

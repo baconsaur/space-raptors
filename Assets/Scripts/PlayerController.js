@@ -19,8 +19,9 @@ var stealth :boolean;
 var stealthCooldown :float;
 public var spawnPoint :Transform;
 var bootDust :GameObject;
+var ammo :int[];
 
-
+private var score : int;
 private var HUDManager :HUDManager;
 private var SoundFXManager :SoundFXManager;
 private var audioSource :AudioSource;
@@ -28,11 +29,16 @@ private var weaponAnimator :Animator;
 private var weaponProjectile :GameObject;
 private var shotCooldown :float;
 private var previousPosition :Vector2;
+private var weaponIcon :Sprite;
+private var ammoType :int;
 
 function Start () {
+	score = 0;
 	shotCooldown = 0;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
-	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
+	weaponProjectile = currentWeapon.GetComponent(WeaponDetails).projectile;
+	weaponIcon = currentWeapon.GetComponent(WeaponDetails).weaponIcon;
+	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType -1;
 	HUDManager = GameObject.Find("HUDCanvas").GetComponent("HUDManager");
 	SoundFXManager = GameObject.Find("SoundFX").GetComponent("SoundFXManager");
 	audioSource = gameObject.GetComponent(AudioSource);
@@ -47,6 +53,7 @@ function setAnimation (name :String, state :boolean) {
 function FixedUpdate () {
 	if (stealthTime && stealth) {
 		stealthTime -= Time.deltaTime;
+		HUDManager.UpdateStealth(stealthTime);
 		if (stealthTime <= 0) {
 			stealth = false;
 			GetComponent(SpriteRenderer).color.a = 1;
@@ -104,12 +111,14 @@ function FixedUpdate () {
 	}
 
 	var shoot = Input.GetAxis("Fire1");
-	if (shotCooldown <= 0 && shoot && animator.GetBool("dead") == false) {
+	if (ammo[ammoType] > 0 && shotCooldown <= 0 && shoot && animator.GetBool("dead") == false) {
 		animator.SetTrigger("shoot");
 		weaponAnimator.SetTrigger("shoot");
 		var newShot = Instantiate(weaponProjectile, Vector2(gameObject.transform.position.x + shotOffset.x, gameObject.transform.position.y + shotOffset.y), Quaternion.identity);
 		newShot.GetComponent(ProjectileController).direction.x = transform.localScale.x;
 		shotCooldown = defaultCooldown;
+		ammo[ammoType]--;
+		HUDManager.UpdateAmmo(ammo[ammoType]);
 	}
 
 	var weaponSwitch = 0;
@@ -149,6 +158,7 @@ function ItemPickup (newItem :GameObject) {
 	if (newItem.tag == "Weapon") {
 		System.Array.Resize.<GameObject>(weapons, weapons.length + 1);
 		weapons[weapons.length - 1] = newItem;
+		ammo[newItem.GetComponent(WeaponDetails).ammoType]+=20;
 		SwitchWeapon(newItem);
 	} else if (newItem.tag == "Powerup") {
 		if (newItem.name.Contains("Health" && "25")) {
@@ -165,6 +175,12 @@ function ItemPickup (newItem :GameObject) {
 			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
 		} else if (newItem.name.Contains("Armor" && "100")) {
 			IncreaseArmor(100);
+			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
+		} else if (newItem.name.Contains("Ammo" && "1")) {
+			IncreaseAmmo(15, 0);
+			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
+		} else if (newItem.name.Contains("Ammo" && "2")) {
+			IncreaseAmmo(10, 1);
 			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
 		}
 	}
@@ -203,6 +219,13 @@ function HealDamage (heal :int) {
 	HUDManager.UpdateHealth(health);
 }
 
+function IncreaseAmmo (value :int, ammoId :int) {
+	ammo[ammoId] += value;
+	if (ammoId == currentWeapon.GetComponent(WeaponDetails).ammoType) {
+		HUDManager.UpdateAmmo(ammo[ammoId]);
+	}
+}
+
 function TakeDamage (damage :int) {
 	animator.SetTrigger("hit");
 	weaponAnimator.SetTrigger("hit");
@@ -234,11 +257,19 @@ function SwitchWeapon (weapon :GameObject) {
 	newWeapon.transform.localScale.x *= transform.localScale.x;
 	currentWeapon = newWeapon;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
-	weaponProjectile = currentWeapon.GetComponent(ShootWeapon).projectile;
+	weaponProjectile = currentWeapon.GetComponent(WeaponDetails).projectile;
+	weaponIcon = currentWeapon.GetComponent(WeaponDetails).weaponIcon;
+	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType -1;
+	HUDManager.UpdateWeapon(weaponIcon);
+	HUDManager.UpdateAmmo(ammo[ammoType]);
+}
+
+function GetPoints (points: int) {
+	score += points;
+	HUDManager.UpdatePoints(score);
+
 }
 
 function Die () {
-//	transform.position = spawnPoint.position;
-//	health = 100;
 	Application.LoadLevel (Application.loadedLevel);
 }
