@@ -38,7 +38,7 @@ function Start () {
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(WeaponDetails).projectile;
 	weaponIcon = currentWeapon.GetComponent(WeaponDetails).weaponIcon;
-	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType;
+	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType -1;
 	HUDManager = GameObject.Find("HUDCanvas").GetComponent("HUDManager");
 	SoundFXManager = GameObject.Find("SoundFX").GetComponent("SoundFXManager");
 	audioSource = gameObject.GetComponent(AudioSource);
@@ -176,6 +176,12 @@ function ItemPickup (newItem :GameObject) {
 		} else if (newItem.name.Contains("Armor" && "100")) {
 			IncreaseArmor(100);
 			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
+		} else if (newItem.name.Contains("Ammo" && "1")) {
+			IncreaseAmmo(15, 0);
+			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
+		} else if (newItem.name.Contains("Ammo" && "2")) {
+			IncreaseAmmo(10, 1);
+			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
 		}
 	}
 }
@@ -213,6 +219,13 @@ function HealDamage (heal :int) {
 	HUDManager.UpdateHealth(health);
 }
 
+function IncreaseAmmo (value :int, ammoId :int) {
+	ammo[ammoId] += value;
+	if (ammoId == currentWeapon.GetComponent(WeaponDetails).ammoType) {
+		HUDManager.UpdateAmmo(ammo[ammoId]);
+	}
+}
+
 function TakeDamage (damage :int) {
 	animator.SetTrigger("hit");
 	weaponAnimator.SetTrigger("hit");
@@ -246,7 +259,7 @@ function SwitchWeapon (weapon :GameObject) {
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(WeaponDetails).projectile;
 	weaponIcon = currentWeapon.GetComponent(WeaponDetails).weaponIcon;
-	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType;
+	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType -1;
 	HUDManager.UpdateWeapon(weaponIcon);
 	HUDManager.UpdateAmmo(ammo[ammoType]);
 }
@@ -258,7 +271,5 @@ function GetPoints (points: int) {
 }
 
 function Die () {
-//	transform.position = spawnPoint.position;
-//	health = 100;
 	Application.LoadLevel (Application.loadedLevel);
 }

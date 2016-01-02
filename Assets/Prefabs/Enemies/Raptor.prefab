@@ -181,6 +181,10 @@ MonoBehaviour:
   maxPlayerProximity: 6
   stealthTimeout: 300
   pointValue: 15
+  drops:
+  - {fileID: 136184, guid: 40df733ff05bd4e858723681d1b91916, type: 2}
+  - {fileID: 186816, guid: 4122d5eaeefd6469ab1b6496ad42195e, type: 2}
+  - {fileID: 141942, guid: 2e41114dd8c29401e82143e8c5f00c83, type: 2}
 --- !u!114 &11490944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,6 +234,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: drops.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Offset.y
       value: -0.45
       objectReference: {fileID: 0}
@@ -269,6 +277,18 @@ Prefab:
       propertyPath: pointValue
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: drops.Array.data[0]
+      value: 
+      objectReference: {fileID: 136184, guid: 40df733ff05bd4e858723681d1b91916, type: 2}
+    - target: {fileID: 0}
+      propertyPath: drops.Array.data[1]
+      value: 
+      objectReference: {fileID: 186816, guid: 4122d5eaeefd6469ab1b6496ad42195e, type: 2}
+    - target: {fileID: 0}
+      propertyPath: drops.Array.data[2]
+      value: 
+      objectReference: {fileID: 141942, guid: 2e41114dd8c29401e82143e8c5f00c83, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 198612}
