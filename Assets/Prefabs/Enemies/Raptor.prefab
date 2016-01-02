@@ -181,6 +181,7 @@ MonoBehaviour:
   maxPlayerProximity: 6
   stealthTimeout: 300
   pointValue: 15
+  willShootY: 1.5
   drops:
   - {fileID: 136184, guid: 40df733ff05bd4e858723681d1b91916, type: 2}
   - {fileID: 186816, guid: 4122d5eaeefd6469ab1b6496ad42195e, type: 2}
@@ -289,6 +290,10 @@ Prefab:
       propertyPath: drops.Array.data[2]
       value: 
       objectReference: {fileID: 141942, guid: 2e41114dd8c29401e82143e8c5f00c83, type: 2}
+    - target: {fileID: 0}
+      propertyPath: willShootY
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 198612}

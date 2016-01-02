@@ -13,6 +13,7 @@ public var jumpForce :float;
 public var maxPlayerProximity :float;
 public var stealthTimeout :int;
 public var pointValue :int;
+public var willShootY :float;
 
 var drops :GameObject[];
 private var shotCooldown :int;
@@ -185,7 +186,7 @@ function FollowAttack(obstacles :Obstacles) {
 		awareOfPlayer = false;
 	}
 
-	if (!shotCooldown && Mathf.Abs(lastKnownPos.y - transform.position.y) < 0.2) {
+	if (!shotCooldown && Mathf.Abs(lastKnownPos.y - transform.position.y) < willShootY) {
 		Face(lastKnownPos);
 		Shoot();
 	} else if (!moveWait) {
