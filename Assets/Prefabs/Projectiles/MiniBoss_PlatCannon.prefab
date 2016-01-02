@@ -14,8 +14,9 @@ GameObject:
   - 114: {fileID: 11424710}
   - 82: {fileID: 8278784}
   - 82: {fileID: 8272578}
+  - 50: {fileID: 5095256}
   m_Layer: 0
-  m_Name: MiniBoss_MainCannon 1
+  m_Name: MiniBoss_PlatCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,6 +34,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5095256
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109198}
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!61 &6149086
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -223,12 +241,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d937b573722fd40858c405a6b3c8cdcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 0
   speed: 50
   animator: {fileID: 9545070}
-  direction: 1
+  direction: {x: 0, y: 0, z: 0}
   weaponId: 5
   hitSound: {fileID: 8272578}
+  angleY: 0
 --- !u!212 &21242034
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -280,7 +299,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: weaponId
@@ -309,6 +328,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Name
       value: MiniBoss_PlatformCannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
