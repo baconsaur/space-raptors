@@ -47,6 +47,7 @@ function setAnimation (name :String, state :boolean) {
 function FixedUpdate () {
 	if (stealthTime && stealth) {
 		stealthTime -= Time.deltaTime;
+		HUDManager.UpdateStealth(stealthTime);
 		if (stealthTime <= 0) {
 			stealth = false;
 			GetComponent(SpriteRenderer).color.a = 1;
