@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 73884f8867a0f44708c359af6ea07046
-timeCreated: 1451524351
+timeCreated: 1451598692
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -23,6 +23,10 @@ TextureImporter:
     21300032: raptor_placeholder_16
     21300034: raptor_placeholder_17
     21300036: raptor_placeholder_18
+    21300038: raptor_placeholder_19
+    21300040: raptor_placeholder_20
+    21300042: raptor_placeholder_21
+    21300044: raptor_placeholder_22
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -240,12 +244,6 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 64, y: -62}
-        - {x: 64, y: -64}
-        - {x: 72, y: -64}
-        - {x: 72, y: -62}
-        - {x: 70, y: -60}
-        - {x: 66, y: -60}
       - - {x: 32, y: 58}
         - {x: -70, y: 4}
         - {x: -70, y: -32}
@@ -303,12 +301,6 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 64, y: -62}
-        - {x: 64, y: -64}
-        - {x: 72, y: -64}
-        - {x: 72, y: -62}
-        - {x: 70, y: -60}
-        - {x: 66, y: -60}
       - - {x: 49, y: 60}
         - {x: -56, y: 17}
         - {x: -66, y: 3}
@@ -371,28 +363,27 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 72, y: 35}
-        - {x: 72, y: 55}
-        - {x: 70, y: 56}
-        - {x: 68, y: 56}
-        - {x: 48, y: 50}
-        - {x: -72, y: 12}
-        - {x: -72, y: -24}
-        - {x: -61, y: -35}
-        - {x: -58, y: -36}
-        - {x: -39, y: -41}
-        - {x: -32, y: -40}
-        - {x: -15, y: -41}
-        - {x: -21, y: -41}
-        - {x: -27, y: -49}
+      - - {x: 72, y: 51}
+        - {x: 70, y: 52}
+        - {x: 68, y: 52}
+        - {x: 60, y: 44}
+        - {x: -53, y: 25}
+        - {x: -72, y: 3}
+        - {x: -72, y: -33}
+        - {x: -59, y: -42}
+        - {x: -39, y: -45}
+        - {x: -16, y: -44}
+        - {x: -10, y: -38}
+        - {x: -8, y: -34}
+        - {x: -10, y: -44}
+        - {x: -21, y: -45}
         - {x: -27, y: -53}
-        - {x: -22, y: -56}
-        - {x: -18, y: -56}
-        - {x: -13, y: -55}
-        - {x: 6, y: -56}
-        - {x: 56, y: -56}
-        - {x: 56, y: -43}
-        - {x: 43, y: -31}
+        - {x: -27, y: -57}
+        - {x: -25, y: -60}
+        - {x: 53, y: -60}
+        - {x: 54, y: -47}
+        - {x: 43, y: -35}
+        - {x: 72, y: 31}
     - name: raptor_placeholder_15
       rect:
         serializedVersion: 2
@@ -404,11 +395,22 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -72, y: 64}
-        - {x: -72, y: -60}
-        - {x: 40, y: -60}
-        - {x: 72, y: -12}
+      - - {x: -72, y: 11}
+        - {x: -72, y: -13}
+        - {x: -70, y: -18}
+        - {x: -59, y: -37}
+        - {x: -39, y: -39}
+        - {x: -16, y: -38}
+        - {x: -10, y: -32}
+        - {x: -8, y: -28}
+        - {x: -14, y: -58}
+        - {x: -11, y: -62}
+        - {x: 0, y: -62}
+        - {x: 55, y: -51}
+        - {x: 72, y: 20}
         - {x: 72, y: 64}
+        - {x: 44, y: 64}
+        - {x: -52, y: 29}
     - name: raptor_placeholder_16
       rect:
         serializedVersion: 2
@@ -420,17 +422,15 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 62, y: 64}
-        - {x: 56, y: 55}
-        - {x: -54, y: 21}
+      - - {x: 62, y: 62}
+        - {x: 56, y: 53}
+        - {x: -53, y: 17}
         - {x: -68, y: 7}
-        - {x: -68, y: -32}
-        - {x: -63, y: -44}
-        - {x: 3, y: -60}
-        - {x: 18, y: -60}
-        - {x: 22, y: -55}
-        - {x: 70, y: 31}
-        - {x: 70, y: 64}
+        - {x: -68, y: -56}
+        - {x: -43, y: -62}
+        - {x: 30, y: -62}
+        - {x: 70, y: 27}
+        - {x: 70, y: 62}
     - name: raptor_placeholder_17
       rect:
         serializedVersion: 2
@@ -442,13 +442,13 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 2, y: 58}
-        - {x: -72, y: 41}
-        - {x: -72, y: -58}
-        - {x: -10, y: -58}
-        - {x: 64, y: -52}
-        - {x: 72, y: -12}
-        - {x: 72, y: 58}
+      - - {x: 69, y: 56}
+        - {x: 57, y: 43}
+        - {x: -72, y: 24}
+        - {x: -72, y: -60}
+        - {x: 66, y: -60}
+        - {x: 72, y: -59}
+        - {x: 72, y: 56}
     - name: raptor_placeholder_18
       rect:
         serializedVersion: 2
@@ -460,11 +460,115 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -72, y: 64}
-        - {x: -72, y: -60}
-        - {x: 29, y: -60}
-        - {x: 72, y: 2}
+      - - {x: 58, y: 64}
+        - {x: -72, y: 23}
+        - {x: -72, y: -25}
+        - {x: -59, y: -37}
+        - {x: -39, y: -39}
+        - {x: -16, y: -38}
+        - {x: -10, y: -32}
+        - {x: -8, y: -28}
+        - {x: -16, y: -51}
+        - {x: -16, y: -58}
+        - {x: -13, y: -62}
+        - {x: 29, y: -62}
+        - {x: 72, y: 0}
         - {x: 72, y: 64}
+    - name: raptor_placeholder_19
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 128
+        width: 144
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: -42}
+        - {x: 47, y: -58}
+        - {x: 72, y: -58}
+        - {x: 72, y: -44}
+        - {x: -4, y: 48}
+        - {x: -37, y: 48}
+        - {x: -54, y: 34}
+        - {x: -58, y: 17}
+        - {x: -52, y: 14}
+        - {x: -42, y: 14}
+        - {x: -62, y: 0}
+        - {x: -62, y: -41}
+        - {x: -33, y: -58}
+        - {x: 2, y: -58}
+        - {x: -1, y: -37}
+        - {x: -4, y: -36}
+        - {x: -1, y: -37}
+    - name: raptor_placeholder_20
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 128
+        width: 144
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: -9}
+        - {x: 34, y: -2}
+        - {x: -10, y: 31}
+        - {x: -19, y: 34}
+        - {x: -60, y: 34}
+        - {x: -66, y: 28}
+        - {x: -66, y: -58}
+        - {x: 56, y: -58}
+        - {x: 61, y: -56}
+        - {x: 66, y: -48}
+        - {x: 66, y: -31}
+    - name: raptor_placeholder_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 144
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33, y: -2}
+        - {x: -17, y: 6}
+        - {x: -57, y: 6}
+        - {x: -58, y: 3}
+        - {x: -58, y: -46}
+        - {x: -20, y: -58}
+        - {x: 35, y: -58}
+        - {x: 60, y: -47}
+        - {x: 60, y: -28}
+        - {x: 59, y: -27}
+    - name: raptor_placeholder_22
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 144
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53, y: -20}
+        - {x: -72, y: -26}
+        - {x: -72, y: -50}
+        - {x: -31, y: -64}
+        - {x: -4, y: -63}
+        - {x: 2, y: -50}
+        - {x: 2, y: -46}
+        - {x: 2, y: -54}
+        - {x: 6, y: -64}
+        - {x: 46, y: -64}
+        - {x: 58, y: -51}
+        - {x: 58, y: -23}
+        - {x: 55, y: -20}
     outline: []
   spritePackingTag: 
   userData: 

@@ -40,8 +40,11 @@ public class Methods extends MonoBehaviour {
 		}
 		return null;
 	}
-	static function onTaggedObjectCorners(object :ObjectWithCorners, platforms :ObjectWithCorners[], tolerance :float) :ObjectWithCorners {
-		
+	public static function onSomething(object :GameObject, tolerance :float) :GameObject {
+		var ray :RaycastHit2D = RaycastClosest(object.transform.position, Vector2(0, -1), object.transform);
+		var corner :ObjectWithCorners = new ObjectWithCorners(object);
+		if (ray.distance <= (object.transform.position.y - corner.corners.bottomLeft.y) + tolerance) return ray.transform.gameObject;
+		else return null;
 	}
 	static function distance(point1 :Vector2, point2 :Vector2): float {
 		return Mathf.Sqrt(Mathf.Pow(point1.x - point2.x, 2.0) + Mathf.Pow(point1.y - point2.y, 2.0));
@@ -111,5 +114,35 @@ public class Methods extends MonoBehaviour {
 			else i++;
 		}
 		return array;
+	}
+	static function Raycast(position :Vector2, direction :Vector2, trans :Transform) :RaycastHit2D[] {
+		var rays :RaycastHit2D[];
+		var array :Array = new Array();
+		rays = Physics2D.RaycastAll(position, direction);
+		if (!rays.Length) return;
+		for (var i: int = 0; i < rays.Length; i++) {
+			array.Push(rays[i]);
+		}
+		array = filter(array, function(ray :RaycastHit2D) {
+			return ray.transform != trans && !ray.collider.isTrigger;
+		});
+		rays = new RaycastHit2D[array.length];
+		for (i = 0; i < array.length; i++) {
+			rays[i] = array[i];
+		}
+		return rays;
+	}
+
+	static function RaycastClosest(position :Vector2, direction :Vector2, trans :Transform) :RaycastHit2D {
+		var rays :RaycastHit2D[] = Raycast(position, direction, trans);
+		var array :Array = new Array();
+		if (!rays.Length) return;
+		for (var i: int = 0; i < rays.Length; i++) {
+			array.Push(rays[i]);
+		}
+		sort(array, function(ray1 :RaycastHit2D, ray2 :RaycastHit2D) {
+			return distance(trans.position, ray2.point) - distance(trans.position, ray1.point);
+		});
+		return array[0];
 	}
 }

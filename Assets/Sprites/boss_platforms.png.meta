@@ -1,0 +1,330 @@
+fileFormatVersion: 2
+guid: b93714e500a7d714293137a68d94a273
+timeCreated: 1451699022
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: boss_platforms_1
+    21300002: boss_platforms_2
+    21300004: boss_platforms_4
+    21300006: boss_platforms_7
+    21300008: boss_platforms_9
+    21300010: boss_platforms_11
+    21300012: boss_platforms_12
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 42
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: boss_platforms_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 512
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41, y: -66}
+        - {x: 43, y: -70}
+        - {x: 44, y: -89}
+        - {x: 46, y: -92}
+        - {x: 145, y: -92}
+        - {x: 232, y: -71}
+        - {x: 256, y: -43}
+        - {x: 256, y: 93}
+        - {x: -187, y: 93}
+        - {x: -189, y: 91}
+        - {x: -189, y: -34}
+        - {x: -126, y: -30}
+        - {x: -125, y: -26}
+        - {x: -125, y: 30}
+        - {x: -123, y: 28}
+        - {x: -125, y: 18}
+        - {x: -125, y: -6}
+        - {x: -123, y: -8}
+        - {x: -125, y: -16}
+        - {x: -125, y: -28}
+        - {x: -126, y: -30}
+        - {x: -126, y: -91}
+        - {x: -109, y: -92}
+        - {x: 12, y: -92}
+        - {x: 33, y: -79}
+        - {x: 41, y: -62}
+        - {x: 41, y: -60}
+      - - {x: -256, y: 93}
+        - {x: -256, y: 16}
+        - {x: -243, y: 1}
+        - {x: -233, y: -2}
+        - {x: -210, y: -2}
+        - {x: -189, y: 20}
+        - {x: -189, y: 93}
+    - name: boss_platforms_2
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 835
+        width: 493
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.5, y: 15}
+        - {x: 9.5, y: -9}
+        - {x: 17.5, y: -18}
+        - {x: 47.5, y: -28}
+        - {x: 42.5, y: -37}
+        - {x: 98.5, y: -80}
+        - {x: 101.5, y: -79}
+        - {x: 103.5, y: -77}
+        - {x: 111.5, y: -65}
+        - {x: 111.5, y: -63}
+        - {x: 111.5, y: -69}
+        - {x: 103.5, y: -81}
+        - {x: 114.5, y: -93}
+        - {x: 133.5, y: -93}
+        - {x: 139.5, y: -65}
+        - {x: 223.5, y: -51}
+        - {x: 246.5, y: 25}
+        - {x: 246.5, y: 93}
+        - {x: -246.5, y: 93}
+        - {x: -246.5, y: -36}
+        - {x: -186.5, y: -93}
+        - {x: -50.5, y: -93}
+        - {x: 9.5, y: -35}
+        - {x: 9.5, y: 27}
+        - {x: 11.5, y: 25}
+    - name: boss_platforms_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 577
+        width: 512
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 68, y: -93}
+        - {x: 160, y: -93}
+        - {x: 230, y: -50}
+        - {x: 191, y: -14}
+        - {x: 190, y: 41}
+        - {x: 190, y: 50}
+        - {x: 190, y: 31}
+        - {x: 191, y: 27}
+        - {x: 256, y: 29}
+        - {x: 256, y: 36}
+        - {x: 255, y: 50}
+        - {x: 252, y: 51}
+        - {x: 256, y: 60}
+        - {x: 256, y: 93}
+        - {x: -136, y: 93}
+        - {x: -193, y: -30}
+        - {x: -194, y: -33}
+        - {x: -194, y: -45}
+        - {x: -185, y: -61}
+        - {x: -154, y: -71}
+        - {x: -151, y: -60}
+        - {x: -131, y: -93}
+        - {x: 52, y: -93}
+        - {x: 62, y: -90}
+        - {x: 64, y: -70}
+        - {x: 64, y: -76}
+      - - {x: -256, y: 93}
+        - {x: -256, y: 14}
+        - {x: -243, y: 1}
+        - {x: -218, y: -6}
+        - {x: -197, y: -29}
+        - {x: -132, y: -29}
+        - {x: -128, y: -25}
+        - {x: -128, y: 93}
+    - name: boss_platforms_7
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 575
+        width: 455
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 157.5, y: -77}
+        - {x: 161.5, y: -95}
+        - {x: 166.5, y: -96}
+        - {x: 201.5, y: -96}
+        - {x: 223.5, y: -94}
+        - {x: 223.5, y: 96}
+        - {x: 158.5, y: 96}
+        - {x: 157.5, y: 92}
+        - {x: 157.5, y: 76}
+        - {x: 159.5, y: 72}
+        - {x: 157.5, y: 69}
+        - {x: 157.5, y: 60}
+        - {x: 158.5, y: 55}
+        - {x: 158.5, y: 49}
+        - {x: 157.5, y: 60}
+        - {x: 157.5, y: 96}
+        - {x: -226.5, y: 96}
+        - {x: -226.5, y: 27}
+        - {x: -161.5, y: 26}
+        - {x: -160.5, y: 30}
+        - {x: -160.5, y: 58}
+        - {x: -159.5, y: 54}
+        - {x: -160.5, y: 48}
+        - {x: -160.5, y: 28}
+        - {x: -162.5, y: 17}
+        - {x: -162.5, y: -36}
+        - {x: -101.5, y: -78}
+        - {x: -67.5, y: -93}
+        - {x: -39.5, y: -96}
+        - {x: 99.5, y: -96}
+        - {x: 152.5, y: -93}
+        - {x: 155.5, y: -91}
+        - {x: 157.5, y: -71}
+    - name: boss_platforms_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 325
+        width: 512
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 190, y: -48}
+        - {x: 191, y: -92}
+        - {x: 255, y: -92}
+        - {x: 256, y: -82}
+        - {x: 256, y: 92}
+        - {x: 190, y: 92}
+        - {x: 190, y: 88}
+        - {x: 31, y: 92}
+        - {x: -127, y: 92}
+        - {x: -127, y: -5}
+        - {x: -125, y: -34}
+        - {x: -61, y: -46}
+        - {x: -60, y: -63}
+        - {x: -59, y: -92}
+        - {x: 140, y: -92}
+        - {x: 152, y: -69}
+        - {x: 166, y: -72}
+        - {x: 170, y: -63}
+      - - {x: -256, y: 92}
+        - {x: -256, y: 12}
+        - {x: -243, y: -3}
+        - {x: -218, y: -8}
+        - {x: -214, y: 1}
+        - {x: -196, y: -32}
+        - {x: -129, y: -32}
+        - {x: -127, y: -31}
+        - {x: -127, y: 92}
+    - name: boss_platforms_11
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 323
+        width: 435
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 34.5, y: -78}
+        - {x: 36.5, y: -72}
+        - {x: 36.5, y: -60}
+        - {x: 36.5, y: -92}
+        - {x: 214.5, y: -92}
+        - {x: 215.5, y: -91}
+        - {x: 215.5, y: -31}
+        - {x: 214.5, y: -29}
+        - {x: 215.5, y: -11}
+        - {x: 215.5, y: 92}
+        - {x: -89.5, y: 92}
+        - {x: -89.5, y: -80}
+        - {x: -87.5, y: -92}
+        - {x: 31.5, y: -92}
+        - {x: 35.5, y: -87}
+        - {x: 36.5, y: -84}
+        - {x: 36.5, y: -80}
+      - - {x: -217.5, y: 92}
+        - {x: -217.5, y: 6}
+        - {x: -216.5, y: -28}
+        - {x: -198.5, y: -30}
+        - {x: -92.5, y: -30}
+        - {x: -89.5, y: 3}
+        - {x: -89.5, y: 92}
+    - name: boss_platforms_12
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 69
+        width: 188
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: -68}
+        - {x: 10, y: -72}
+        - {x: 7, y: -92}
+        - {x: 92, y: -92}
+        - {x: 94, y: -82}
+        - {x: 94, y: 92}
+        - {x: -94, y: 92}
+        - {x: -94, y: -92}
+        - {x: -26, y: -92}
+        - {x: 0, y: -81}
+        - {x: 8, y: -64}
+        - {x: 8, y: -62}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

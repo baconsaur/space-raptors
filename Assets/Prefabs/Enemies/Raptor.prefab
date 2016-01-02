@@ -12,10 +12,9 @@ GameObject:
   - 61: {fileID: 6136876}
   - 95: {fileID: 9512450}
   - 50: {fileID: 5075112}
-  - 114: {fileID: 11492398}
-  - 114: {fileID: 11483386}
   - 114: {fileID: 11490944}
   - 114: {fileID: 11427902}
+  - 82: {fileID: 8291594}
   m_Layer: 0
   m_Name: Raptor
   m_TagString: Enemy
@@ -30,8 +29,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.5, y: -7.9, z: 0}
-  m_LocalScale: {x: 1, y: 1.0745299, z: 1}
+  m_LocalPosition: {x: -19.1, y: -16.7, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -66,6 +65,80 @@ BoxCollider2D:
   m_Offset: {x: -0.25, y: -0.45}
   serializedVersion: 2
   m_Size: {x: 2.75, y: 2}
+--- !u!82 &8291594
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 198612}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 10
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &9512450
 Animator:
   serializedVersion: 3
@@ -100,35 +173,19 @@ MonoBehaviour:
   currentWeapon: {fileID: 102198, guid: b9790a4d4a62a4633b43a5e337f48f26, type: 2}
   shootingCooldown: 100
   animator: {fileID: 9512450}
-  enemyType: {fileID: 198612}
   activationDistance: 100
   sightDistance: 20
   waitAfterShooting: 10
   patrolSpeed: 60
-  jumpForce: 7000
+  jumpForce: 4000
   maxPlayerProximity: 6
---- !u!114 &11483386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198612}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b3e81876b0242b086b15f0b8553db4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  capabilities:
-    speed: 15
-    jumpForce: 8000
-    jumpHeight: 5
-    jumpWidth: 12
-    reactionTime: 0.1
-  pointers:
-    rigidBody: {fileID: 5075112}
-    animator: {fileID: 9512450}
-    player: {fileID: 0}
-  stuckYarp: 3
+  stealthTimeout: 300
+  pointValue: 15
+  willShootY: 1.5
+  drops:
+  - {fileID: 136184, guid: 40df733ff05bd4e858723681d1b91916, type: 2}
+  - {fileID: 186816, guid: 4122d5eaeefd6469ab1b6496ad42195e, type: 2}
+  - {fileID: 141942, guid: 2e41114dd8c29401e82143e8c5f00c83, type: 2}
 --- !u!114 &11490944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,25 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39edf1aa114454379a0acb4df2ac2c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11492398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198612}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae71d8c448ab743bfbb252cc578f23a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 15
-  shotOffset: {x: -2, y: -0.7}
-  currentWeapon: {fileID: 102198, guid: b9790a4d4a62a4633b43a5e337f48f26, type: 2}
-  defaultCooldown: 100
-  animator: {fileID: 9512450}
-  player: {fileID: 0}
-  shootDifferentialY: 1
-  enemyType: {fileID: 150218, guid: cf87caf1ba70441e194cda143cf67ab4, type: 2}
 --- !u!212 &21290648
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -197,6 +235,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: drops.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Offset.y
       value: -0.45
       objectReference: {fileID: 0}
@@ -208,6 +250,50 @@ Prefab:
       propertyPath: enemyType
       value: 
       objectReference: {fileID: 198612}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pointValue
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: drops.Array.data[0]
+      value: 
+      objectReference: {fileID: 136184, guid: 40df733ff05bd4e858723681d1b91916, type: 2}
+    - target: {fileID: 0}
+      propertyPath: drops.Array.data[1]
+      value: 
+      objectReference: {fileID: 186816, guid: 4122d5eaeefd6469ab1b6496ad42195e, type: 2}
+    - target: {fileID: 0}
+      propertyPath: drops.Array.data[2]
+      value: 
+      objectReference: {fileID: 141942, guid: 2e41114dd8c29401e82143e8c5f00c83, type: 2}
+    - target: {fileID: 0}
+      propertyPath: willShootY
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 198612}

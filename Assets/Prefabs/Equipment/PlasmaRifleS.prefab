@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 109198, guid: 602b5fb695a8a4b38b63502f5582571f, type: 2}
+  weaponIcon: {fileID: 21300002, guid: a254380703d1e46168b623a8e99b738e, type: 3}
+  ammoType: 2
 --- !u!212 &21230596
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -104,6 +106,15 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: cd0c51dec7f03469fa7d9a951b4451d7, type: 2}
+    - target: {fileID: 0}
+      propertyPath: weaponIcon
+      value: 
+      objectReference: {fileID: 21300002, guid: a254380703d1e46168b623a8e99b738e,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: ammoType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174044}

@@ -1,70 +1,112 @@
 ﻿#pragma strict
-public var cameraComponent :Camera;
-public var setZoom :float;
 public var zoomSpeed :float;
-public var setPosition :Vector2;
-public var positionSpeed :float;
+public var positionSpeed :Vector2;
+public var startingBounds :GameObject;
+public var manualPositioning :boolean;
+public var playerOffset :Vector2;
 
 
-
-public var shakeTest :boolean;
+//public var shakeTest :boolean;
 
 
 private var zoom :float;
 private var position :Vector3;
 private var player :GameObject;
 private var shaking :boolean;
+private var boundary :Bounds;
+private var cameraObj :Camera;
+private var targetPosition :Vector3;
+/*private*/ var targetZoom :float;
 
 
 function Start () {
-	zoom = setZoom;
-	position = new Vector3(setPosition.x, setPosition.y, -10f);
+	cameraObj = GetComponent(Camera);
+	targetZoom = cameraObj.orthographicSize;
+	zoom = targetZoom;
 	player = GameObject.Find('Player');
+	SetBoundaries(startingBounds);
 }
 
-function Update () {
-	if (zoom != setZoom) {
-		if (Mathf.Abs(zoom - setZoom) <= zoomSpeed) zoom = setZoom;
-		else zoom = zoom > setZoom ? zoom - zoomSpeed : zoom + zoomSpeed;
-		cameraComponent.orthographicSize = zoom;
+function FixedUpdate () {
+	// Zoom
+	if (zoom != targetZoom) {
+		if (Mathf.Abs(zoom - targetZoom) <= zoomSpeed * Time.deltaTime) zoom = targetZoom;
+		else zoom += zoom > targetZoom ? -zoomSpeed * Time.deltaTime : zoomSpeed * Time.deltaTime;
+		cameraObj.orthographicSize = zoom;
 	}
-	if (!shaking && (position.x != setPosition.x || position.y != setPosition.y)) {
-		if (Mathf.Abs(position.x - setPosition.x) <= positionSpeed) position.x = setPosition.x;
-		else position.x = position.x > setPosition.x ? position.x - positionSpeed : position.x + positionSpeed;
-		if (Mathf.Abs(position.y - setPosition.y) <= positionSpeed) position.y = setPosition.y;
-		else position.y = position.y > setPosition.y ? position.y - positionSpeed : position.y + positionSpeed;
-		position.z = cameraComponent.transform.localPosition.z;
-		cameraComponent.transform.localPosition = position;
+
+	// Set Position to Player
+	if (!manualPositioning) {
+		var position :Vector2 = new Vector2(
+			player.transform.position.x + (player.transform.localScale.x * playerOffset.x),
+			player.transform.position.y + (player.transform.localScale.y * playerOffset.y)
+		);
+		SetPosition(position);
 	}
-	if (shakeTest) {
-		shakeTest = false;
-		StartCoroutine(Shake(10, 0.2));
+
+	// Move Camera
+	if (!shaking) {
+		if (Mathf.Abs(transform.position.x - targetPosition.x) <= positionSpeed.x * Time.deltaTime) {
+			transform.position.x = targetPosition.x;
+		} else {
+			transform.position.x += (transform.position.x > targetPosition.x) ?
+				-positionSpeed.x * Time.deltaTime :
+				positionSpeed.x * Time.deltaTime;
+		}
+		if (Mathf.Abs(transform.position.y - targetPosition.y) <= positionSpeed.y * Time.deltaTime) {
+			transform.position.y = targetPosition.y;
+		} else {
+			transform.position.y += (transform.position.y > targetPosition.y) ?
+				-positionSpeed.y * Time.deltaTime :
+				positionSpeed.y * Time.deltaTime;
+		}
 	}
+
 }
 
 function SetZoom(zoom :float, speed :float) {
 	zoomSpeed = speed;
-	setZoom = zoom;
+	targetZoom = zoom;
 }
 
 function SetZoom(zoom :float) {
-	setZoom = zoom;
+	SetZoom(zoom, zoomSpeed);
 }
 
 
-function SetPosition(position :Vector2, speed :float) {
+function SetPosition(position :Vector2, speed :Vector2, stayInBounds) {
 	positionSpeed = speed;
-	setPosition = position;
+
+	if (stayInBounds && (boundary.extents.x || boundary.extents.y)) {
+		var minBound :Vector2 = MinBound(position);
+		var maxBound :Vector2 = MaxBound(minBound);
+
+		position = new Vector2(
+			Mathf.Min(maxBound.x, minBound.x),
+			Mathf.Min(maxBound.y, minBound.y)
+		);
+	}
+
+	targetPosition = position;
+	targetPosition.z = -10f;
+}
+
+function SetPosition(position :Vector2, speed :Vector2) {
+	SetPosition(position, speed, true);
 }
 
 function SetPosition(position :Vector2) {
-	setPosition = position;
+	SetPosition(position, positionSpeed, true);
+}
+
+function SetPositionManual(position :Vector2) {
+	targetPosition = position;
+	targetPosition.z = -10f;
 }
 
 function Shake(iterations :int, velocity :float) {
-	var Methods :Methods;
 	shaking = true;
-	var end :Vector3 = cameraComponent.transform.localPosition;
+	var end :Vector3 = cameraObj.transform.localPosition;
 	var shakes :Array = new Array(
 		Vector3(-velocity, velocity, position.z),
 		Vector3(velocity, -velocity, position.z),
@@ -74,10 +116,39 @@ function Shake(iterations :int, velocity :float) {
 	for (var i :int = 0; i < iterations; i++) {
 		for (var j :int = 0; j < shakes.length; j++) {
 			var vec :Vector3 = shakes[j];
-			cameraComponent.transform.localPosition = end + vec;
+			cameraObj.transform.localPosition = end + vec;
 			yield WaitForFixedUpdate();
 		}
 	}
-	cameraComponent.transform.localPosition = end;
+	cameraObj.transform.localPosition = end;
 	shaking = false;
+}
+
+function SetBoundaries(obj :GameObject) {
+	if (obj) boundary = obj.GetComponent(MeshRenderer).bounds;
+}
+
+function MinBound(position :Vector2) :Vector2 {
+	return EitherBound(position, 2f, boundary.min, Mathf.Max);
+}
+
+function MaxBound(position :Vector2) :Vector2 {
+	return EitherBound(position, -2f, boundary.max, Mathf.Min);
+}
+
+function EitherBound(position :Vector2, divisor :float, boundPos :Vector2, compare :Function) :Vector2 {
+	var centerPos :Vector2 = cameraObj.WorldToScreenPoint(position);
+	var comparePos :Vector2 = new Vector2(
+		centerPos.x - cameraObj.pixelWidth / divisor,
+		centerPos.y - cameraObj.pixelHeight / divisor
+	);
+	comparePos = cameraObj.ScreenToWorldPoint(comparePos);
+	comparePos.x = compare(comparePos.x, boundPos.x);
+	comparePos.y = compare(comparePos.y, boundPos.y);
+	comparePos = cameraObj.WorldToScreenPoint(comparePos);
+	centerPos = new Vector2(
+		comparePos.x + cameraObj.pixelWidth / divisor,
+		comparePos.y + cameraObj.pixelHeight / divisor
+	);
+	return cameraObj.ScreenToWorldPoint(centerPos);
 }
