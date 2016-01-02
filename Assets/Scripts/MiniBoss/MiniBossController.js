@@ -51,21 +51,17 @@ function SetStage() {
 		switch(stage) {
 			case 1:
 				GameObject.Find('Main Camera').GetComponent(CameraController).SetZoom(15);
-				Debug.Log('Stage 1');
 				follow.enabled = true;
 				follow.getem = true;
 				break;
 			case 2:
-				Debug.Log('Stage 2');
 				mainCannon.enabled = true;
 				mainCannon.shootem = true;
 				break;
 			case 3:
-				Debug.Log('Stage 3');
 				mainCannon.destroyem = true;
 				break;
-			default:
-				Debug.Log('Inappropriate Stage Set');
+			default: break;
 		}
 	}
 }

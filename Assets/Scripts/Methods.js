@@ -40,8 +40,11 @@ public class Methods extends MonoBehaviour {
 		}
 		return null;
 	}
-	static function onTaggedObjectCorners(object :ObjectWithCorners, platforms :ObjectWithCorners[], tolerance :float) :ObjectWithCorners {
-		
+	public static function onSomething(object :GameObject, tolerance :float) :GameObject {
+		var ray :RaycastHit2D = RaycastClosest(object.transform.position, Vector2(0, -1), object.transform);
+		var corner :ObjectWithCorners = new ObjectWithCorners(object);
+		if (ray.distance <= (object.transform.position.y - corner.corners.bottomLeft.y) + tolerance) return ray.transform.gameObject;
+		else return null;
 	}
 	static function distance(point1 :Vector2, point2 :Vector2): float {
 		return Mathf.Sqrt(Mathf.Pow(point1.x - point2.x, 2.0) + Mathf.Pow(point1.y - point2.y, 2.0));
