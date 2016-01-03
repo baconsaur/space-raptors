@@ -84,7 +84,7 @@ public class CheckpointController extends MonoBehaviour {
 				playerController.weapons[i] = AllWeapons[weapons[i]];
 			}
 			playerController.currentWeapon = AllWeapons[currentWeapon];
-			playerController.SwitchWeapon(playerController.currentWeapon);
+//			playerController.SwitchWeapon(playerController.currentWeapon);
 
 			DestroyTheVanquished(powerups, 'Powerup');
 			DestroyTheVanquished(enemies, 'Enemy');
@@ -99,6 +99,7 @@ public class CheckpointController extends MonoBehaviour {
 		}
 
 		playerController.OnSpawn();
+		playerController.SwitchWeapon(playerController.currentWeapon);
 		ClearPlayer();
 	}
 
