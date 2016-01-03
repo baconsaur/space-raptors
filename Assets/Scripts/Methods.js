@@ -150,4 +150,9 @@ public class Methods extends MonoBehaviour {
 			Mathf.Abs(ve1.y - ve2.y) <= tolerance &&
 			Mathf.Abs(ve1.z - ve2.z) <= tolerance;
 	}
+	static function destroyChildren(object :GameObject) {
+		for (var child :Transform in object.transform) {
+			Destroy(child.gameObject);
+		}
+	}
 }

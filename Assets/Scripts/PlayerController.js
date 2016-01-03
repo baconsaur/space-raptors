@@ -251,9 +251,11 @@ function TakeDamage (damage :int) {
 		HUDManager.UpdateArmor(0);
 		HUDManager.UpdateHealth(0);
 	}
+	transform.position.x += (transform.localScale.x);
 }
 
 function SwitchWeapon (weapon :GameObject) {
+	Methods.destroyChildren(this.gameObject);
 	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
 	newWeapon.transform.parent = gameObject.transform;
 	newWeapon.transform.localScale.x *= transform.localScale.x;

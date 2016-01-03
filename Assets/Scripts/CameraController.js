@@ -16,7 +16,7 @@ private var shaking :boolean;
 private var boundary :Bounds;
 private var cameraObj :Camera;
 private var targetPosition :Vector3;
-/*private*/ var targetZoom :float;
+private var targetZoom :float;
 
 
 function Start () {
@@ -27,8 +27,9 @@ function Start () {
 	transform.position = new Vector3(
 		player.transform.position.x,
 		player.transform.position.y,
-		-10
+		-10f
 	);
+	if (Application.loadedLevelName == 'MiniBossFight') SetZoom(15);
 	SetBoundaries(startingBounds);
 }
 
