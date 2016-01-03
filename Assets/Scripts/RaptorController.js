@@ -14,8 +14,9 @@ public var maxPlayerProximity :float;
 public var stealthTimeout :int;
 public var pointValue :int;
 public var willShootY :float;
+public var drops :GameObject[];
 
-var drops :GameObject[];
+
 private var shotCooldown :int;
 private var stealthReset :int;
 private var moveWait :int;
@@ -30,6 +31,7 @@ private var SoundFXManager :SoundFXManager;
 private var audioSource :AudioSource;
 private var lastKnownPos :Vector2;
 private var lastSpin :float;
+private var lastJump :float;
 
 
 function Start () {
@@ -109,6 +111,7 @@ function CoolDowns() {
 	if (moveWait) moveWait--;
 	if (stealthReset) stealthReset--;
 	lastSpin += Time.deltaTime;
+	lastJump += Time.deltaTime;
 }
 
 private class Obstacles {
@@ -249,11 +252,10 @@ function Face(position :Vector2) {
 }
 
 function Jump() {
-	if (onGround()) {
+	if (onGround() && lastJump > 1f) {
+		lastJump = 0;
 		animator.SetBool("walking", false);
-		transform.position.x += (0.1 * -transform.localScale.x);
-		yield WaitForFixedUpdate();
-		body.AddForce(Vector2(0, jumpForce));
+		body.AddForce(Vector2(transform.localScale.x, jumpForce));
 		SoundFXManager.Play(audioSource, "action", "raptor_jump");
 	}
 }
