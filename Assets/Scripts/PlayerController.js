@@ -251,7 +251,7 @@ function TakeDamage (damage :int) {
 		HUDManager.UpdateArmor(0);
 		HUDManager.UpdateHealth(0);
 	}
-	transform.position.x += (transform.localScale.x);
+	transform.position.x += (-transform.localScale.x / 4);
 }
 
 function SwitchWeapon (weapon :GameObject) {

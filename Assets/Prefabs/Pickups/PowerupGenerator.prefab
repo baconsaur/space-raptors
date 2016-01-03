@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &185928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 454296}
+  - 114: {fileID: 11458366}
+  m_Layer: 0
+  m_Name: PowerupGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454296
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25, y: 8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11458366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9aacbcc661164437928688d7e015620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropRate: 30
+  ammo:
+  - {fileID: 186816, guid: 4122d5eaeefd6469ab1b6496ad42195e, type: 2}
+  - {fileID: 136184, guid: 40df733ff05bd4e858723681d1b91916, type: 2}
+  armor:
+  - {fileID: 191220, guid: 6ae8720125314491ca62b87a699cb6df, type: 2}
+  - {fileID: 164042, guid: d561c9faa043c44cfbdbf7a10d369616, type: 2}
+  health:
+  - {fileID: 141942, guid: 2e41114dd8c29401e82143e8c5f00c83, type: 2}
+  - {fileID: 127764, guid: 00f83a10c80f143e6acdd14cf18f9afb, type: 2}
+  - {fileID: 128184, guid: 085c97701def34feaac70e153df6b3f8, type: 2}
+  maxDistanceToPlayer: 12
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 185928}
+  m_IsPrefabParent: 1
