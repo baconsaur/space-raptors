@@ -27,6 +27,7 @@ public class CheckpointController extends MonoBehaviour {
 	private var score :int;
 	private var powerups :GlobalIdentifier[];
 	private var enemies :GlobalIdentifier[];
+	private var checkpoints :GlobalIdentifier[];
 
 
 	function Awake() {
@@ -48,7 +49,7 @@ public class CheckpointController extends MonoBehaviour {
 		playerController = null;
 	}
 
-	public function Save(respawnPosition :Vector2) {
+	public function Save(respawnPosition :Vector2, lateCheckpoint :GameObject) {
 		SetPlayer();
 		checkpointed = true;
 		position = respawnPosition;
@@ -69,6 +70,8 @@ public class CheckpointController extends MonoBehaviour {
 
 		powerups = StoreAlive(GameObject.FindGameObjectsWithTag('Powerup'));
 		enemies = StoreAlive(GameObject.FindGameObjectsWithTag('Enemy'));
+		checkpoints = StoreAlive(GameObject.FindGameObjectsWithTag('Checkpoint'), lateCheckpoint);
+
 		ClearPlayer();
 	}
 
@@ -81,13 +84,20 @@ public class CheckpointController extends MonoBehaviour {
 				playerController.weapons[i] = AllWeapons[weapons[i]];
 			}
 			playerController.currentWeapon = AllWeapons[currentWeapon];
-			playerController.armor = armor;
-			playerController.stealthTime = stealthTime;
-			playerController.ammo = ammo;
-			playerController.ResetScore(score);
+			playerController.SwitchWeapon(playerController.currentWeapon);
+
 			DestroyTheVanquished(powerups, 'Powerup');
 			DestroyTheVanquished(enemies, 'Enemy');
+			DestroyTheVanquished(checkpoints, 'Checkpoint');
+
+			playerController.armor = armor;
+			playerController.stealthTime = stealthTime;
+			playerController.ResetScore(score);
+			playerController.ammo = ammo;
+
+			playerController.InitHUD();
 		}
+
 		playerController.OnSpawn();
 		ClearPlayer();
 	}
@@ -98,7 +108,7 @@ public class CheckpointController extends MonoBehaviour {
 		for (var i :int = 0; i < inScene.Length; i++) {
 			var inList :boolean = false;
 			for (var j :int = 0; j < list.Length; j++) {
-				if (inScene[i].name == list[j].name && Methods.compareVectors(inScene[i].transform.position, list[j].position, 15f)) {
+				if (list[j] && inScene[i].name == list[j].name && Methods.compareVectors(inScene[i].transform.position, list[j].position, 15f)) {
 					inList = true;
 					j = list.Length;
 				}
@@ -108,9 +118,16 @@ public class CheckpointController extends MonoBehaviour {
 				destroyed++;
 			}
 		}
-		Debug.Log(tag + ' destroyed = ' + destroyed.ToString());
+//		Debug.Log(tag + ' destroyed = ' + destroyed.ToString());
 	}
 
+	private function StoreAlive(list :GameObject[], filter :GameObject) :GlobalIdentifier[] {
+		var ret :GlobalIdentifier[] = new GlobalIdentifier[list.Length];
+		for (var i :int = 0; i < list.Length; i++) {
+			if (filter != list[i]) ret[i] = new GlobalIdentifier(list[i]);
+		}
+		return ret;
+	}
 	private function StoreAlive(list :GameObject[]) :GlobalIdentifier[] {
 		var ret :GlobalIdentifier[] = new GlobalIdentifier[list.Length];
 		for (var i :int = 0; i < list.Length; i++) {

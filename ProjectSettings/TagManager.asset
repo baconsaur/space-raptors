@@ -10,6 +10,8 @@ TagManager:
   - Powerup
   - Pickup
   - Spikes
+  - Hazard
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

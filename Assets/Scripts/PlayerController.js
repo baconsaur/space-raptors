@@ -33,16 +33,15 @@ private var ammoType :int;
 
 function Start () {
 	shotCooldown = 0;
-
-	GameObject.Find('CheckpointController').GetComponent(CheckpointController).Load();
-
 	HUDManager = GameObject.Find("HUDCanvas").GetComponent("HUDManager");
 	SoundFXManager = GameObject.Find("SoundFX").GetComponent("SoundFXManager");
 	audioSource = gameObject.GetComponent(AudioSource);
 	previousPosition = new Vector2(0,0);
+
+	GameObject.Find('CheckpointController').GetComponent(CheckpointController).Load();
 }
 
-function OnSpawn () {
+function OnSpawn() {
 	weaponAnimator = currentWeapon.GetComponent(Animator);
 	weaponProjectile = currentWeapon.GetComponent(WeaponDetails).projectile;
 	weaponIcon = currentWeapon.GetComponent(WeaponDetails).weaponIcon;
@@ -255,7 +254,6 @@ function TakeDamage (damage :int) {
 }
 
 function SwitchWeapon (weapon :GameObject) {
-	Destroy(currentWeapon);
 	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
 	newWeapon.transform.parent = gameObject.transform;
 	newWeapon.transform.localScale.x *= transform.localScale.x;
@@ -284,4 +282,11 @@ function GetScore() :int {
 
 function ResetScore(newScore :int) {
 	score = newScore;
+}
+
+function InitHUD() {
+	HUDManager.UpdateArmor(armor);
+	HUDManager.UpdateStealth(stealthTime);
+	HUDManager.UpdatePoints(score);
+	HUDManager.UpdateAmmo(ammo[ammoType]);
 }
