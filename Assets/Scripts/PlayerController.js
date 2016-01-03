@@ -17,7 +17,6 @@ var collisionDamage :int;
 var stealthTime :float;
 var stealth :boolean;
 var stealthCooldown :float;
-public var spawnPoint :Transform;
 var bootDust :GameObject;
 var ammo :int[];
 
@@ -33,16 +32,20 @@ private var weaponIcon :Sprite;
 private var ammoType :int;
 
 function Start () {
-	score = 0;
 	shotCooldown = 0;
-	weaponAnimator = currentWeapon.GetComponent(Animator);
-	weaponProjectile = currentWeapon.GetComponent(WeaponDetails).projectile;
-	weaponIcon = currentWeapon.GetComponent(WeaponDetails).weaponIcon;
-	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType -1;
 	HUDManager = GameObject.Find("HUDCanvas").GetComponent("HUDManager");
 	SoundFXManager = GameObject.Find("SoundFX").GetComponent("SoundFXManager");
 	audioSource = gameObject.GetComponent(AudioSource);
 	previousPosition = new Vector2(0,0);
+
+	GameObject.Find('CheckpointController').GetComponent(CheckpointController).Load();
+}
+
+function OnSpawn() {
+	weaponAnimator = currentWeapon.GetComponent(Animator);
+	weaponProjectile = currentWeapon.GetComponent(WeaponDetails).projectile;
+	weaponIcon = currentWeapon.GetComponent(WeaponDetails).weaponIcon;
+	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType -1;
 }
 
 function setAnimation (name :String, state :boolean) {
@@ -251,7 +254,6 @@ function TakeDamage (damage :int) {
 }
 
 function SwitchWeapon (weapon :GameObject) {
-	Destroy(currentWeapon);
 	var newWeapon = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
 	newWeapon.transform.parent = gameObject.transform;
 	newWeapon.transform.localScale.x *= transform.localScale.x;
@@ -272,4 +274,19 @@ function GetPoints (points: int) {
 
 function Die () {
 	Application.LoadLevel (Application.loadedLevel);
+}
+
+function GetScore() :int {
+	return score;
+}
+
+function ResetScore(newScore :int) {
+	score = newScore;
+}
+
+function InitHUD() {
+	HUDManager.UpdateArmor(armor);
+	HUDManager.UpdateStealth(stealthTime);
+	HUDManager.UpdatePoints(score);
+	HUDManager.UpdateAmmo(ammo[ammoType]);
 }
