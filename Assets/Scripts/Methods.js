@@ -145,4 +145,9 @@ public class Methods extends MonoBehaviour {
 		});
 		return array[0];
 	}
+	static function compareVectors(ve1 :Vector3, ve2 :Vector3, tolerance :float) :boolean {
+		return Mathf.Abs(ve1.x - ve2.x) <= tolerance &&
+			Mathf.Abs(ve1.y - ve2.y) <= tolerance &&
+			Mathf.Abs(ve1.z - ve2.z) <= tolerance;
+	}
 }

@@ -24,6 +24,11 @@ function Start () {
 	targetZoom = cameraObj.orthographicSize;
 	zoom = targetZoom;
 	player = GameObject.Find('Player');
+	transform.position = new Vector3(
+		player.transform.position.x,
+		player.transform.position.y,
+		-10
+	);
 	SetBoundaries(startingBounds);
 }
 

@@ -1,14 +1,32 @@
 ﻿#pragma strict
 
 public class CheckpointController extends MonoBehaviour {
-	public static var checkpoint :CheckpointController;
+	public var AllWeapons :GameObject[];
+	private class GlobalIdentifier {
+		public var name :String;
+		public var position :Vector3;
+		public function GlobalIdentifier(object :GameObject) {
+			name = object.name;
+			position = object.transform.position;
+		}
+	}
 
-	public var playerHealth :int;
 
-
+	private static var checkpoint :CheckpointController;
 	private var player :GameObject;
 	private var playerController :PlayerController;
+	private var checkpointed :boolean;
+	private var position :Vector2;
 
+
+	private var currentWeapon :int;
+	private var weapons :int[];
+	private var armor :int;
+	private var stealthTime :float;
+	private var ammo :int[];
+	private var score :int;
+	private var powerups :GlobalIdentifier[];
+	private var enemies :GlobalIdentifier[];
 
 
 	function Awake() {
@@ -18,11 +36,98 @@ public class CheckpointController extends MonoBehaviour {
 		} else if (checkpoint != this) {
 			Destroy(this.gameObject);
 		}
+	}
+
+	function SetPlayer() {
 		player = GameObject.Find('Player');
 		playerController = player.GetComponent(PlayerController);
 	}
 
-	public function Save() {
-		playerHealth = playerController.health;
+	function ClearPlayer() {
+		player = null;
+		playerController = null;
+	}
+
+	public function Save(respawnPosition :Vector2) {
+		SetPlayer();
+		checkpointed = true;
+		position = respawnPosition;
+		currentWeapon = FindInList(AllWeapons, playerController.currentWeapon);
+		armor = playerController.armor;
+		stealthTime = playerController.stealthTime;
+		score = playerController.GetScore();
+
+		weapons = new int[playerController.weapons.Length];
+		forEach(weapons, function(item, i) {
+			weapons[i] = FindInList(AllWeapons, playerController.weapons[i]);
+		});
+
+		ammo = new int[playerController.weapons.Length];
+		forEach(ammo, function(item, i) {
+			ammo[i] = playerController.ammo[i];
+		});
+
+		powerups = StoreAlive(GameObject.FindGameObjectsWithTag('Powerup'));
+		enemies = StoreAlive(GameObject.FindGameObjectsWithTag('Enemy'));
+		ClearPlayer();
+	}
+
+	public function Load() {
+		SetPlayer();
+		if (checkpointed) {
+			player.transform.position = position;
+			playerController.weapons = new GameObject[weapons.Length];
+			for (var i :int = 0; i < weapons.Length; i++) {
+				playerController.weapons[i] = AllWeapons[weapons[i]];
+			}
+			playerController.currentWeapon = AllWeapons[currentWeapon];
+			playerController.armor = armor;
+			playerController.stealthTime = stealthTime;
+			playerController.ammo = ammo;
+			playerController.ResetScore(score);
+			DestroyTheVanquished(powerups, 'Powerup');
+			DestroyTheVanquished(enemies, 'Enemy');
+		}
+		playerController.OnSpawn();
+		ClearPlayer();
+	}
+
+	private function DestroyTheVanquished(list :GlobalIdentifier[], tag :String) {
+		var destroyed :int = 0;
+		var inScene :GameObject[] = GameObject.FindGameObjectsWithTag(tag);
+		for (var i :int = 0; i < inScene.Length; i++) {
+			var inList :boolean = false;
+			for (var j :int = 0; j < list.Length; j++) {
+				if (inScene[i].name == list[j].name && Methods.compareVectors(inScene[i].transform.position, list[j].position, 15f)) {
+					inList = true;
+					j = list.Length;
+				}
+			}
+			if (!inList) {
+				Destroy(inScene[i]);
+				destroyed++;
+			}
+		}
+		Debug.Log(tag + ' destroyed = ' + destroyed.ToString());
+	}
+
+	private function StoreAlive(list :GameObject[]) :GlobalIdentifier[] {
+		var ret :GlobalIdentifier[] = new GlobalIdentifier[list.Length];
+		for (var i :int = 0; i < list.Length; i++) {
+			ret[i] = new GlobalIdentifier(list[i]);
+		}
+		return ret;
+	}
+
+	private function FindInList(list :GameObject[], item :GameObject) :int {
+		for (var i :int = 0; i < list.Length; i++) {
+			if (item.name == list[i].name) return  i;
+		}
+	}
+
+	private function forEach(list :int[], func :Function) {
+		for (var i :int = 0; i < list.Length; i++) {
+			func(list[i], i);
+		}
 	}
 }
