@@ -177,7 +177,7 @@ MonoBehaviour:
   sightDistance: 20
   waitAfterShooting: 10
   patrolSpeed: 60
-  jumpForce: 4000
+  jumpForce: 7000
   maxPlayerProximity: 6
   stealthTimeout: 300
   pointValue: 15
@@ -293,6 +293,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: willShootY
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: jumpForce
+      value: 7000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

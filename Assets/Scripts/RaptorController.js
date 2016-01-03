@@ -255,7 +255,7 @@ function Jump() {
 	if (onGround() && lastJump > 1f) {
 		lastJump = 0;
 		animator.SetBool("walking", false);
-		body.AddForce(Vector2(transform.localScale.x, jumpForce));
+		body.AddForce(Vector2(transform.localScale.x * 50f, jumpForce));
 		SoundFXManager.Play(audioSource, "action", "raptor_jump");
 	}
 }
