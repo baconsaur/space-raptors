@@ -19,6 +19,8 @@ var stealth :boolean;
 var stealthCooldown :float;
 var bootDust :GameObject;
 var ammo :int[];
+var pauseMenu :GameObject;
+var paused :boolean;
 
 private var score : int;
 private var HUDManager :HUDManager;
@@ -72,6 +74,14 @@ function FixedUpdate () {
 	if (switchCooldown) {
 		switchCooldown -= Time.deltaTime;
 	}
+
+	if (Input.GetAxis("Cancel")) {
+		if (!paused) {
+			paused = true;
+			Instantiate(pauseMenu);
+		}
+	}
+
 	var direction = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
 	if (animator.GetBool("dead") == false) {
 		var moved :boolean = !Mathf.Approximately(transform.position.x, previousPosition.x) ||
