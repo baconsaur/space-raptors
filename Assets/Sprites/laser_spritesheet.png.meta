@@ -26,7 +26,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -36,7 +36,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -48,7 +48,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -61,7 +61,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 42
   alphaIsTransparency: 1
@@ -79,6 +79,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 6}
+        - {x: -4, y: 3}
+        - {x: -4, y: -4}
+        - {x: -2, y: -6}
+        - {x: 6, y: -6}
+        - {x: 10, y: -4}
+        - {x: 10, y: 4}
+        - {x: 7, y: 6}
     - name: laser_spritesheet_1
       rect:
         serializedVersion: 2
@@ -89,6 +98,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 10}
+        - {x: -12, y: 7}
+        - {x: -12, y: -8}
+        - {x: -7, y: -10}
+        - {x: 5, y: -10}
+        - {x: 10, y: -4}
+        - {x: 10, y: 7}
+        - {x: 4, y: 10}
     - name: laser_spritesheet_2
       rect:
         serializedVersion: 2
@@ -99,6 +117,14 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22, y: 12}
+        - {x: -22, y: -12}
+        - {x: 8, y: -12}
+        - {x: 12, y: -11}
+        - {x: 14, y: -8}
+        - {x: 14, y: 9}
+        - {x: 4, y: 12}
     - name: laser_spritesheet_3
       rect:
         serializedVersion: 2
@@ -109,6 +135,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 8}
+        - {x: -18, y: 8}
+        - {x: -28, y: 5}
+        - {x: -28, y: -3}
+        - {x: -25, y: -6}
+        - {x: -20, y: -8}
+        - {x: 18, y: -8}
+        - {x: 24, y: -6}
+        - {x: 24, y: 3}
+        - {x: 19, y: 7}
     - name: laser_spritesheet_4
       rect:
         serializedVersion: 2
@@ -119,6 +156,14 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 8}
+        - {x: -20, y: -5}
+        - {x: -11, y: -8}
+        - {x: 13, y: -8}
+        - {x: 20, y: -5}
+        - {x: 20, y: 5}
+        - {x: 19, y: 8}
     - name: laser_spritesheet_5
       rect:
         serializedVersion: 2
@@ -129,6 +174,22 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 10}
+        - {x: -4, y: 10}
+        - {x: -17, y: 1}
+        - {x: -18, y: -1}
+        - {x: -18, y: -6}
+        - {x: -6, y: -12}
+        - {x: 9, y: -12}
+        - {x: 10, y: -11}
+        - {x: 10, y: -1}
+      - - {x: -4, y: 18}
+        - {x: -6, y: 15}
+        - {x: -6, y: 10}
+        - {x: 2, y: 10}
+        - {x: 2, y: 17}
+        - {x: 0, y: 18}
     - name: laser_spritesheet_6
       rect:
         serializedVersion: 2
@@ -139,6 +200,38 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -14}
+        - {x: 2, y: -12}
+        - {x: 4, y: -14}
+        - {x: 8, y: -14}
+        - {x: 10, y: -12}
+        - {x: 10, y: 12}
+        - {x: 8, y: 16}
+        - {x: -4, y: 16}
+        - {x: -11, y: 9}
+        - {x: -12, y: 0}
+        - {x: -12, y: -16}
+        - {x: -7, y: -20}
+        - {x: -1, y: -20}
+        - {x: 1, y: -19}
+        - {x: 0, y: -16}
+        - {x: -2, y: -14}
+        - {x: -4, y: -14}
+      - - {x: 10, y: 14}
+        - {x: 8, y: 12}
+        - {x: 8, y: 10}
+        - {x: 10, y: 8}
+        - {x: 12, y: 8}
+        - {x: 14, y: 10}
+        - {x: 14, y: 12}
+        - {x: 12, y: 14}
+      - - {x: -8, y: 24}
+        - {x: -10, y: 21}
+        - {x: -10, y: 16}
+        - {x: -2, y: 16}
+        - {x: -2, y: 23}
+        - {x: -4, y: 24}
     - name: laser_spritesheet_7
       rect:
         serializedVersion: 2
@@ -149,6 +242,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 6}
+        - {x: -4, y: 3}
+        - {x: -4, y: -4}
+        - {x: -2, y: -6}
+        - {x: 6, y: -6}
+        - {x: 10, y: -4}
+        - {x: 10, y: 4}
+        - {x: 7, y: 6}
     - name: laser_spritesheet_8
       rect:
         serializedVersion: 2
@@ -159,6 +261,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 10}
+        - {x: -12, y: 7}
+        - {x: -12, y: -8}
+        - {x: -7, y: -10}
+        - {x: 5, y: -10}
+        - {x: 10, y: -4}
+        - {x: 10, y: 7}
+        - {x: 4, y: 10}
     - name: laser_spritesheet_9
       rect:
         serializedVersion: 2
@@ -169,6 +280,14 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22, y: 12}
+        - {x: -22, y: -12}
+        - {x: 8, y: -12}
+        - {x: 12, y: -11}
+        - {x: 14, y: -8}
+        - {x: 14, y: 9}
+        - {x: 4, y: 12}
     - name: laser_spritesheet_10
       rect:
         serializedVersion: 2
@@ -179,6 +298,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 8}
+        - {x: -18, y: 8}
+        - {x: -28, y: 5}
+        - {x: -28, y: -3}
+        - {x: -25, y: -6}
+        - {x: -20, y: -8}
+        - {x: 18, y: -8}
+        - {x: 24, y: -6}
+        - {x: 24, y: 3}
+        - {x: 19, y: 7}
     - name: laser_spritesheet_11
       rect:
         serializedVersion: 2
@@ -189,6 +319,14 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 8}
+        - {x: -20, y: -5}
+        - {x: -11, y: -8}
+        - {x: 13, y: -8}
+        - {x: 20, y: -5}
+        - {x: 20, y: 5}
+        - {x: 19, y: 8}
     - name: laser_spritesheet_12
       rect:
         serializedVersion: 2
@@ -199,6 +337,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -6, y: 12}
+        - {x: -18, y: 2}
+        - {x: -18, y: -6}
+        - {x: -8, y: -12}
+        - {x: 10, y: -12}
+        - {x: 10, y: -3}
+        - {x: 8, y: 2}
+        - {x: 3, y: 15}
+        - {x: 0, y: 16}
     - name: laser_spritesheet_13
       rect:
         serializedVersion: 2
@@ -209,6 +358,38 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -14}
+        - {x: 2, y: -12}
+        - {x: 4, y: -14}
+        - {x: 8, y: -14}
+        - {x: 10, y: -12}
+        - {x: 10, y: 12}
+        - {x: 8, y: 16}
+        - {x: -4, y: 16}
+        - {x: -11, y: 9}
+        - {x: -12, y: 0}
+        - {x: -12, y: -16}
+        - {x: -7, y: -20}
+        - {x: -1, y: -20}
+        - {x: 1, y: -19}
+        - {x: 0, y: -16}
+        - {x: -2, y: -14}
+        - {x: -4, y: -14}
+      - - {x: 10, y: 14}
+        - {x: 8, y: 12}
+        - {x: 8, y: 10}
+        - {x: 10, y: 8}
+        - {x: 12, y: 8}
+        - {x: 14, y: 10}
+        - {x: 14, y: 12}
+        - {x: 12, y: 14}
+      - - {x: -8, y: 24}
+        - {x: -10, y: 21}
+        - {x: -10, y: 16}
+        - {x: -2, y: 16}
+        - {x: -2, y: 23}
+        - {x: -4, y: 24}
     - name: laser_spritesheet_14
       rect:
         serializedVersion: 2
@@ -219,6 +400,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -4}
+        - {x: 4, y: -4}
+        - {x: 4, y: 4}
+        - {x: -2, y: 4}
+        - {x: -4, y: 3}
     - name: laser_spritesheet_15
       rect:
         serializedVersion: 2
@@ -229,6 +416,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 6}
+        - {x: -6, y: 2}
+        - {x: -6, y: 0}
+        - {x: -2, y: -4}
+        - {x: 4, y: -4}
+        - {x: 6, y: -2}
+        - {x: 6, y: 4}
+        - {x: 4, y: 6}
     - name: laser_spritesheet_16
       rect:
         serializedVersion: 2
@@ -239,6 +435,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 6}
+        - {x: -7, y: 6}
+        - {x: -8, y: 2}
+        - {x: -8, y: -1}
+        - {x: -4, y: -4}
+        - {x: 6, y: -4}
+        - {x: 10, y: 0}
+        - {x: 10, y: 5}
     - name: laser_spritesheet_17
       rect:
         serializedVersion: 2
@@ -249,6 +454,29 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: -6}
+        - {x: 0, y: -8}
+        - {x: 0, y: -11}
+        - {x: 2, y: -12}
+        - {x: 5, y: -12}
+        - {x: 6, y: -11}
+        - {x: 6, y: -6}
+      - - {x: 2, y: 10}
+        - {x: -7, y: 3}
+        - {x: -8, y: -4}
+        - {x: -8, y: -8}
+        - {x: -1, y: -8}
+        - {x: 3, y: -7}
+        - {x: 8, y: -4}
+        - {x: 8, y: 10}
+      - - {x: -1, y: 12}
+        - {x: -6, y: 12}
+        - {x: -6, y: 7}
+        - {x: -4, y: 6}
+        - {x: -1, y: 6}
+        - {x: 0, y: 8}
+        - {x: 0, y: 11}
     - name: laser_spritesheet_18
       rect:
         serializedVersion: 2
@@ -259,6 +487,69 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -10}
+        - {x: -6, y: -12}
+        - {x: -6, y: -14}
+        - {x: -4, y: -16}
+        - {x: -2, y: -16}
+        - {x: 0, y: -14}
+        - {x: 0, y: -12}
+        - {x: -2, y: -10}
+      - - {x: 1, y: -2}
+        - {x: 0, y: -4}
+        - {x: 0, y: -7}
+        - {x: 2, y: -8}
+        - {x: 5, y: -8}
+        - {x: 6, y: -7}
+        - {x: 6, y: -2}
+      - - {x: -8, y: 2}
+        - {x: -10, y: 0}
+        - {x: -10, y: -4}
+        - {x: -8, y: -6}
+        - {x: -4, y: -6}
+        - {x: -2, y: -4}
+        - {x: -2, y: 0}
+        - {x: -4, y: 2}
+      - - {x: -1, y: 8}
+        - {x: -6, y: 8}
+        - {x: -6, y: 3}
+        - {x: -4, y: 2}
+        - {x: -1, y: 2}
+        - {x: 0, y: 4}
+        - {x: 0, y: 7}
+      - - {x: 6, y: 10}
+        - {x: 2, y: 6}
+        - {x: 2, y: 4}
+        - {x: 4, y: 2}
+        - {x: 8, y: 2}
+        - {x: 10, y: 4}
+        - {x: 10, y: 8}
+        - {x: 8, y: 10}
+      - - {x: -18, y: 4}
+        - {x: -13, y: 4}
+        - {x: -12, y: 5}
+        - {x: -12, y: 8}
+        - {x: -13, y: 10}
+        - {x: -16, y: 10}
+        - {x: -18, y: 9}
+      - - {x: 10, y: 16}
+        - {x: 8, y: 14}
+        - {x: 8, y: 12}
+        - {x: 10, y: 10}
+        - {x: 12, y: 10}
+        - {x: 14, y: 12}
+        - {x: 14, y: 14}
+        - {x: 12, y: 16}
+      - - {x: -12, y: 20}
+        - {x: -14, y: 18}
+        - {x: -14, y: 14}
+        - {x: -12, y: 12}
+        - {x: -8, y: 12}
+        - {x: -6, y: 14}
+        - {x: -6, y: 18}
+        - {x: -8, y: 20}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

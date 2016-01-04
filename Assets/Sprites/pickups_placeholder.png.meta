@@ -9,7 +9,7 @@ TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -19,7 +19,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -31,7 +31,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -44,7 +44,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 42
   alphaIsTransparency: 1
@@ -62,6 +62,12 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 10}
+        - {x: -20, y: -14}
+        - {x: 9, y: -14}
+        - {x: 22, y: -12}
+        - {x: 22, y: 10}
     - name: pickups_placeholder_1
       rect:
         serializedVersion: 2
@@ -72,6 +78,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: 12}
+        - {x: -31, y: 12}
+        - {x: -32, y: 8}
+        - {x: -32, y: -19}
+        - {x: -30, y: -20}
+        - {x: -4, y: -20}
+        - {x: 29, y: -15}
+        - {x: 32, y: -7}
+        - {x: 32, y: 9}
+        - {x: 27, y: 11}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
