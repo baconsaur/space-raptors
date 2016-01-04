@@ -26,6 +26,7 @@ private var timeUntilReady :float;
 private var following :boolean = false;
 private var stuckMebbe :float = 0f;
 private var collisions :Hashtable;
+private var pacing :boolean;
 
 
 
@@ -41,27 +42,33 @@ function StopThat() {
 	stuckMebbe = 0;
 	following = false;
 	path = null;
+	pacing = false;
 }
 
 function FixedUpdate () {
-	if (!getem) return;
-	stuckMebbe += Time.deltaTime;
 	if (stuckMebbe >= stuckYarp || !getem) {
 		StopThat();
 	}
-	
+	if (!getem) return;
+	stuckMebbe += Time.deltaTime;
+
+
 	var playerPlat = Methods.onTaggedObject(pointers.player, 0.1, 'Platform');
 	var myPlat = Methods.onTaggedObject(this.gameObject, 0.1, 'Platform');
 	if (playerPlat && playerPlat != playerPlatform) {
 		playerPlatform = playerPlat;
-		StopThat();
 	}
-	if (!following && !timeUntilReady && myPlat && playerPlat && (!path || !path.length || myPlat != playerPlat)) {
-		path = PathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0.1, capabilities);
-		StartCoroutine(FollowPath(path, 0.1, this.gameObject, pointers.rigidBody, capabilities));
-		timeUntilReady = capabilities.reactionTime;
-	} else if (!following) {
-		FacePlayer();
+	if (!following && !pacing && !timeUntilReady && myPlat && playerPlat && !pacing && (!path || !path.length || myPlat != playerPlat)) {
+		var newPath :Array = PathFinding.buildSteps(pointers.player, this.gameObject, 'Platform', 0.1, capabilities);
+		if (newPath.length) {
+			StopThat();
+			path = newPath;
+			StartCoroutine(FollowPath(path, 0.1, this.gameObject, pointers.rigidBody, capabilities));
+			timeUntilReady = capabilities.reactionTime;
+		} else {
+			StopThat();
+			StartCoroutine(Pacing(new Methods.ObjectWithCorners(myPlat)));
+		}
 	}
 	if (timeUntilReady && !following) timeUntilReady = Mathf.Max(timeUntilReady - (capabilities.reactionTime * Time.deltaTime), 0);
 }
@@ -77,6 +84,39 @@ function colliding(direction :Vector2) :boolean {
 
 function FacePlayer() {
 	transform.localScale.x = pointers.player.transform.position.x > transform.position.x ? -1f : 1f;
+}
+
+function Pacing(platform :Methods.ObjectWithCorners) {
+	pacing = true;
+	var time :float;
+
+	transform.localScale.x = 1f;
+	time = 0;
+	yield WaitForFixedUpdate();
+	while (time < 1f && (!collisions.ContainsKey(pointers.player) || !collisions[pointers.player]) && transform.position.x > platform.corners.topLeft.x) {
+		transform.Translate(Vector2(-1 * capabilities.speed * Time.deltaTime, 0));
+		time += Time.deltaTime;
+		yield WaitForFixedUpdate();
+	}
+
+	transform.localScale.x = -1f;
+	time = 0;
+	yield WaitForFixedUpdate();
+	while (time < 1f && (!collisions.ContainsKey(pointers.player) || !collisions[pointers.player]) && transform.position.x < platform.corners.topRight.x) {
+		transform.Translate(Vector2(capabilities.speed * Time.deltaTime, 0));
+		time += Time.deltaTime;
+		yield WaitForFixedUpdate();
+	}
+
+	FacePlayer();
+	time = 0;
+	yield WaitForFixedUpdate();
+	while (time < 1f && (!collisions.ContainsKey(pointers.player) || !collisions[pointers.player])) {
+		time += Time.deltaTime;
+		yield WaitForFixedUpdate();
+	}
+
+	pacing = false;
 }
 
 function OnCollisionEnter2D(other :Collision2D) {
