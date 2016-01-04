@@ -63,7 +63,7 @@ public class CheckpointController extends MonoBehaviour {
 			weapons[i] = FindInList(AllWeapons, playerController.weapons[i]);
 		});
 
-		ammo = new int[playerController.weapons.Length];
+		ammo = new int[playerController.ammo.Length];
 		forEach(ammo, function(item, i) {
 			ammo[i] = playerController.ammo[i];
 		});
