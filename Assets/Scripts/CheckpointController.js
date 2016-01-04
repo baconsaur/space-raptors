@@ -63,7 +63,7 @@ public class CheckpointController extends MonoBehaviour {
 			weapons[i] = FindInList(AllWeapons, playerController.weapons[i]);
 		});
 
-		ammo = new int[playerController.weapons.Length];
+		ammo = new int[playerController.ammo.Length];
 		forEach(ammo, function(item, i) {
 			ammo[i] = playerController.ammo[i];
 		});
@@ -119,7 +119,6 @@ public class CheckpointController extends MonoBehaviour {
 				destroyed++;
 			}
 		}
-//		Debug.Log(tag + ' destroyed = ' + destroyed.ToString());
 	}
 
 	private function StoreAlive(list :GameObject[], filter :GameObject) :GlobalIdentifier[] {
@@ -139,8 +138,9 @@ public class CheckpointController extends MonoBehaviour {
 
 	private function FindInList(list :GameObject[], item :GameObject) :int {
 		for (var i :int = 0; i < list.Length; i++) {
-			if (item.name == list[i].name) return  i;
+			if (item.name == list[i].name || item.name == list[i].name + '(Clone)') return  i;
 		}
+		return -1;
 	}
 
 	private function forEach(list :int[], func :Function) {
