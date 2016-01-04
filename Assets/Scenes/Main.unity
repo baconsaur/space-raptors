@@ -788,6 +788,7 @@ MonoBehaviour:
   stealthCooldown: 0
   bootDust: {fileID: 125086, guid: dcc7115da279045628407f7a924660c0, type: 2}
   ammo: 140000000000000000000000
+  pauseMenu: {fileID: 152640, guid: 7e45444c9ce4bf14fbd85d5d5b9fb1ae, type: 2}
 --- !u!61 &93899209
 BoxCollider2D:
   m_ObjectHideFlags: 0
