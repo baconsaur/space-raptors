@@ -55,6 +55,7 @@ public class CheckpointController extends MonoBehaviour {
 		position = respawnPosition;
 		currentWeapon = FindInList(AllWeapons, playerController.currentWeapon);
 		armor = playerController.armor;
+		playerController.stealthTime = 20;
 		stealthTime = playerController.stealthTime;
 		score = playerController.GetScore();
 

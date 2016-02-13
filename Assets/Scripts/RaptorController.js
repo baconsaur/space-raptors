@@ -95,7 +95,11 @@ function RandomDrop () {
 	if (randomizer == 0) {
 		return;
 	} else if (randomizer == 2) {
-		drop = Instantiate(drops[0]);
+		if (player.GetComponent(PlayerController).weapons.length > 1) {
+			drop = Instantiate(drops[0]);
+		} else {
+			drop = Instantiate(drops[1]);
+		}
 	} else if (randomizer == 3) {
 		drop = Instantiate(drops[2]);
 	} else {

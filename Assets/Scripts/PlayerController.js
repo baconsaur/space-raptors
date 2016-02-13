@@ -179,7 +179,7 @@ function ItemPickup (newItem :GameObject) {
 	if (newItem.tag == "Weapon") {
 		System.Array.Resize.<GameObject>(weapons, weapons.length + 1);
 		weapons[weapons.length - 1] = newItem;
-		ammo[newItem.GetComponent(WeaponDetails).ammoType]+=20;
+		ammo[newItem.GetComponent(WeaponDetails).ammoType-1]+=20;
 		SwitchWeapon(newItem);
 	} else if (newItem.tag == "Powerup") {
 		if (newItem.name.Contains("Health" && "25")) {
@@ -191,8 +191,8 @@ function ItemPickup (newItem :GameObject) {
 		} else if (newItem.name.Contains("Health" && "Max")) {
 			HealDamage(100);
 			SoundFXManager.Play(audioSource, "item_pickup", "health_max");
-		} else if (newItem.name.Contains("Armor" && "50")) {
-			IncreaseArmor(50);
+		} else if (newItem.name.Contains("Armor" && "30")) {
+			IncreaseArmor(30);
 			SoundFXManager.Play(audioSource, "item_pickup", "powerup");
 		} else if (newItem.name.Contains("Armor" && "100")) {
 			IncreaseArmor(100);
@@ -214,10 +214,10 @@ function OnCollisionEnter2D (collision :Collision2D) {
 //	} else
 	if (collision.gameObject.tag == "Spikes") {
 		if (armor > 0) {
-			TakeDamage(collisionDamage * 2);
+			TakeDamage(collisionDamage * 1);
 			SoundFXManager.Play(audioSource, "explosion", "small");
 		} else {
-			TakeDamage(collisionDamage * 4);
+			TakeDamage(collisionDamage * 3);
 			SoundFXManager.Play(audioSource, "explosion", "medium");
 		}
 	}
@@ -225,6 +225,7 @@ function OnCollisionEnter2D (collision :Collision2D) {
 
 //TODO: Refactor IncreaseArmor and HealDamage into a PowerUp function
 function IncreaseArmor (heal :int) {
+	Debug.Log(heal + " armor pickup");
 	armor += heal;
 	if (armor > 100) {
 		armor = 100;
@@ -242,7 +243,7 @@ function HealDamage (heal :int) {
 
 function IncreaseAmmo (value :int, ammoId :int) {
 	ammo[ammoId] += value;
-	if (ammoId == currentWeapon.GetComponent(WeaponDetails).ammoType) {
+	if (ammoId == currentWeapon.GetComponent(WeaponDetails).ammoType - 1) {
 		HUDManager.UpdateAmmo(ammo[ammoId]);
 	}
 }
