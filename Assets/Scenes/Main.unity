@@ -368,7 +368,7 @@ MonoBehaviour:
   turnDeadZone: 0.1
   animator: {fileID: 93899207}
   shotOffset: {x: 2, y: 0.25}
-  currentWeapon: {fileID: 601094713}
+  currentWeapon: {fileID: 1434889017}
   defaultCooldown: 0.5
   weapons:
   - {fileID: 101436, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
@@ -456,7 +456,7 @@ Transform:
   m_LocalPosition: {x: -30.93, y: -6.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 601094714}
+  - {fileID: 951238562}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &93899213
@@ -3153,100 +3153,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe8f40867856041eab673c31fb52dd54, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &601094713
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 162774, guid: 7a876a2d8bc6e41f29c306cc5048e092, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 601094714}
-  - 212: {fileID: 601094717}
-  - 95: {fileID: 601094716}
-  - 114: {fileID: 601094715}
-  m_Layer: 8
-  m_Name: LaserPistolS
-  m_TagString: Weapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &601094714
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 421164, guid: 7a876a2d8bc6e41f29c306cc5048e092, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 601094713}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 93899212}
-  m_RootOrder: 0
---- !u!114 &601094715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11401886, guid: 7a876a2d8bc6e41f29c306cc5048e092,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 601094713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1630036675554a1f812f2fd0f074a98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 154100, guid: 510411e12b00f4364af554c0c63d625d, type: 2}
-  weaponIcon: {fileID: 21300000, guid: a254380703d1e46168b623a8e99b738e, type: 3}
-  ammoType: 1
---- !u!95 &601094716
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9503206, guid: 7a876a2d8bc6e41f29c306cc5048e092,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 601094713}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dfd1d848deefc4259991c06a82d95b60, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!212 &601094717
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 21251666, guid: 7a876a2d8bc6e41f29c306cc5048e092,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 601094713}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 47c69bde6db004d2e92f6f870b68dc1e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
 --- !u!1001 &604129668
 Prefab:
   m_ObjectHideFlags: 0
@@ -4652,6 +4558,56 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 414672, guid: 085c97701def34feaac70e153df6b3f8, type: 2}
   m_PrefabInternal: {fileID: 948551154}
+--- !u!1001 &951238561
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 93899212}
+    m_Modifications:
+    - target: {fileID: 478930, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478930, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478930, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478930, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478930, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478930, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 478930, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 478930, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 101436, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+      propertyPath: m_Name
+      value: LaserPistolS
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &951238562 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 478930, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+  m_PrefabInternal: {fileID: 951238561}
 --- !u!1001 &961452332
 Prefab:
   m_ObjectHideFlags: 0
@@ -6530,6 +6486,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 475610, guid: db6c69d2126cb704e82212d16751df06, type: 2}
   m_PrefabInternal: {fileID: 1411106922}
+--- !u!1 &1434889017 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 101436, guid: 5345ea80f8b754761bb2338a44d450d4, type: 2}
+  m_PrefabInternal: {fileID: 951238561}
 --- !u!1001 &1435004431
 Prefab:
   m_ObjectHideFlags: 0
