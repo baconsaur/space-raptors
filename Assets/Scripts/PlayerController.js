@@ -39,8 +39,12 @@ function Start () {
 	SoundFXManager = GameObject.Find("SoundFX").GetComponent("SoundFXManager");
 	audioSource = gameObject.GetComponent(AudioSource);
 	previousPosition = new Vector2(0,0);
-
 	GameObject.Find('CheckpointController').GetComponent(CheckpointController).Load();
+}
+
+function OnLevelWasLoaded () {
+	HUDManager = GameObject.Find("HUDCanvas").GetComponent("HUDManager");
+	InitHUD();
 }
 
 function OnSpawn() {
@@ -258,9 +262,10 @@ function TakeDamage (damage :int) {
 		}
 	}
 	if (health > 0) {
-		this.gameObject.SendMessage("DisplayDamage");
+//		this.gameObject.SendMessage("DisplayDamage");
 		HUDManager.UpdateArmor(armor);
 		HUDManager.UpdateHealth(health);
+	
 	} else {
 		HUDManager.UpdateArmor(0);
 		HUDManager.UpdateHealth(0);
@@ -289,6 +294,7 @@ function GetPoints (points: int) {
 }
 
 function Die () {
+	Destroy(this.gameObject);
 	Application.LoadLevel (Application.loadedLevel);
 }
 
@@ -301,8 +307,10 @@ function ResetScore(newScore :int) {
 }
 
 function InitHUD() {
+	HUDManager.UpdateHealth(health);
 	HUDManager.UpdateArmor(armor);
 	HUDManager.UpdateStealth(stealthTime);
 	HUDManager.UpdatePoints(score);
+	HUDManager.UpdateWeapon(weaponIcon);
 	HUDManager.UpdateAmmo(ammo[ammoType]);
 }
