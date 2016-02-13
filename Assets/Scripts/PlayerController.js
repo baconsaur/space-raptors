@@ -50,6 +50,10 @@ function OnSpawn() {
 	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType -1;
 }
 
+function Awake () {
+	DontDestroyOnLoad(transform.gameObject);
+}
+
 function setAnimation (name :String, state :boolean) {
 	animator.SetBool(name, state);
 	weaponAnimator.SetBool(name, state);
