@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Backstory.unity
   - enabled: 1
     path: Assets/Scenes/Main.unity
+  - enabled: 1
+    path: Assets/Scenes/MiniBossFight.unity
