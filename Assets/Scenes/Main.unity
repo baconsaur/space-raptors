@@ -305,6 +305,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 11485364, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
+      propertyPath: distance
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
   m_IsPrefabParent: 0
@@ -1051,6 +1055,10 @@ Prefab:
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
       value: Turret (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485364, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
+      propertyPath: distance
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
@@ -2285,6 +2293,10 @@ Prefab:
       propertyPath: m_Name
       value: Turret (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 11485364, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
+      propertyPath: distance
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
   m_IsPrefabParent: 0
@@ -2604,6 +2616,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 468076, guid: 6e39a18f7d0594f60bc1353de063f366, type: 2}
   m_PrefabInternal: {fileID: 489399998}
+--- !u!1 &502277894 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 144070, guid: 4e309070dd736c2489b807f24d689083, type: 2}
+  m_PrefabInternal: {fileID: 1146678610}
 --- !u!1001 &502871047
 Prefab:
   m_ObjectHideFlags: 0
@@ -3450,6 +3466,10 @@ Prefab:
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_LocalScale.x
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485364, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
+      propertyPath: distance
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
@@ -5376,6 +5396,10 @@ Prefab:
       propertyPath: m_Name
       value: Turret (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 11485364, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
+      propertyPath: distance
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
   m_IsPrefabParent: 0
@@ -5828,6 +5852,10 @@ Prefab:
       propertyPath: m_Name
       value: Turret (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 11485364, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
+      propertyPath: distance
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
   m_IsPrefabParent: 0
@@ -5873,6 +5901,10 @@ Prefab:
     - target: {fileID: 124504, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_Name
       value: Turret (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485364, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
+      propertyPath: distance
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
@@ -5927,6 +5959,10 @@ Prefab:
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_LocalScale.x
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485364, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
+      propertyPath: distance
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
@@ -6835,9 +6871,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomSpeed: 5
   positionSpeed: {x: 20, y: 50}
-  startingBounds: {fileID: 0}
+  startingBounds: {fileID: 502277894}
   manualPositioning: 0
-  playerOffset: {x: 11, y: 5.5}
+  playerOffset: {x: 7, y: 2}
 --- !u!1001 &1411106922
 Prefab:
   m_ObjectHideFlags: 0
@@ -8093,6 +8129,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 11485364, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
+      propertyPath: distance
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
   m_IsPrefabParent: 0
@@ -9276,6 +9316,10 @@ Prefab:
     - target: {fileID: 463972, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
       propertyPath: m_LocalScale.x
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11485364, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}
+      propertyPath: distance
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf2e6861016bc4af89e3458f1eabb0cf, type: 2}

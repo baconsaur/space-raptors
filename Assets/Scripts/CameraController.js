@@ -135,11 +135,11 @@ function SetBoundaries(obj :GameObject) {
 }
 
 function MinBound(position :Vector2) :Vector2 {
-	return EitherBound(position, 2f, boundary.min, Mathf.Max);
+	return EitherBound(position, 1.9f, boundary.min, Mathf.Max);
 }
 
 function MaxBound(position :Vector2) :Vector2 {
-	return EitherBound(position, -2f, boundary.max, Mathf.Min);
+	return EitherBound(position, -1.9f, boundary.max, Mathf.Min);
 }
 
 function EitherBound(position :Vector2, divisor :float, boundPos :Vector2, compare :Function) :Vector2 {
