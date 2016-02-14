@@ -281,6 +281,7 @@ function SwitchWeapon (weapon :GameObject) {
 	newWeapon.transform.localScale.x *= transform.localScale.x;
 	currentWeapon = newWeapon;
 	weaponAnimator = currentWeapon.GetComponent(Animator);
+	weaponAnimator.enabled = true;
 	weaponProjectile = currentWeapon.GetComponent(WeaponDetails).projectile;
 	weaponIcon = currentWeapon.GetComponent(WeaponDetails).weaponIcon;
 	ammoType = currentWeapon.GetComponent(WeaponDetails).ammoType -1;
