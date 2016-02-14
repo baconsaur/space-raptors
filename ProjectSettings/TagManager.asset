@@ -12,6 +12,7 @@ TagManager:
   - Spikes
   - Hazard
   - Checkpoint
+  - Tutorial
   layers:
   - Default
   - TransparentFX
